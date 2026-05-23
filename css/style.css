@@ -373,7 +373,7 @@ button{ font-family: inherit; }
   border: 1px solid rgba(0,212,255,.35);
   animation: pulse 2.5s ease-in-out infinite;
 }
-.founder-details { display: flex; flex-direction: column; gap: 6px; }
+.founder-details { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .founder-badge {
   display: inline-block;
   font-family: var(--f-ui); font-size: .7rem; font-weight: 700;
@@ -694,6 +694,23 @@ button{ font-family: inherit; }
   .footer-top      { flex-direction: column; }
   .footer-pillars  { justify-content: center; }
   .footer-links    { width: 100%; }
+
+  .founder-full-name { font-size: 1.1rem; }
+  .founder-intro     { padding: 18px 20px; }
+}
+
+/* Founder card stacks below 560px */
+@media (max-width: 560px) {
+  .founder-intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 18px;
+    gap: 14px;
+  }
+  .founder-details   { align-items: center; }
+  .founder-photo     { width: 150px; height: 150px; }
+  .founder-glow-ring { inset: -5px; }
 }
 
 /* Small mobile â‰¤ 480px */
@@ -705,6 +722,12 @@ button{ font-family: inherit; }
   .vm-card       { padding: 28px 20px; }
   .footer-pillars{ flex-direction: column; align-items: center; }
   .scroll-hint-label { display: none; }
+
+  .founder-intro     { padding: 16px 14px; gap: 12px; }
+  .founder-photo     { width: 120px; height: 120px; }
+  .founder-full-name { font-size: 1rem; }
+  .founder-company   { font-size: .78rem; }
+  .logo-text         { font-size: .84rem; letter-spacing: 1px; }
 }
 
 
