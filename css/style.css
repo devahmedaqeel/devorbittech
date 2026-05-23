@@ -351,13 +351,14 @@ button{ font-family: inherit; }
 .founder-intro::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0,212,255,.5), transparent);
+  z-index: 0; pointer-events: none;
 }
 .founder-intro:hover {
   border-color: rgba(0,212,255,.55);
   box-shadow: 0 12px 48px rgba(29,140,248,.2);
 }
 .founder-photo-wrap {
-  position: relative; flex-shrink: 0;
+  position: relative; flex-shrink: 0; z-index: 1;
 }
 .founder-photo {
   width: 200px; height: 200px;
@@ -373,7 +374,7 @@ button{ font-family: inherit; }
   border: 1px solid rgba(0,212,255,.35);
   animation: pulse 2.5s ease-in-out infinite;
 }
-.founder-details { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.founder-details { display: flex; flex-direction: column; gap: 6px; min-width: 0; position: relative; z-index: 1; }
 .founder-badge {
   display: inline-block;
   font-family: var(--f-ui); font-size: .7rem; font-weight: 700;
