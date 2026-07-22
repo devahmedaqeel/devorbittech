@@ -1,7 +1,9 @@
 /* Variables & Reset */
 :root {
   --bg:        #030712;
+  --bg-rgb:    3, 7, 18;
   --bg-mid:    #070f22;
+  --bg-mid-rgb: 7, 15, 34;
   --bg-card:   #091733;
   --accent:    #007aff;
   --accent2:   #00f0ff;
@@ -479,7 +481,7 @@ section[id] { scroll-margin-top: 80px; }
    9. ABOUT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about-section {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 50%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(var(--bg-rgb), .86) 0%, rgba(var(--bg-mid-rgb), .86) 50%, rgba(var(--bg-rgb), .86) 100%);
 }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 .about-lead { font-size: 1.1rem; line-height: 1.7; margin-bottom: 16px; }
@@ -576,7 +578,7 @@ section[id] { scroll-margin-top: 80px; }
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    10. SERVICES
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.services-section { background: var(--bg); position: relative; z-index: 55; }
+.services-section { background: rgba(var(--bg-rgb), .86); position: relative; z-index: 55; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
 
 .service-card {
@@ -685,7 +687,7 @@ section[id] { scroll-margin-top: 80px; }
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    11. VISION & MISSION
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.vm-section { background: linear-gradient(180deg, var(--bg), var(--bg-mid), var(--bg)); }
+.vm-section { background: linear-gradient(180deg, rgba(var(--bg-rgb), .86), rgba(var(--bg-mid-rgb), .86), rgba(var(--bg-rgb), .86)); }
 .vm-grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 
 .vm-card {
@@ -708,7 +710,7 @@ section[id] { scroll-margin-top: 80px; }
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    12. WHY US
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.why-section { background: var(--bg); }
+.why-section { background: rgba(var(--bg-rgb), .86); }
 .why-grid    { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 24px; }
 .why-card {
   background: var(--bg-card); border: 1px solid var(--border);
@@ -724,7 +726,7 @@ section[id] { scroll-margin-top: 80px; }
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    13. CONTACT
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.contact-section { background: linear-gradient(180deg, var(--bg), var(--bg-mid)); }
+.contact-section { background: linear-gradient(180deg, rgba(var(--bg-rgb), .86), rgba(var(--bg-mid-rgb), .86)); }
 .contact-center  { display: flex; justify-content: center; }
 .contact-center .contact-form-wrap { max-width: 640px; width: 100%; }
 
@@ -1014,7 +1016,7 @@ section[id] { scroll-margin-top: 80px; }
 /* ──────────────────────────────────────────────────────────────────────────────────────────────────
    17. FOOTER
    ────────────────────────────────────────────────────────────────────────────────────────────────── */
-.footer { background: #030810; border-top: 1px solid var(--border); padding: 40px 0 20px; position: relative; z-index: 1; }
+.footer { background: rgba(3, 8, 16, .92); border-top: 1px solid var(--border); padding: 40px 0 20px; position: relative; z-index: 1; }
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
 .footer-brand { display: flex; align-items: center; gap: 16px; }
 .footer-logo  { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 24px var(--glow); }
@@ -1626,7 +1628,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ── PROCESS & WORKFLOW SECTION ── */
 .process-section {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-mid) 100%);
+  background: linear-gradient(180deg, rgba(var(--bg-rgb), .86) 0%, rgba(var(--bg-mid-rgb), .86) 100%);
   position: relative;
   z-index: 55;
 }
@@ -1715,7 +1717,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ── TECH STACK ECOSYSTEM ── */
 .techstack-section {
-  background: var(--bg);
+  background: rgba(var(--bg-rgb), .86);
   position: relative;
   z-index: 55;
 }
@@ -1942,7 +1944,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ── CLIENT TESTIMONIALS ── */
 .testimonials-section {
-  background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, rgba(var(--bg-mid-rgb), .86) 0%, rgba(var(--bg-rgb), .86) 100%);
   position: relative;
   z-index: 55;
 }
@@ -2027,7 +2029,7 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ── FAQ ACCORDIONS ── */
 .faq-section {
-  background: var(--bg);
+  background: rgba(var(--bg-rgb), .86);
   position: relative;
   z-index: 55;
 }
