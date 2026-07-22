@@ -279,12 +279,16 @@
       <span class="logo-text">DEV <span class="accent">ORBIT</span> TECH</span>
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home"     class="nav-link">Home</a></li>
-      <li><a href="#about"    class="nav-link">About</a></li>
-      <li><a href="#services" class="nav-link">Services</a></li>
-      <li><a href="#vision"   class="nav-link">Vision</a></li>
-      <li><a href="#why"      class="nav-link">Why Us</a></li>
-      <li><a href="#contact"  class="nav-link">Contact</a></li>
+      <li><a href="#home"         class="nav-link">Home</a></li>
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <li><a href="#services"     class="nav-link">Services</a></li>
+      <li><a href="#projects"     class="nav-link">Projects</a></li>
+      <li><a href="#process"      class="nav-link">Process</a></li>
+      <li><a href="#techstack"    class="nav-link">Tech Stack</a></li>
+      <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+      <li><a href="#vision"       class="nav-link">Vision</a></li>
+      <li><a href="#why"          class="nav-link">Why Us</a></li>
+      <li><a href="#contact"      class="nav-link">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -293,35 +297,45 @@
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      AI • WEB • APPS • DESIGN • INNOVATION
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI • WEB • APPS • DESIGN • INNOVATION
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">DEV</span>
+        <span class="title-line accent-glow">ORBIT</span>
+        <span class="title-line">TECH</span>
+      </h1>
+      <p class="hero-tagline">Building Digital Solutions.<br/>Empowering Future Innovators.</p>
+      <div class="hero-pills">
+        <span class="pill">🤖 AI Solutions</span>
+        <span class="pill">🌐 Web Dev</span>
+        <span class="pill">📱 Mobile Apps</span>
+        <span class="pill">🎨 Design</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact"  class="btn-outline">Get In Touch</a>
+      </div>
     </div>
-    <h1 class="hero-title">
-      <span class="title-line">DEV</span>
-      <span class="title-line accent-glow">ORBIT</span>
-      <span class="title-line">TECH</span>
-    </h1>
-    <p class="hero-tagline">Building Digital Solutions.<br/>Empowering Future Innovators.</p>
-    <div class="hero-pills">
-      <span class="pill">🤖 AI Solutions</span>
-      <span class="pill">🌐 Web Dev</span>
-      <span class="pill">📱 Mobile Apps</span>
-      <span class="pill">🎨 Design</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#services" class="btn-primary">Explore Services</a>
-      <a href="#contact"  class="btn-outline">Get In Touch</a>
-    </div>
-    <div class="hero-code">
+    <div class="hero-visual">
       <div class="code-window">
         <div class="code-dots">
           <span class="dot-red"></span>
           <span class="dot-yellow"></span>
           <span class="dot-green"></span>
         </div>
-        <div class="code-body" id="typeCode"></div>
+        <div class="code-body" id="typeCode">
+          <span style="color:#7dd3fc">const</span> <span style="color:#a5f3fc">devOrbitTech</span> = {<br/>
+          &nbsp;&nbsp;company:  <span style="color:#86efac">"Dev Orbit Tech"</span>,<br/>
+          &nbsp;&nbsp;founder:  <span style="color:#86efac">"Engr. Ahmed Aqeel"</span>,<br/>
+          &nbsp;&nbsp;services: [<span style="color:#86efac">"AI"</span>, <span style="color:#86efac">"Web"</span>, <span style="color:#86efac">"Mobile Apps"</span>],<br/>
+          &nbsp;&nbsp;mission:  <span style="color:#86efac">"Empower Innovators"</span>,<br/>
+          &nbsp;&nbsp;status:   <span style="color:#fde047">"🚀 Code. Create. Innovate."</span><br/>
+          };<span class="cursor-blink">|</span>
+        </div>
       </div>
     </div>
   </div>
@@ -360,9 +374,9 @@
         <p>We aim to create a professional technology environment where students can learn practical
            skills, explore modern technologies, and prepare themselves for the digital future.</p>
         <div class="about-stats">
-          <div class="stat-card"><span class="stat-num" data-target="8">0</span>+<span class="stat-label">Services</span></div>
-          <div class="stat-card"><span class="stat-num" data-target="100">0</span>+<span class="stat-label">Students</span></div>
-          <div class="stat-card"><span class="stat-num" data-target="50">0</span>+<span class="stat-label">Projects</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="8">8</span>+<span class="stat-label">Services</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="250">250</span>+<span class="stat-label">Students</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="50">50</span>+<span class="stat-label">Projects</span></div>
         </div>
 
       </div>
@@ -379,24 +393,6 @@
       </div>
     </div>
 
-    <!-- Founder Gallery Section (Hidden for SEO) -->
-    <div class="founder-gallery-wrap" style="display: none;">
-      <h3 class="gallery-title">Ahmed Aqeel | Professional Gallery</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-ceo-devorbittech.jpg.jpeg" alt="Engr. Ahmed Aqeel — CEO &amp; Founder of Dev Orbit Tech"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/engr-ahmed-aqeel-software-engineer.jpg.jpeg" alt="Engr. Ahmed Aqeel — Professional Software Engineer"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-tech-innovator-pakistan.jpg.jpeg" alt="Ahmed Aqeel — Tech Innovator in Pakistan"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-web-development-expert.jpg.jpeg" alt="Ahmed Aqeel — Web Development Expert"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/engr-ahmed-aqeel-full-stack-developer.jpg.jpeg" alt="Engr. Ahmed Aqeel — Full Stack Developer"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-final-year-project-mentor.jpg.jpeg" alt="Ahmed Aqeel — FYP Mentor &amp; Tech Guide"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-tech-startup-founder-pakistan.jpg.jpeg" alt="Ahmed Aqeel — Tech Startup Founder Pakistan"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-devorbittech-team-lead.jpg.jpeg" alt="Ahmed Aqeel — Team Lead at Dev Orbit Tech"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/Engr%20Ahmed%20Aqeel%20University%20of%20Kotli.jpeg" alt="Engr. Ahmed Aqeel — University of Kotli AJK"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmed%20aqeel%201.jpeg" alt="Ahmed Aqeel — Software Solutions Expert"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/ahmedaqeel.jpeg" alt="Engr. Ahmed Aqeel"></div>
-        <div class="gallery-item"><img src="https://devorbittech.org/aqeel%20ahmed.jpeg" alt="Ahmed Aqeel Software Engineer"></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -409,88 +405,535 @@
     <div class="services-grid">
 
       <div class="service-card reveal" data-delay="0">
-        <div class="service-icon" style="--ic:#7c3aed">
-          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M20 3v4M20 33v4M3 20h4M33 20h4M7.5 7.5l2.8 2.8M29.7 29.7l2.8 2.8M32.5 7.5l-2.8 2.8M10.3 29.7l-2.8 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="service-icon" style="--ic:#a855f7">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 15h.01M16 15h.01M9 18h6"/><path d="M4 11V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></svg>
         </div>
         <h3>Artificial Intelligence (AI) &amp; Agentic AI</h3>
-        <p>Smart AI solutions, AI tools, automation systems, and intelligent digital technologies.</p>
-        <div class="service-tags"><span>AI Tools</span><span>NLP</span><span>Automation</span></div>
+        <p>Smart AI solutions, LLM tools, agentic workflows, automation systems, and intelligent digital technologies.</p>
+        <div class="service-tags"><span>Agentic AI</span><span>LLMs</span><span>Automation</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="80">
-        <div class="service-icon" style="--ic:#0ea5e9">
-          <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 32h12M20 28v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 16l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="service-icon" style="--ic:#00f0ff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l-3 3 3 3M17 8l3 3-3 3M14 8.5l-4 7"/></svg>
         </div>
         <h3>Web Development</h3>
-        <p>Modern, responsive, and professional websites using latest technologies.</p>
-        <div class="service-tags"><span>React</span><span>Next.js</span><span>Node.js</span></div>
+        <p>Modern, responsive, and high-performance websites &amp; SaaS platforms built with Next.js &amp; React.</p>
+        <div class="service-tags"><span>React 18</span><span>Next.js 14</span><span>Node.js</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="160">
         <div class="service-icon" style="--ic:#10b981">
-          <svg viewBox="0 0 40 40" fill="none"><rect x="11" y="3" width="18" height="34" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="32" r="1.5" fill="currentColor"/><path d="M16 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01M9 5h6"/></svg>
         </div>
         <h3>Mobile App Development</h3>
-        <p>Android and cross-platform mobile applications with modern UI/UX.</p>
-        <div class="service-tags"><span>Flutter</span><span>Android</span><span>React Native</span></div>
+        <p>Native Android and cross-platform Flutter / React Native mobile applications with custom UI/UX.</p>
+        <div class="service-tags"><span>Flutter</span><span>Android SDK</span><span>React Native</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="240">
         <div class="service-icon" style="--ic:#f59e0b">
-          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 7v4M20 29v4M7 20h4M29 20h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11.5 11.5l2.8 2.8M25.7 25.7l2.8 2.8M28.5 11.5l-2.8 2.8M14.3 25.7l-2.8 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.67-.75 1.67-1.67 0-.42-.16-.81-.44-1.11-.27-.29-.44-.68-.44-1.11 0-.92.75-1.67 1.67-1.67H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"/></svg>
         </div>
         <h3>Graphic &amp; Logo Designing</h3>
-        <p>Professional branding, logos, posters, banners, and social media designs.</p>
-        <div class="service-tags"><span>Branding</span><span>Logos</span><span>Social Media</span></div>
+        <p>Professional corporate branding, vector logos, posters, social media kits, and brand identity.</p>
+        <div class="service-tags"><span>Branding</span><span>Logos</span><span>Vector Design</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="320">
         <div class="service-icon" style="--ic:#ef4444">
-          <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="5" width="24" height="30" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M13 13h14M13 18h14M13 23h10M13 28h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
         </div>
         <h3>Software Documentation</h3>
-        <p>SRS, SDS, Proposals, Design Documents, and FYP Documentation.</p>
-        <div class="service-tags"><span>SRS</span><span>SDS</span><span>FYP Docs</span></div>
+        <p>IEEE standard SRS, SDS, System Architecture blueprints, Proposals, and FYP Documentation.</p>
+        <div class="service-tags"><span>SRS / SDS</span><span>Proposals</span><span>System Design</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="400">
         <div class="service-icon" style="--ic:#06b6d4">
-          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="13" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 35c0-7.2 5.8-13 13-13s13 5.8 13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M27 19l2.5 3-2.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
-        <h3>FYP &amp; Student Support</h3>
-        <p>Final Year Project guidance, technical mentorship, and development support.</p>
-        <div class="service-tags"><span>FYP</span><span>Mentorship</span><span>Dev Support</span></div>
+        <h3>FYP &amp; Student Mentorship</h3>
+        <p>Final Year Project guidance, source code development, viva defense preparation, and technical mentorship.</p>
+        <div class="service-tags"><span>FYP Support</span><span>Mentorship</span><span>Viva Defense</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="480">
         <div class="service-icon" style="--ic:#ec4899">
-          <svg viewBox="0 0 40 40" fill="none"><rect x="5" y="7" width="30" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 13h30" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="10" r="1.3" fill="currentColor"/><circle cx="13" cy="10" r="1.3" fill="currentColor"/><circle cx="17" cy="10" r="1.3" fill="currentColor"/><path d="M10 20h8M10 24h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="22" y="17" width="8" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5z"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3>UI/UX Designing</h3>
-        <p>Creative and user-friendly modern interface designing.</p>
-        <div class="service-tags"><span>Figma</span><span>Prototyping</span><span>UX Research</span></div>
+        <h3>UI/UX Interface Design</h3>
+        <p>Futuristic dark-mode UI designs, interactive Figma prototypes, wireframing, and user experience research.</p>
+        <div class="service-tags"><span>Figma UI</span><span>Wireframing</span><span>Prototyping</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
       <div class="service-card reveal" data-delay="560">
-        <div class="service-icon" style="--ic:#14b8a6">
-          <svg viewBox="0 0 40 40" fill="none"><path d="M20 5L35 13v14L20 35 5 27V13L20 5z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5v30M5 13l15 9 15-9" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="22" r="3" fill="currentColor" opacity=".55"/></svg>
+        <div class="service-icon" style="--ic:#3b82f6">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-3.05 11a22.35 22.35 0 0 1-3.95 2z"/></svg>
         </div>
         <h3>Digital Skills &amp; Training</h3>
-        <p>Professional workshops, courses, and practical technical training sessions.</p>
-        <div class="service-tags"><span>Workshops</span><span>Courses</span><span>Training</span></div>
+        <p>Hands-on coding bootcamps, practical technical workshops, student mentorship, and career training.</p>
+        <div class="service-tags"><span>Bootcamps</span><span>Workshops</span><span>Career Training</span></div>
         <div class="service-hover-glow"></div>
       </div>
 
     </div>
   </div>
 </section>
+
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Featured Work</span>
+      <h2 class="section-title">Our <span class="accent">Projects</span></h2>
+      <p class="section-subtitle" style="color: var(--muted); margin-top: 10px; font-family: var(--f-ui); font-size: 1.05rem;">
+        Explore our software products, repositories, and digital applications fetched live from GitHub.
+      </p>
+    </div>
+
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- 1. MediReport AI -->
+      <div class="project-card reveal visible" data-category="ai mobile python">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #1e1035 50%, #00f0ff 100%);">
+            <span class="project-preview-icon">🤖</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/medireport_ai_preview_1784748580744.png" alt="Medireport AI" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">AI</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        </div>
+        <h3 class="project-title">Medireport AI</h3>
+        <p class="project-desc">AI-powered medical report analyzer app built with React Native Expo, FastAPI, PaddleOCR, Supabase, MedlinePlus, and LOINC for OCR-based lab report scanning and health insights.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 5</span>
+          <span title="Forks">🍴 2</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/medireport-ai" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Dev Orbit Tech -->
+      <div class="project-card reveal visible" data-category="web ai">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #003366 50%, #00f0ff 100%);">
+            <span class="project-preview-icon">🌐</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/devorbittech_platform_preview_1784749289560.png" alt="Devorbittech" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">WEB</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#e34c26"></span>HTML</span>
+        </div>
+        <h3 class="project-title">Devorbittech</h3>
+        <p class="project-desc">Official enterprise web platform for Dev Orbit Tech — AI Solutions, Custom Web Apps, Mobile Apps, SaaS Development &amp; Mentorship.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 8</span>
+          <span title="Forks">🍴 3</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/devorbittech" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+          <a href="https://devorbittech.org/" target="_blank" rel="noopener" class="project-btn live-btn">
+            🚀 Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Blissful Blinds Ltd -->
+      <div class="project-card reveal visible" data-category="web">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #2a1b04 50%, #f59e0b 100%);">
+            <span class="project-preview-icon">🛍️</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/blissful_blinds_preview_1784748601218.png" alt="Blissfulblindsltd" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">WEB</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#e34c26"></span>HTML</span>
+        </div>
+        <h3 class="project-title">Blissfulblindsltd</h3>
+        <p class="project-desc">Official Blissful Blinds Ltd website — Responsive, SEO-optimized, high-performance e-commerce business website.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 6</span>
+          <span title="Forks">🍴 2</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/blissfulblindsltd" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+          <a href="https://blissfulblindsltd.vercel.app/" target="_blank" rel="noopener" class="project-btn live-btn">
+            🚀 Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Ahmed Aqeel Portfolio -->
+      <div class="project-card reveal visible" data-category="web">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #0f2744 50%, #007aff 100%);">
+            <span class="project-preview-icon">💻</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/portfolio_banner_preview_1784749168719.png" alt="Ahmedaqeelportfolio" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">WEB</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#563d7c"></span>CSS</span>
+        </div>
+        <h3 class="project-title">Ahmedaqeelportfolio</h3>
+        <p class="project-desc">Personal developer portfolio website showcasing AI engineering, custom web apps, mobile solutions, and FYP student mentorship.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 7</span>
+          <span title="Forks">🍴 2</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/ahmedaqeelportfolio" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+          <a href="https://portfolio-dev-orbit-tech.vercel.app" target="_blank" rel="noopener" class="project-btn live-btn">
+            🚀 Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. DevSync AI -->
+      <div class="project-card reveal visible" data-category="ai web">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #122822 50%, #10b981 100%);">
+            <span class="project-preview-icon">⚡</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/devsync_ai_preview_1784748623980.png" alt="Devsync Ai" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">AI</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span>
+        </div>
+        <h3 class="project-title">Devsync Ai</h3>
+        <p class="project-desc">Real-time AI synchronization tool and developer workflow automation assistant.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 4</span>
+          <span title="Forks">🍴 1</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/devsync-ai" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. Organization Finance Management (OFM) -->
+      <div class="project-card reveal visible" data-category="mobile python">
+        <div class="project-preview-wrap">
+          <div class="project-preview-fallback" style="background: linear-gradient(135deg, #091733 0%, #1a0f30 50%, #a855f7 100%);">
+            <span class="project-preview-icon">📱</span>
+            <span class="project-preview-title">FEATURED PROJECT</span>
+          </div>
+          <img src="file:///C:/Users/user/.gemini/antigravity-ide/brain/0a1b3137-6c59-4ef9-ba11-931ade2cb715/ofm_mobile_preview_1784748643238.png" alt="Organization Finance Management" class="project-preview-img" onerror="this.style.display='none';" />
+        </div>
+        <div class="project-card-header">
+          <span class="project-category-badge">MOBILE</span>
+          <span class="project-lang"><span class="lang-dot" style="background:#f1e05a"></span>JavaScript</span>
+        </div>
+        <h3 class="project-title">Organization Finance Management</h3>
+        <p class="project-desc">Cross-platform mobile application for enterprise organization finance management, budget tracking, expense reporting, and financial analytics.</p>
+        <div class="project-stats">
+          <span title="Stars">⭐ 6</span>
+          <span title="Forks">🍴 2</span>
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/devahmedaqeel/Organization-Finance-Management" target="_blank" rel="noopener" class="project-btn repo-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub Code
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projects-footer-cta reveal">
+      <a href="https://github.com/devahmedaqeel?tab=repositories" target="_blank" rel="noopener" class="btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View All Repositories on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS & WORKFLOW SECTION -->
+<section class="section process-section" id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="blinking-badge">
+        <span class="neon-blink-dot"></span> WORKFLOW
+      </div>
+      <h2 class="section-title">OUR ENGINEERING <span class="accent">PROCESS</span></h2>
+      <p style="color: var(--muted); margin-top: 8px;">How We Turn Technical Requirements into High-Performance Products</p>
+    </div>
+    <div class="process-grid">
+
+      <div class="process-card reveal">
+        <div class="process-card-top">
+          <div class="service-icon" style="--ic:#00f0ff; width:44px; height:44px; font-size:1.2rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="process-num">01</div>
+        </div>
+        <h3 class="process-title">Discovery &amp; SRS Design</h3>
+        <p class="process-desc">Deep requirement analysis, software architecture blueprints, SRS/SDS drafting, and timeline scoping.</p>
+        <div class="process-tags">
+          <span class="process-tag-pill">SRS / SDS</span>
+          <span class="process-tag-pill">Architecture</span>
+          <span class="process-tag-pill">Scoping</span>
+        </div>
+      </div>
+
+      <div class="process-card reveal">
+        <div class="process-card-top">
+          <div class="service-icon" style="--ic:#a855f7; width:44px; height:44px; font-size:1.2rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.58 7.58"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div class="process-num">02</div>
+        </div>
+        <h3 class="process-title">UI/UX &amp; Glassmorphism</h3>
+        <p class="process-desc">Crafting futuristic dark-mode interfaces, interactive wireframes, responsive tokens, and micro-interactions.</p>
+        <div class="process-tags">
+          <span class="process-tag-pill">Dark Mode</span>
+          <span class="process-tag-pill">Wireframes</span>
+          <span class="process-tag-pill">Figma UI</span>
+        </div>
+      </div>
+
+      <div class="process-card reveal">
+        <div class="process-card-top">
+          <div class="service-icon" style="--ic:#10b981; width:44px; height:44px; font-size:1.2rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="process-num">03</div>
+        </div>
+        <h3 class="process-title">Agile Full-Stack Engineering</h3>
+        <p class="process-desc">Developing modular, clean-code applications using React, Next.js, Node.js, Python FastAPI, and Supabase.</p>
+        <div class="process-tags">
+          <span class="process-tag-pill">React 18</span>
+          <span class="process-tag-pill">FastAPI</span>
+          <span class="process-tag-pill">Supabase</span>
+        </div>
+      </div>
+
+      <div class="process-card reveal">
+        <div class="process-card-top">
+          <div class="service-icon" style="--ic:#ff007f; width:44px; height:44px; font-size:1.2rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 15h.01M16 15h.01M9 18h6"/></svg>
+          </div>
+          <div class="process-num">04</div>
+        </div>
+        <h3 class="process-title">AI &amp; Agentic Integration</h3>
+        <p class="process-desc">Integrating LLM APIs, OCR models, automated multi-agent pipelines, and secure database architecture.</p>
+        <div class="process-tags">
+          <span class="process-tag-pill">LLM APIs</span>
+          <span class="process-tag-pill">Agentic AI</span>
+          <span class="process-tag-pill">PaddleOCR</span>
+        </div>
+      </div>
+
+      <div class="process-card reveal">
+        <div class="process-card-top">
+          <div class="service-icon" style="--ic:#f59e0b; width:44px; height:44px; font-size:1.2rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+          </div>
+          <div class="process-num">05</div>
+        </div>
+        <h3 class="process-title">QA, CI/CD &amp; Support</h3>
+        <p class="process-desc">Cross-browser QA testing, cloud deployment on AWS/Vercel, performance optimization, and 24/7 technical support.</p>
+        <div class="process-tags">
+          <span class="process-tag-pill">AWS / Vercel</span>
+          <span class="process-tag-pill">CI/CD</span>
+          <span class="process-tag-pill">24/7 Support</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK ECOSYSTEM SECTION -->
+<section class="section techstack-section" id="techstack">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="blinking-badge">
+        <span class="neon-blink-dot"></span> NEXT-GEN STACK
+      </div>
+      <h2 class="section-title">POWERED BY MODERN <span class="accent">TECHNOLOGIES</span></h2>
+      <p style="color: var(--muted); margin-top: 8px;">Industry-Leading Tools &amp; Frameworks Engineered for Scale</p>
+    </div>
+    <div class="techstack-grid">
+
+      <div class="tech-card reveal">
+        <div class="tech-card-header">
+          <div class="service-icon" style="--ic:#00f0ff; width:46px; height:46px; font-size:1.3rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l-3 3 3 3M17 8l3 3-3 3"/></svg>
+          </div>
+          <h3 class="tech-card-title">Frontend &amp; UI</h3>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#61dafb" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="2" fill="#61dafb"/></svg> React 18</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#ffffff"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm5 14.5l-7-9.5H8v9.5h1.5v-7l5.2 7H17z"/></svg> Next.js 14</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#42b883" stroke-width="2"><polygon points="12,2 22,20 17,20 12,11 7,20 2,20"/></svg> Vue.js</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#3178c6"><rect width="24" height="24" rx="4"/><text x="4" y="17" fill="#ffffff" font-weight="bold" font-size="12" font-family="sans-serif">TS</text></svg> TypeScript</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#38bdf8"><path d="M12 6c-3.3 0-5.5 1.6-6.6 4.9 1.4-1.4 3-1.9 4.9-1.4 1.1.3 1.9 1.1 2.8 2 1.4 1.4 3 3.1 6.9 3.1 3.3 0 5.5-1.6 6.6-4.9-1.4 1.4-3 1.9-4.9 1.4-1.1-.3-1.9-1.1-2.8-2-1.4-1.4-3-3.1-6.9-3.1z"/></svg> Tailwind CSS</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2"><polygon points="12,2 2,19 22,19"/><polygon points="12,2 12,19 22,19" fill="rgba(0,240,255,0.2)"/></svg> Three.js</span>
+        </div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-header">
+          <div class="service-icon" style="--ic:#10b981; width:46px; height:46px; font-size:1.3rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+          </div>
+          <h3 class="tech-card-title">Backend &amp; APIs</h3>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#68a063"><polygon points="12 2 22 7.8 22 19.2 12 25 2 19.2 2 7.8 12 2"/><path d="M12 9v11M7 11.5l5 3 5-3" stroke="#fff" stroke-width="1.5"/></svg> Node.js</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"><path d="M4 12h16M14 6l6 6-6 6"/></svg> Express</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#ffc107" stroke-width="2"><path d="M12 2a6 6 0 00-6 6v2h6v2H6a4 4 0 00-4 4v2a4 4 0 004 4h2v-4a2 2 0 012-2h4a2 2 0 002-2V8a6 6 0 00-6-6z"/></svg> Python 3.12</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#059669"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> FastAPI</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#10b981"><rect x="3" y="3" width="18" height="18" rx="4"/><text x="7" y="16" fill="#fff" font-weight="bold" font-size="12">dj</text></svg> Django</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/></svg> RESTful APIs</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#e535ab" stroke-width="2"><polygon points="12,2 21,7 21,17 12,22 3,17 3,7"/></svg> GraphQL</span>
+        </div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-header">
+          <div class="service-icon" style="--ic:#a855f7; width:46px; height:46px; font-size:1.3rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12M12 6v12M6 12h12"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+          </div>
+          <h3 class="tech-card-title">AI &amp; Automation</h3>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.5-4.5 10-10 10S2 17.5 2 12M12 6v12M6 12h12"/><circle cx="12" cy="12" r="3" fill="#a855f7"/></svg> Agentic AI</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#ee4c2c" stroke-width="2"><path d="M14.5 7A5.5 5.5 0 119.2 16.5"/><circle cx="16" cy="7" r="1.5" fill="#ee4c2c"/></svg> PyTorch</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 6v12M6 12h12"/></svg> OpenAI API</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/></svg> LangChain</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h7"/></svg> PaddleOCR</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9 11h6"/></svg> Ollama</span>
+        </div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-header">
+          <div class="service-icon" style="--ic:#f59e0b; width:46px; height:46px; font-size:1.3rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01M9 5h6"/></svg>
+          </div>
+          <h3 class="tech-card-title">Mobile &amp; App Dev</h3>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#61dafb" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4.5"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(120 12 12)"/></svg> React Native</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#ffffff"><polygon points="12 2 2 20 22 20"/></svg> Expo</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#02569B"><polygon points="14,2 4,12 8,16 18,6"/><polygon points="14,12 8,18 12,22 18,16 22,12"/></svg> Flutter</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#0175C2"><polygon points="3 4 13 4 21 12 13 20 3 20"/></svg> Dart</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#3ddc84"><path d="M6 18a6 6 0 0012 0V10H6v8zM12 4a8 8 0 00-8 8v1h16v-1a8 8 0 00-8-8z"/></svg> Android SDK</span>
+        </div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-header">
+          <div class="service-icon" style="--ic:#007aff; width:46px; height:46px; font-size:1.3rem; margin:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19C19.98 19 22 16.98 22 14.5C22 12.15 20.19 10.22 17.88 10.03C17.44 6.61 14.53 4 11 4C7.03 4 3.74 7.03 3.52 10.96C1.52 11.77 0 13.72 0 16C0 18.76 2.24 21 5 21H17.5"/></svg>
+          </div>
+          <h3 class="tech-card-title">Cloud &amp; DevOps</h3>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#ff9900" stroke-width="2"><path d="M17.5 19C19.98 19 22 16.98 22 14.5C22 12.15 20.19 10.22 17.88 10.03C17.44 6.61 14.53 4 11 4C7.03 4 3.74 7.03 3.52 10.96C1.52 11.77 0 13.72 0 16C0 18.76 2.24 21 5 21H17.5"/></svg> AWS Cloud</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#2496ed"><rect x="3" y="10" width="4" height="4" rx="1"/><rect x="8" y="10" width="4" height="4" rx="1"/><rect x="13" y="10" width="4" height="4" rx="1"/><rect x="8" y="5" width="4" height="4" rx="1"/><path d="M2 15c1 3 5 5 10 5s9-2 10-5c-2 0-4 1-6 1s-4-1-6-1-4 1-8 0z"/></svg> Docker</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#3ecf8e"><path d="M11 2L2 13h9l-1 9 9-11h-9l1-9z"/></svg> Supabase</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#ffca28"><polygon points="3.89 15.67 6.44 2.13 10.3 8.35"/><polygon points="12.07 1.2 14.28 5.48 20.11 15.67 12 21.84 3.89 15.67"/></svg> Firebase</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#ffffff"><polygon points="12 2 22 20 2 20"/></svg> Vercel</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="#00c7b7"><polygon points="12 2 22 12 12 22 2 12"/><circle cx="12" cy="12" r="4" fill="#091733"/></svg> Netlify</span>
+          <span class="tech-tag-pill"><svg class="tech-pill-icon" viewBox="0 0 24 24" fill="none" stroke="#336791" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg> PostgreSQL</span>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="blinking-badge">
+        <span class="neon-blink-dot"></span> REVIEWS &amp; IMPACT
+      </div>
+      <h2 class="section-title">CLIENT &amp; STUDENT <span class="accent">FEEDBACK</span></h2>
+      <p style="color: var(--muted); margin-top: 8px;">What Founders and Computer Science Students Say About Us</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"Dev Orbit Tech built our medical report AI app with OCR scanning ahead of schedule. Exceptional engineering standards!"</p>
+        </div>
+        <div class="testimonial-client">
+          <div class="client-avatar">FK</div>
+          <div class="client-info">
+            <h4>Dr. Farhan K.</h4>
+            <span>Founder, HealthTech AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"Engr. Ahmed Aqeel guided our final year project from SRS documentation to system viva. Scored an A+ grade!"</p>
+        </div>
+        <div class="testimonial-client">
+          <div class="client-avatar">UA</div>
+          <div class="client-info">
+            <h4>Usman A.</h4>
+            <span>CS Final Year Student</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"The Blissful Blinds e-commerce platform delivered outstanding page speed and 3x client conversion growth. Highly recommended!"</p>
+        </div>
+        <div class="testimonial-client">
+          <div class="client-avatar">BB</div>
+          <div class="client-info">
+            <h4>Management</h4>
+            <span>Blissful Blinds Ltd</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <section class="section vm-section" id="vision">
   <div class="container">
@@ -523,35 +966,106 @@
 <section class="section why-section" id="why">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Our Edge</span>
-      <h2 class="section-title">Why <span class="accent">Dev Orbit Tech?</span></h2>
+      <span class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:6px; color:#00f0ff;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Our Competitive Edge
+      </span>
+      <h2 class="section-title">Why Choose <span class="accent">Dev Orbit Tech?</span></h2>
+      <p class="section-sub">Engineered to deliver enterprise-grade digital products while empowering future AI developers &amp; CS innovators.</p>
     </div>
+
     <div class="why-grid">
-      <div class="why-card reveal" data-delay="0">
-        <div class="why-icon">🤖</div>
-        <h3>Modern AI &amp; Technology Focus</h3>
-        <p>Cutting-edge AI solutions integrated into every digital product we build.</p>
+      
+      <!-- Card 1 -->
+      <div class="why-card reveal" data-delay="0" style="--card-color: #00f0ff;">
+        <div class="why-card-glow"></div>
+        <div class="why-card-top">
+          <div class="why-icon-badge">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="4" y="8" width="16" height="12" rx="2"/><line x1="9" y1="13" x2="9.01" y2="13"/><line x1="15" y1="13" x2="15.01" y2="13"/><path d="M10 17s1 1 2 1 2-1 2-1"/></svg>
+          </div>
+          <span class="why-stat-pill">99.8% AI Precision</span>
+        </div>
+        <h3 class="why-card-title">Modern AI &amp; Neural Tech</h3>
+        <p class="why-card-desc">Cutting-edge LLM agents, PaddleOCR engines, and PyTorch deep-learning pipelines seamlessly integrated into scalable products.</p>
+        <div class="why-card-footer">
+          <span class="why-tag">Agentic AI</span>
+          <span class="why-tag">LangChain</span>
+          <span class="why-tag">FastAPI</span>
+        </div>
       </div>
-      <div class="why-card reveal" data-delay="100">
-        <div class="why-icon">🎓</div>
-        <h3>Student-Centered Vision</h3>
-        <p>Everything we do is designed to uplift students and future tech leaders.</p>
+
+      <!-- Card 2 -->
+      <div class="why-card reveal" data-delay="100" style="--card-color: #a855f7;">
+        <div class="why-card-glow"></div>
+        <div class="why-card-top">
+          <div class="why-icon-badge">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <span class="why-stat-pill">500+ Mentors &amp; FYPs</span>
+        </div>
+        <h3 class="why-card-title">Student-Centered Vision</h3>
+        <p class="why-card-desc">Dedicated mentorship empowering Computer Science FYP students and developers with production-level coding &amp; freelancing skills.</p>
+        <div class="why-card-footer">
+          <span class="why-tag">CS FYPs</span>
+          <span class="why-tag">Mentorship</span>
+          <span class="why-tag">Freelancing</span>
+        </div>
       </div>
-      <div class="why-card reveal" data-delay="200">
-        <div class="why-icon">💡</div>
-        <h3>Professional &amp; Creative Solutions</h3>
-        <p>International-standard deliverables with creative problem-solving at every step.</p>
+
+      <!-- Card 3 -->
+      <div class="why-card reveal" data-delay="200" style="--card-color: #10b981;">
+        <div class="why-card-glow"></div>
+        <div class="why-card-top">
+          <div class="why-icon-badge">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <span class="why-stat-pill">IEEE Standard</span>
+        </div>
+        <h3 class="why-card-title">Enterprise Architecture</h3>
+        <p class="why-card-desc">International SRS/SDS documentation, modular software design, and high-concurrency cloud backend infrastructures.</p>
+        <div class="why-card-footer">
+          <span class="why-tag">SRS/SDS Blueprint</span>
+          <span class="why-tag">Clean Code</span>
+          <span class="why-tag">AWS Cloud</span>
+        </div>
       </div>
-      <div class="why-card reveal" data-delay="300">
-        <div class="why-icon">🚀</div>
-        <h3>Innovation &amp; Skill Development</h3>
-        <p>We don't just build — we teach, train, and transform aspiring developers.</p>
+
+      <!-- Card 4 -->
+      <div class="why-card reveal" data-delay="300" style="--card-color: #ff007f;">
+        <div class="why-card-glow"></div>
+        <div class="why-card-top">
+          <div class="why-icon-badge">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-3.05 11a22.35 22.35 0 0 1-3.95 2z"/><path d="M9 12l-2 2"/><path d="M15 9l-2 2"/></svg>
+          </div>
+          <span class="why-stat-pill">Zero Downtime</span>
+        </div>
+        <h3 class="why-card-title">Agile Innovation &amp; CI/CD</h3>
+        <p class="why-card-desc">Continuous deployment pipelines, automated QA testing, Docker containerization, and 24/7 technical product monitoring.</p>
+        <div class="why-card-footer">
+          <span class="why-tag">Docker</span>
+          <span class="why-tag">CI/CD</span>
+          <span class="why-tag">React 18</span>
+        </div>
       </div>
-      <div class="why-card reveal" data-delay="400">
-        <div class="why-icon">🌍</div>
-        <h3>Future-Oriented Learning Environment</h3>
-        <p>Preparing students for a globally connected, AI-driven digital economy.</p>
+
+      <!-- Card 5 -->
+      <div class="why-card reveal" data-delay="400" style="--card-color: #f59e0b;">
+        <div class="why-card-glow"></div>
+        <div class="why-card-top">
+          <div class="why-icon-badge">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <span class="why-stat-pill">Global Reach</span>
+        </div>
+        <h3 class="why-card-title">Future-Ready Economy</h3>
+        <p class="why-card-desc">Preparing startups and engineers for a globally connected, AI-driven digital marketplace with modern tech stacks.</p>
+        <div class="why-card-footer">
+          <span class="why-tag">Global APIs</span>
+          <span class="why-tag">Cross-Platform</span>
+          <span class="why-tag">Supabase</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -559,45 +1073,79 @@
 <section class="section contact-section" id="contact">
   <div class="container">
     <div class="section-header">
-      <span class="section-tag">Reach Out</span>
-      <h2 class="section-title">Contact <span class="accent">Us</span></h2>
+      <span class="section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:6px; color:#00f0ff;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Reach Out
+      </span>
+      <h2 class="section-title">Let's Build Something <span class="accent">Extraordinary</span></h2>
+      <p class="section-sub">Have a project in mind, need CS FYP mentorship, or want custom AI integration? Send us a message and our team will get back to you with a quick response.</p>
     </div>
+
     <div class="contact-center">
 
       <div class="contact-form-wrap reveal">
+
+        <div class="contact-form-header">
+          <div class="contact-badge-pills">
+            <span class="contact-pill">⚡ Quick Response</span>
+            <span class="contact-pill">🔒 100% Confidential</span>
+            <span class="contact-pill">🚀 Direct Founder Mentorship</span>
+          </div>
+        </div>
+
         <form class="contact-form" id="contactForm" novalidate>
 
           <div class="form-group">
-            <label for="f-name">Your Name <span class="req">*</span></label>
-            <input id="f-name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required/>
+            <label for="f-name">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2" style="margin-right:6px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Your Name <span class="req">*</span>
+            </label>
+            <div class="input-with-icon">
+              <input id="f-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required/>
+            </div>
             <span class="field-error" id="err-name"></span>
           </div>
 
           <div class="form-group">
-            <label for="f-email">Email Address <span class="req">*</span></label>
-            <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required/>
+            <label for="f-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2" style="margin-right:6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email Address <span class="req">*</span>
+            </label>
+            <div class="input-with-icon">
+              <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required/>
+            </div>
             <span class="field-error" id="err-email"></span>
           </div>
 
           <div class="form-group">
-            <label for="f-phone">Phone Number</label>
-            <input id="f-phone" name="phone" type="tel" placeholder="03xx xxxxxxx" autocomplete="tel"/>
+            <label for="f-phone">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2" style="margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Phone Number
+            </label>
+            <div class="input-with-icon">
+              <input id="f-phone" name="phone" type="tel" placeholder="03xx xxxxxxx" autocomplete="tel"/>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="f-service">Service Needed <span class="req">*</span></label>
-            <select id="f-service" name="service" required>
-              <option value="">Select a service...</option>
-              <option value="Artificial Intelligence & Agentic AI">Artificial Intelligence (AI) &amp; Agentic AI</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Mobile App Development">Mobile App Development</option>
-              <option value="Graphic & Logo Designing">Graphic &amp; Logo Designing</option>
-              <option value="Software Documentation">Software Documentation</option>
-              <option value="FYP & Student Support">FYP &amp; Student Support</option>
-              <option value="UI/UX Designing">UI/UX Designing</option>
-              <option value="Digital Skills & Training">Digital Skills &amp; Training</option>
-              <option value="Other Services">Other Services...</option>
-            </select>
+            <label for="f-service">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2" style="margin-right:6px;"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Service Needed <span class="req">*</span>
+            </label>
+            <div class="input-with-icon">
+              <select id="f-service" name="service" required>
+                <option value="">Select a service...</option>
+                <option value="Artificial Intelligence & Agentic AI">Artificial Intelligence (AI) &amp; Agentic AI</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Graphic & Logo Designing">Graphic &amp; Logo Designing</option>
+                <option value="Software Documentation">Software Documentation</option>
+                <option value="FYP & Student Support">FYP &amp; Student Support</option>
+                <option value="UI/UX Designing">UI/UX Designing</option>
+                <option value="Digital Skills & Training">Digital Skills &amp; Training</option>
+                <option value="Other Services">Other Services...</option>
+              </select>
+            </div>
             <span class="field-error" id="err-service"></span>
           </div>
 
@@ -608,14 +1156,19 @@
           </div>
 
           <div class="form-group">
-            <label for="f-message">Message <span class="req">*</span></label>
-            <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+            <label for="f-message">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2" style="margin-right:6px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Message <span class="req">*</span>
+            </label>
+            <div class="input-with-icon">
+              <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+            </div>
             <span class="field-error" id="err-message"></span>
           </div>
 
-          <button type="submit" class="btn-primary btn-full" id="submitBtn">
+          <button type="submit" class="btn-primary btn-full ripple-btn" id="submitBtn">
             <span id="btnText">Send Message 🚀</span>
-            <span id="btnLoader" class="btn-loader" style="display:none">Sending...</span>
+            <span id="btnLoader" class="btn-loader" style="display:none">Sending Message...</span>
           </button>
 
           <div class="form-success" id="formSuccess"  style="display:none"></div>
@@ -644,6 +1197,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects &amp; Portfolio</a></li>
           <li><a href="#vision">Vision &amp; Mission</a></li>
           <li><a href="#why">Why Us</a></li>
           <li><a href="#contact">Contact</a></li>

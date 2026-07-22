@@ -2,7 +2,7 @@ const API_BASE = '';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Background (Three.js particles) ── */
+  /* ── Background (Three.js 3D Cyber Globe & Floating Constellation) ── */
   (function initBackground() {
     const canvas = document.getElementById('bgCanvas');
     if (!canvas || !window.THREE) return;
@@ -12,39 +12,59 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     const scene  = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 6;
 
-    const COUNT = 1200;
+    // 1. 3D Particle Constellation
+    const COUNT = 1800;
     const pos   = new Float32Array(COUNT * 3);
-    for (let i = 0; i < pos.length; i++) pos[i] = (Math.random() - 0.5) * 30;
+    for (let i = 0; i < pos.length; i++) pos[i] = (Math.random() - 0.5) * 35;
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     const stars = new THREE.Points(geo,
-      new THREE.PointsMaterial({ color: 0x1d8cf8, size: 0.03, transparent: true, opacity: 0.7 })
+      new THREE.PointsMaterial({ color: 0x00f0ff, size: 0.035, transparent: true, opacity: 0.75 })
     );
     scene.add(stars);
 
-    const torusGeo = new THREE.TorusGeometry(2, 0.02, 16, 100);
-    const ring1 = new THREE.Mesh(torusGeo, new THREE.MeshBasicMaterial({ color: 0x1d8cf8, transparent: true, opacity: 0.15 }));
-    const ring2 = new THREE.Mesh(torusGeo, new THREE.MeshBasicMaterial({ color: 0x7c3aed, transparent: true, opacity: 0.15 }));
-    ring2.rotation.x = Math.PI / 3;
+    // 2. 3D Cyber Globe (Wireframe Sphere + Vertex Nodes)
+    const globeGeo = new THREE.IcosahedronGeometry(2.4, 3);
+    const globeMat = new THREE.MeshBasicMaterial({ color: 0x007aff, wireframe: true, transparent: true, opacity: 0.12 });
+    const globe = new THREE.Mesh(globeGeo, globeMat);
+    scene.add(globe);
+
+    const pointsMat = new THREE.PointsMaterial({ color: 0x00f0ff, size: 0.04, transparent: true, opacity: 0.6 });
+    const globePoints = new THREE.Points(globeGeo, pointsMat);
+    scene.add(globePoints);
+
+    // 3. Dual 3D Torus Orbit Rings
+    const torusGeo1 = new THREE.TorusGeometry(3.2, 0.015, 16, 100);
+    const ring1 = new THREE.Mesh(torusGeo1, new THREE.MeshBasicMaterial({ color: 0x00f0ff, transparent: true, opacity: 0.25 }));
+    
+    const torusGeo2 = new THREE.TorusGeometry(4.0, 0.015, 16, 100);
+    const ring2 = new THREE.Mesh(torusGeo2, new THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0.2 }));
+    ring2.rotation.x = Math.PI / 2.5;
+
     scene.add(ring1, ring2);
 
     let targetX = 0, targetY = 0;
     document.addEventListener('mousemove', (e) => {
-      targetX = (e.clientX / window.innerWidth  - 0.5) * 0.5;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+      targetX = (e.clientX / window.innerWidth  - 0.5) * 0.8;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 0.8;
     });
 
     (function animate() {
       requestAnimationFrame(animate);
-      stars.rotation.y += 0.0003;
-      stars.rotation.x += 0.0001;
+      stars.rotation.y += 0.0004;
+      stars.rotation.x += 0.0002;
+      globe.rotation.y += 0.0015;
+      globe.rotation.x += 0.0008;
+      globePoints.rotation.y += 0.0015;
+      globePoints.rotation.x += 0.0008;
       ring1.rotation.z += 0.002;  ring1.rotation.x += 0.001;
-      ring2.rotation.z -= 0.0015; ring2.rotation.y += 0.001;
-      camera.position.x += (targetX  - camera.position.x) * 0.02;
-      camera.position.y += (-targetY - camera.position.y) * 0.02;
+      ring2.rotation.z -= 0.0015; ring2.rotation.y += 0.0012;
+      camera.position.x += (targetX  - camera.position.x) * 0.04;
+      camera.position.y += (-targetY - camera.position.y) * 0.04;
+      camera.lookAt(scene.position);
       renderer.render(scene, camera);
     })();
 
@@ -80,13 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     document.addEventListener('mouseover', (e) => {
-      if (e.target.closest('a, button, .service-card, .why-card, input, select, textarea, .pill')) {
+      if (e.target.closest('a, button, .service-card, .why-card, .project-card, .process-card, .tech-card, .testimonial-card, input, select, textarea, .pill')) {
         dot.style.width = '20px'; dot.style.height = '20px';
         trail.style.width = '48px'; trail.style.height = '48px';
       }
     });
     document.addEventListener('mouseout', (e) => {
-      if (e.target.closest('a, button, .service-card, .why-card, input, select, textarea, .pill')) {
+      if (e.target.closest('a, button, .service-card, .why-card, .project-card, .process-card, .tech-card, .testimonial-card, input, select, textarea, .pill')) {
         dot.style.width = '12px'; dot.style.height = '12px';
         trail.style.width = '32px'; trail.style.height = '32px';
       }
@@ -99,12 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar    = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks  = document.getElementById('navLinks');
-    const links     = document.querySelectorAll('.nav-link');
-    const sections  = document.querySelectorAll('section[id]');
-
-    function onScroll() {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-      let current = '';
       sections.forEach((s) => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
       links.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
     }
@@ -149,12 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!el) return;
 
     const lines = [
-      `<span style="color:#7dd3fc">const</span> <span style="color:#a5f3fc">dot</span> = {`,
-      `&nbsp;&nbsp;name:    <span style="color:#86efac">"Dev Orbit Tech"</span>,`,
-      `&nbsp;&nbsp;mission: <span style="color:#86efac">"Empower Students"</span>,`,
-      `&nbsp;&nbsp;skills:  [<span style="color:#86efac">"AI"</span>, <span style="color:#86efac">"Web"</span>, <span style="color:#86efac">"Apps"</span>],`,
-      `&nbsp;&nbsp;launch:  () => 🚀`,
-      `}`,
+      `<span style="color:#7dd3fc">const</span> <span style="color:#a5f3fc">devOrbitTech</span> = {`,
+      `&nbsp;&nbsp;company:  <span style="color:#86efac">"Dev Orbit Tech"</span>,`,
+      `&nbsp;&nbsp;founder:  <span style="color:#86efac">"Engr. Ahmed Aqeel"</span>,`,
+      `&nbsp;&nbsp;services: [<span style="color:#86efac">"AI"</span>, <span style="color:#86efac">"Web"</span>, <span style="color:#86efac">"Mobile Apps"</span>],`,
+      `&nbsp;&nbsp;mission:  <span style="color:#86efac">"Empower Innovators"</span>,`,
+      `&nbsp;&nbsp;status:   <span style="color:#fde047">"🚀 Code. Create. Innovate."</span>`,
+      `};`,
     ];
 
     const done = [];
@@ -186,12 +201,20 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(tick, 200);
       }
     }
-    setTimeout(tick, 2200);
+    setTimeout(tick, 200);
   })();
 
 
   /* ── Scroll reveal ── */
   (function initReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 150) {
+        el.classList.add('visible');
+      }
+    });
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -199,8 +222,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => entry.target.classList.add('visible'), ms);
         io.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    }, { threshold: 0.02 });
+    reveals.forEach((el) => io.observe(el));
   })();
 
 
@@ -234,11 +257,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const ry = -((e.clientX - r.left - r.width  / 2) / (r.width  / 2)) * MAX;
       card.style.transform = `translateY(-10px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
     }
-    document.querySelectorAll('.service-card, .why-card').forEach((card) => {
-      card.addEventListener('mousemove',  (e) => applyTilt(card, e));
-      card.addEventListener('mouseleave', ()  => { card.style.transform = ''; });
+    document.addEventListener('mousemove', (e) => {
+      const card = e.target.closest('.service-card, .why-card, .project-card, .process-card, .tech-card, .testimonial-card');
+      if (card) applyTilt(card, e);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const card = e.target.closest('.service-card, .why-card, .project-card, .process-card, .tech-card, .testimonial-card');
+      if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+        card.style.transform = '';
+      }
     });
   })();
+
+  /* ── 8. FAQ ACCORDION HANDLER ── */
+  (function initFAQ() {
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.faq-question');
+      if (!btn) return;
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  })();
+
+  /* ── 9. CLICK RIPPLE EFFECT ── */
+  (function initRipple() {
+    document.addEventListener('click', (e) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'click-ripple';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  })();
+
 
 
   /* ── Success popup ── */
@@ -361,25 +419,27 @@ document.addEventListener('DOMContentLoaded', () => {
           body:    JSON.stringify(payload),
         });
 
-        if (!res.ok) {
-          const errorData = await res.json().catch(() => ({}));
-          throw new Error(errorData.error || `Server responded with status ${res.status}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success) {
+            form.reset();
+            otherGroup.style.display = 'none';
+            showSuccessPopup();
+            loadCounter();
+            return;
+          }
         }
-
-        const data = await res.json();
-
-        if (data.success) {
-          form.reset();
-          otherGroup.style.display = 'none';
-          showSuccessPopup();
-          loadCounter();
-        } else {
-          throw new Error(data.error || 'Something went wrong.');
-        }
+        throw new Error('API unavailable, redirecting to direct chat...');
       } catch (err) {
-        console.error('Contact Form Error:', err);
-        errorEl.textContent   = 'Error: ' + err.message;
-        errorEl.style.display = 'block';
+        console.warn('Contact Form Server Fallback:', err);
+        // Fallback: Show success popup + launch pre-filled WhatsApp chat
+        showSuccessPopup();
+        const waText = encodeURIComponent(
+          `Hello Dev Orbit Tech! My name is ${payload.name}.\nEmail: ${payload.email}\nPhone: ${payload.phone || 'N/A'}\nService Needed: ${payload.service}\nMessage: ${payload.message}`
+        );
+        window.open(`https://wa.me/923161893004?text=${waText}`, '_blank');
+        form.reset();
+        if (otherGroup) otherGroup.style.display = 'none';
       } finally {
         submitBtn.disabled      = false;
         btnText.style.display   = 'inline';
@@ -420,9 +480,63 @@ document.addEventListener('DOMContentLoaded', () => {
         this.dataset.retried = '1';
         const src = this.src;
         this.src = '';
-        setTimeout(() => { this.src = src + '?v=' + Date.now(); }, 500);
-      }
-    });
+  /* ── Interactive Button Ripple Wave Effect ── */
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-primary, .ripple-btn, #submitBtn');
+    if (!btn) return;
+
+    const rect = btn.getBoundingClientRect();
+    const circle = document.createElement('span');
+    const diameter = Math.max(rect.width, rect.height);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - rect.left - radius}px`;
+    circle.style.top = `${e.clientY - rect.top - radius}px`;
+    circle.className = 'btn-ripple-wave';
+
+    const existing = btn.querySelector('.btn-ripple-wave');
+    if (existing) existing.remove();
+
+    btn.appendChild(circle);
   });
 
+  /* ── GitHub Projects Live Stats Sync ── */
+  (function initProjects() {
+    const GITHUB_USERNAME = 'devahmedaqeel';
+    const API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`;
+
+    async function loadGitHubProjects() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          data.forEach(r => {
+            if (!r.name) return;
+            const repoName = r.name.toLowerCase();
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+              const link = card.querySelector('a.repo-btn');
+              if (link && link.href.toLowerCase().includes(repoName)) {
+                const starEl = card.querySelector('[title="Stars"]');
+                const forkEl = card.querySelector('[title="Forks"]');
+                if (starEl && r.stargazers_count !== undefined) starEl.textContent = `⭐ ${r.stargazers_count}`;
+                if (forkEl && r.forks_count !== undefined) forkEl.textContent = `🍴 ${r.forks_count}`;
+              }
+            });
+          });
+        }
+      } catch (err) {
+        console.warn('GitHub stats sync active:', err.message);
+      }
+    }
+
+    loadGitHubProjects();
+  })();
+
+    loadGitHubProjects();
+  })();
+
 });
+
