@@ -10,6 +10,39 @@ const fs         = require('fs');
 const app  = express();
 const PORT = process.env.PORT || 8888;
 
+// Auto-sync preview images from brain folder to images/ and frontend/images/
+(function syncPreviewImages() {
+  try {
+    const srcDir = 'C:\\Users\\user\\.gemini\\antigravity-ide\\brain\\0a1b3137-6c59-4ef9-ba11-931ade2cb715';
+    const destDir = path.join(__dirname, 'images');
+    const frontendDestDir = path.join(__dirname, 'frontend', 'images');
+
+    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
+    if (!fs.existsSync(frontendDestDir)) fs.mkdirSync(frontendDestDir, { recursive: true });
+
+    const filesToCopy = [
+      { src: 'medireport_ai_preview_1784748580744.png', dest: 'medireport-ai-preview.png' },
+      { src: 'blissful_blinds_preview_1784748601218.png', dest: 'blissfulblinds-preview.png' },
+      { src: 'devsync_ai_preview_1784748623980.png', dest: 'devsync-ai-preview.png' },
+      { src: 'ofm_mobile_preview_1784748643238.png', dest: 'ofm-preview.png' },
+      { src: 'devorbittech_platform_preview_1784749289560.png', dest: 'devorbittech-platform-preview.png' },
+      { src: 'portfolio_banner_preview_1784749168719.png', dest: 'portfolio-banner-preview.png' }
+    ];
+
+    filesToCopy.forEach(item => {
+      const fullSrc = path.join(srcDir, item.src);
+      const fullDest = path.join(destDir, item.dest);
+      const fullFrontendDest = path.join(frontendDestDir, item.dest);
+      if (fs.existsSync(fullSrc)) {
+        if (!fs.existsSync(fullDest)) fs.copyFileSync(fullSrc, fullDest);
+        if (!fs.existsSync(fullFrontendDest)) fs.copyFileSync(fullSrc, fullFrontendDest);
+      }
+    });
+  } catch (err) {
+    console.warn('Image sync warning:', err.message);
+  }
+})();
+
 // Security & Production Headers
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
