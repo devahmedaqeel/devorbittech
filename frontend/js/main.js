@@ -119,20 +119,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar    = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navLinks  = document.getElementById('navLinks');
+    const sections  = document.querySelectorAll('section[id]');
+    const links     = document.querySelectorAll('.nav-link');
+
+    function onScroll() {
+      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 40);
+      let current = '';
       sections.forEach((s) => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
       links.forEach((l) => l.classList.toggle('active', l.getAttribute('href') === `#${current}`));
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    hamburger.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', String(open));
-    });
-    links.forEach((l) => l.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }));
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(open));
+      });
+      links.forEach((l) => l.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }));
+    }
   })();
 
 
@@ -473,13 +481,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ── Image retry on error ── */
-  document.querySelectorAll('img').forEach(img => {
-    img.addEventListener('error', function() {
-      if (!this.dataset.retried) {
-        this.dataset.retried = '1';
-        const src = this.src;
-        this.src = '';
   /* ── Interactive Button Ripple Wave Effect ── */
   document.addEventListener('click', function(e) {
     const btn = e.target.closest('.btn-primary, .ripple-btn, #submitBtn');
@@ -535,8 +536,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadGitHubProjects();
   })();
 
-    loadGitHubProjects();
-  })();
-
 });
-

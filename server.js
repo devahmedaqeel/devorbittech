@@ -44,7 +44,7 @@ function formatDateTime() {
   return new Date().toLocaleString('en-PK', { timeZone: 'Asia/Karachi', dateStyle: 'full', timeStyle: 'medium' });
 }
 
-app.post('/.netlify/functions/submit-contact', async (req, res) => {
+const handleContactSubmit = async (req, res) => {
   const { name, email, phone, service, message } = req.body || {};
 
   const errors = [];
@@ -57,7 +57,7 @@ app.post('/.netlify/functions/submit-contact', async (req, res) => {
   const { GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL } = process.env;
 
   if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !ADMIN_EMAIL) {
-    return res.status(500).json({ error: 'Missing env vars. Check your .env file.' });
+    return res.status(500).json({ error: 'Missing env vars. Check your .env file or contact via WhatsApp/Email.' });
   }
 
   const transporter = nodemailer.createTransport({
@@ -80,11 +80,16 @@ app.post('/.netlify/functions/submit-contact', async (req, res) => {
     res.json({ success: true });
   } catch (err) {
     console.error('[submit-contact] Failed:', err.message);
-    res.status(500).json({ error: 'Failed to send. Please email us at official.devorbittech@gmail.com' });
+    res.status(500).json({ error: 'Failed to send. Please email us at official.devorbittech@gmail.com or WhatsApp +923161893004' });
   }
-});
+};
 
-app.get('/.netlify/functions/get-stats', (_req, res) => res.json({ count: null }));
+app.post('/.netlify/functions/submit-contact', handleContactSubmit);
+app.post('/api/submit-contact', handleContactSubmit);
+
+const handleGetStats = (_req, res) => res.json({ count: 50 });
+app.get('/.netlify/functions/get-stats', handleGetStats);
+app.get('/api/get-stats', handleGetStats);
 
 // 404 Fallback Route
 app.use((_req, res) => {
