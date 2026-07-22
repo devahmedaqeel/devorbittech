@@ -1,0 +1,15 @@
+[build]
+  command   = "echo build done"
+  functions = "netlify/functions"
+  publish   = "."
+
+[dev]
+  framework   = "#static"
+  port        = 8888
+  autoLaunch  = false
+
+[[redirects]]
+  from = "https://devorbittech.netlify.app/*"
+  to = "https://devorbittech.org/:splat"
+  status = 301
+  force = true

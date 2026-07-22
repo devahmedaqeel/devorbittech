@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dev Orbit Tech | AI, Web, Mobile &amp; Cloud Solutions</title>
+  <meta name="description" content="Dev Orbit Tech delivers AI solutions, custom software development, SaaS platforms, web applications, mobile apps, cloud solutions, AWS development, automation, UI/UX design, and digital transformation services for startups and businesses worldwide." />
+  <meta name="keywords" content="Dev Orbit Tech, Software Development, Custom Software, Web Development, Website Development, Mobile App Development, React, Next.js, Node.js, React Native, Python, Artificial Intelligence, AI Solutions, Machine Learning, Cloud Computing, AWS, API Development, Automation, Digital Transformation, UI UX Design, SaaS Development" />
+  <meta name="author" content="Engr. Ahmed Aqeel — Dev Orbit Tech" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
+  <meta name="google-site-verification" content="_r1Quz9Qmet3luH2uFNBejM82bGl14kCS0alMtCx4zc" />
+  <meta name="theme-color" content="#050a14" />
+  <meta name="rating" content="General" />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="language" content="English" />
+
+  <!-- Google Search Favicon & Web Application Icons -->
+  <link rel="icon" type="image/jpeg" href="https://devorbittech.org/images/logo.jpg" sizes="any" />
+  <link rel="shortcut icon" type="image/jpeg" href="https://devorbittech.org/images/logo.jpg" />
+  <link rel="apple-touch-icon" href="https://devorbittech.org/images/logo.jpg" />
+  <link rel="apple-touch-icon-precomposed" href="https://devorbittech.org/images/logo.jpg" />
+  <link rel="manifest" href="https://devorbittech.org/manifest.webmanifest" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://devorbittech.org/" />
+
+  <!-- Local / Geo SEO -->
+  <meta name="geo.region"    content="PK-AJK" />
+  <meta name="geo.placename" content="Kotli, Azad Kashmir, Pakistan" />
+  <meta name="geo.position"  content="33.5180;73.9022" />
+  <meta name="ICBM"          content="33.5180, 73.9022" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn preview) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://devorbittech.org/" />
+  <meta property="og:site_name"   content="Dev Orbit Tech" />
+  <meta property="og:title"       content="Dev Orbit Tech | AI, Web, Mobile &amp; Cloud Solutions" />
+  <meta property="og:description" content="Dev Orbit Tech delivers AI solutions, custom software development, SaaS platforms, web applications, mobile apps, cloud solutions, AWS development, automation, UI/UX design, and digital transformation services for startups and businesses worldwide." />
+  <meta property="og:image"       content="https://devorbittech.org/images/logo.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height"content="630" />
+  <meta property="og:image:alt"   content="Dev Orbit Tech — AI, Web, Mobile &amp; Cloud Solutions" />
+  <meta property="og:locale"      content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:domain"      content="devorbittech.org" />
+  <meta name="twitter:url"         content="https://devorbittech.org/" />
+  <meta name="twitter:title"       content="Dev Orbit Tech | AI, Web, Mobile &amp; Cloud Solutions" />
+  <meta name="twitter:description" content="Dev Orbit Tech delivers AI solutions, custom software development, SaaS platforms, web applications, mobile apps, cloud solutions, AWS development, automation, UI/UX design, and digital transformation services for startups and businesses worldwide." />
+  <meta name="twitter:image"       content="https://devorbittech.org/images/logo.jpg" />
+
+  <!-- Schema.org — LocalBusiness + ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+    "@id": "https://devorbittech.org/#business",
+    "name": "Dev Orbit Tech",
+    "legalName": "Dev Orbit Tech",
+    "alternateName": ["DevOrbitTech", "devorbit tech", "devorbittech", "devorbittech.org", "Dev Orbit Tech Pakistan"],
+    "url": "https://devorbittech.org",
+    "logo": "https://devorbittech.org/images/logo.jpg",
+    "image": "https://devorbittech.org/images/logo.jpg",
+    "description": "Dev Orbit Tech is a professional technology company in Kotli AJK Pakistan offering Web Development, Mobile App Development, AI Solutions, Graphic Design, UI/UX Design, FYP Project Support, Software Documentation, and Digital Training.",
+    "founder": {
+      "@type": "Person",
+      "@id": "https://devorbittech.org/#founder",
+      "name": "Engr. Ahmed Aqeel",
+      "jobTitle": "CEO & Founder",
+      "image": "https://devorbittech.org/images/founder.jpg",
+      "url": "https://devorbittech.org",
+      "sameAs": [
+        "https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr",
+        "https://www.linkedin.com/in/ahmed-aqeel-2a0090271",
+        "https://www.instagram.com/a.aqeel14?utm_source=qr",
+        "https://github.com/devahmedaqeel"
+      ],
+      "worksFor": {"@type":"Organization","name":"Dev Orbit Tech"}
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Software Technology Park, University of Kotli",
+      "addressLocality": "Kotli",
+      "addressRegion": "Azad Kashmir",
+      "addressCountry": "PK",
+      "postalCode": "11100"
+    },
+    "geo": {"@type":"GeoCoordinates","latitude":"33.5180","longitude":"73.9022"},
+    "telephone": "+923161893004",
+    "email": "official.devorbittech@gmail.com",
+    "priceRange": "$$",
+    "currenciesAccepted": "PKR",
+    "paymentAccepted": "Cash, Bank Transfer, JazzCash, EasyPaisa",
+    "openingHours": "Mo-Sa 09:00-21:00",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00", "closes": "21:00"
+    }],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+923161893004",
+      "contactType": "customer service",
+      "availableLanguage": ["English","Urdu"]
+    },
+    "sameAs": [
+      "https://github.com/devahmedaqeel",
+      "https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr",
+      "https://www.linkedin.com/in/ahmed-aqeel-2a0090271",
+      "https://www.instagram.com/a.aqeel14?utm_source=qr",
+      "https://devorbittech.org/"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Enterprise Software & AI Solutions",
+      "itemListElement": [
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web Development","description":"Custom responsive web applications using React, Next.js, and Node.js."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mobile App Development","description":"Native and cross-platform mobile apps built with React Native and Flutter."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Solutions & Machine Learning","description":"Intelligent AI tools, Agentic AI, automation workflows, and NLP systems."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Software Development","description":"Tailored enterprise software platforms built to scale business operations."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Services & AWS Development","description":"Cloud architecture, serverless infrastructure, and AWS deployment."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"UI/UX Design","description":"User-centered interface design, interactive prototyping, and brand design."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"API Development & Integration","description":"Robust REST & GraphQL APIs with secure third-party integrations."}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"SaaS Platform Development","description":"Full-lifecycle SaaS product engineering from MVP to enterprise scaling."}}
+      ]
+    }
+  }
+  </script>
+
+  <!-- Schema.org — WebSite (enables Google Sitelinks search box) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://devorbittech.org/#website",
+    "name": "Dev Orbit Tech",
+    "url": "https://devorbittech.org",
+    "publisher": {"@id":"https://devorbittech.org/#business"},
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {"@type":"EntryPoint","urlTemplate":"https://devorbittech.org/?s={search_term_string}"},
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <!-- Schema.org — FAQPage (Google featured snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What services does Dev Orbit Tech offer?",
+        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech offers Web Development, Mobile App Development, AI & Agentic AI Solutions, Graphic & Logo Design, UI/UX Design, FYP Project Support, Software Documentation (SRS/SDS), and Digital Skills Training in Kotli AJK Pakistan."}
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Dev Orbit Tech located?",
+        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech is located at Software Technology Park, University of Kotli, AJK, Pakistan. You can also reach us online at https://devorbittech.org."}
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact Dev Orbit Tech?",
+        "acceptedAnswer": {"@type":"Answer","text":"Contact Dev Orbit Tech via WhatsApp or phone at +923161893004, or email at official.devorbittech@gmail.com. Available Monday–Saturday 9AM–9PM."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dev Orbit Tech help with Final Year Projects (FYP)?",
+        "acceptedAnswer": {"@type":"Answer","text":"Yes! Dev Orbit Tech provides complete FYP guidance, technical mentorship, software development and documentation support (SRS, SDS, proposals) for students across Pakistan."}
+      },
+      {
+        "@type": "Question",
+        "name": "Who is the founder of Dev Orbit Tech?",
+        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech was founded by Engr. Ahmed Aqeel, who serves as CEO & Founder. The company is based at Software Technology Park, University of Kotli, AJK, Pakistan."}
+      },
+      {
+        "@type": "Question",
+        "name": "How much does web development cost at Dev Orbit Tech?",
+        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech offers affordable, budget-friendly web development services. Pricing depends on project scope. Contact us on WhatsApp at +923161893004 for a free quote."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dev Orbit Tech develop mobile apps?",
+        "acceptedAnswer": {"@type":"Answer","text":"Yes, Dev Orbit Tech develops Android and cross-platform mobile applications using Flutter and React Native with modern UI/UX design."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dev Orbit Tech provide AI solutions?",
+        "acceptedAnswer": {"@type":"Answer","text":"Yes, Dev Orbit Tech provides AI tools, automation systems, NLP solutions and Agentic AI development for businesses and students in Pakistan."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org — BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devorbittech.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About Us",
+        "item": "https://devorbittech.org/#about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Services",
+        "item": "https://devorbittech.org/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Contact",
+        "item": "https://devorbittech.org/#contact"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org — WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://devorbittech.org/#webpage",
+    "url": "https://devorbittech.org/",
+    "name": "Dev Orbit Tech | AI, Web, Mobile & Cloud Solutions",
+    "description": "Dev Orbit Tech delivers AI solutions, custom software development, SaaS platforms, web applications, mobile apps, cloud solutions, AWS development, automation, UI/UX design, and digital transformation services for startups and businesses worldwide.",
+    "inLanguage": "en",
+    "isPartOf": {"@id": "https://devorbittech.org/#website"}
+  }
+  </script>
+
+  <!-- Search Engine Tools & Analytics Integration Points -->
+  <!-- Google Search Console: Verified via meta tag _r1Quz9Qmet3luH2uFNBejM82bGl14kCS0alMtCx4zc -->
+  <!-- Google Tag Manager (GTM) Placeholder: Replace GTM-XXXXXXX with container ID -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+  <!-- Google Analytics 4 (GA4) Placeholder: Replace G-XXXXXXX with Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script> <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXX');</script> -->
+  <!-- Microsoft Clarity Placeholder: Replace YOUR_CLARITY_ID with clarity ID -->
+  <!-- <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "YOUR_CLARITY_ID");</script> -->
+  <!-- Bing Webmaster Tools Verification Placeholder -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" /> -->
+
+  <!-- Performance: DNS prefetch + preconnect + preload -->
+  <link rel="dns-prefetch"  href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch"  href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch"  href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect"    href="https://fonts.googleapis.com" />
+  <link rel="preconnect"    href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload"       href="images/logo.jpg"  as="image" />
+  <link rel="preload"       href="css/style.css"    as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- Three.js loaded at bottom of body to avoid render-blocking -->
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<canvas id="bgCanvas"></canvas>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="images/logo.jpg" alt="Dev Orbit Tech Logo — Software Company Kotli AJK Pakistan" class="logo-img"/>
+      <span class="logo-text">DEV <span class="accent">ORBIT</span> TECH</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"     class="nav-link">Home</a></li>
+      <li><a href="#about"    class="nav-link">About</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#vision"   class="nav-link">Vision</a></li>
+      <li><a href="#why"      class="nav-link">Why Us</a></li>
+      <li><a href="#contact"  class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      AI • WEB • APPS • DESIGN • INNOVATION
+    </div>
+    <h1 class="hero-title">
+      <span class="title-line">DEV</span>
+      <span class="title-line accent-glow">ORBIT</span>
+      <span class="title-line">TECH</span>
+    </h1>
+    <p class="hero-tagline">Building Digital Solutions.<br/>Empowering Future Innovators.</p>
+    <div class="hero-pills">
+      <span class="pill">🤖 AI Solutions</span>
+      <span class="pill">🌐 Web Dev</span>
+      <span class="pill">📱 Mobile Apps</span>
+      <span class="pill">🎨 Design</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact"  class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-code">
+      <div class="code-window">
+        <div class="code-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+        </div>
+        <div class="code-body" id="typeCode"></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span class="scroll-hint-label">Scroll to explore</span>
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+  </div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Who We Are</span>
+      <h2 class="section-title">About <span class="accent">Us</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+
+        <div class="founder-intro">
+          <div class="founder-photo-wrap">
+            <img src="images/founder.jpg" alt="Engr. Ahmed Aqeel — CEO and Founder Dev Orbit Tech Kotli AJK Pakistan" class="founder-photo"/>
+            <div class="founder-glow-ring"></div>
+          </div>
+          <div class="founder-details">
+            <span class="founder-badge">CEO &amp; Founder</span>
+            <h3 class="founder-full-name">Engr. Ahmed Aqeel</h3>
+            <p class="founder-company">Dev Orbit Tech</p>
+          </div>
+        </div>
+
+        <p class="about-lead">
+          <strong>Ahmed Aqeel</strong> is the driving force behind <strong>Dev Orbit Tech</strong>. As a modern technology startup founder, <strong>Engr. Ahmed Aqeel</strong> is focused on delivering innovative digital solutions and empowering students across Pakistan with future-ready technical skills.
+        </p>
+        <p>Our company works in the fields of Artificial Intelligence (AI), Web Development,
+           Mobile Application Development, Graphic Designing, Software Documentation, and Digital Innovation.</p>
+        <p>We aim to create a professional technology environment where students can learn practical
+           skills, explore modern technologies, and prepare themselves for the digital future.</p>
+        <div class="about-stats">
+          <div class="stat-card"><span class="stat-num" data-target="8">0</span>+<span class="stat-label">Services</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="100">0</span>+<span class="stat-label">Students</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="50">0</span>+<span class="stat-label">Projects</span></div>
+        </div>
+
+      </div>
+
+      <div class="about-visual reveal">
+        <div class="orbit-ring">
+          <div class="orbit-center">
+            <img src="images/logo.jpg" alt="Dev Orbit Tech — AI Web App Solutions Pakistan" class="orbit-logo"/>
+          </div>
+          <div class="orbit-path orbit-1"><div class="orbit-dot dot-ai">AI</div></div>
+          <div class="orbit-path orbit-2"><div class="orbit-dot dot-web">WEB</div></div>
+          <div class="orbit-path orbit-3"><div class="orbit-dot dot-app">APP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Founder Gallery Section (Hidden for SEO) -->
+    <div class="founder-gallery-wrap" style="display: none;">
+      <h3 class="gallery-title">Ahmed Aqeel | Professional Gallery</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-ceo-devorbittech.jpg.jpeg" alt="Engr. Ahmed Aqeel — CEO &amp; Founder of Dev Orbit Tech"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/engr-ahmed-aqeel-software-engineer.jpg.jpeg" alt="Engr. Ahmed Aqeel — Professional Software Engineer"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-tech-innovator-pakistan.jpg.jpeg" alt="Ahmed Aqeel — Tech Innovator in Pakistan"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-web-development-expert.jpg.jpeg" alt="Ahmed Aqeel — Web Development Expert"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/engr-ahmed-aqeel-full-stack-developer.jpg.jpeg" alt="Engr. Ahmed Aqeel — Full Stack Developer"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-final-year-project-mentor.jpg.jpeg" alt="Ahmed Aqeel — FYP Mentor &amp; Tech Guide"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-tech-startup-founder-pakistan.jpg.jpeg" alt="Ahmed Aqeel — Tech Startup Founder Pakistan"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed-aqeel-devorbittech-team-lead.jpg.jpeg" alt="Ahmed Aqeel — Team Lead at Dev Orbit Tech"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/Engr%20Ahmed%20Aqeel%20University%20of%20Kotli.jpeg" alt="Engr. Ahmed Aqeel — University of Kotli AJK"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmed%20aqeel%201.jpeg" alt="Ahmed Aqeel — Software Solutions Expert"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/ahmedaqeel.jpeg" alt="Engr. Ahmed Aqeel"></div>
+        <div class="gallery-item"><img src="https://devorbittech.org/aqeel%20ahmed.jpeg" alt="Ahmed Aqeel Software Engineer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Our <span class="accent">Services</span></h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon" style="--ic:#7c3aed">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M20 3v4M20 33v4M3 20h4M33 20h4M7.5 7.5l2.8 2.8M29.7 29.7l2.8 2.8M32.5 7.5l-2.8 2.8M10.3 29.7l-2.8 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Artificial Intelligence (AI) &amp; Agentic AI</h3>
+        <p>Smart AI solutions, AI tools, automation systems, and intelligent digital technologies.</p>
+        <div class="service-tags"><span>AI Tools</span><span>NLP</span><span>Automation</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="80">
+        <div class="service-icon" style="--ic:#0ea5e9">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="32" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 32h12M20 28v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10 16l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive, and professional websites using latest technologies.</p>
+        <div class="service-tags"><span>React</span><span>Next.js</span><span>Node.js</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="160">
+        <div class="service-icon" style="--ic:#10b981">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="11" y="3" width="18" height="34" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="32" r="1.5" fill="currentColor"/><path d="M16 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Mobile App Development</h3>
+        <p>Android and cross-platform mobile applications with modern UI/UX.</p>
+        <div class="service-tags"><span>Flutter</span><span>Android</span><span>React Native</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="240">
+        <div class="service-icon" style="--ic:#f59e0b">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M20 7v4M20 29v4M7 20h4M29 20h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11.5 11.5l2.8 2.8M25.7 25.7l2.8 2.8M28.5 11.5l-2.8 2.8M14.3 25.7l-2.8 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Graphic &amp; Logo Designing</h3>
+        <p>Professional branding, logos, posters, banners, and social media designs.</p>
+        <div class="service-tags"><span>Branding</span><span>Logos</span><span>Social Media</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="320">
+        <div class="service-icon" style="--ic:#ef4444">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="8" y="5" width="24" height="30" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M13 13h14M13 18h14M13 23h10M13 28h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Software Documentation</h3>
+        <p>SRS, SDS, Proposals, Design Documents, and FYP Documentation.</p>
+        <div class="service-tags"><span>SRS</span><span>SDS</span><span>FYP Docs</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="400">
+        <div class="service-icon" style="--ic:#06b6d4">
+          <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="13" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 35c0-7.2 5.8-13 13-13s13 5.8 13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M27 19l2.5 3-2.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>FYP &amp; Student Support</h3>
+        <p>Final Year Project guidance, technical mentorship, and development support.</p>
+        <div class="service-tags"><span>FYP</span><span>Mentorship</span><span>Dev Support</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="480">
+        <div class="service-icon" style="--ic:#ec4899">
+          <svg viewBox="0 0 40 40" fill="none"><rect x="5" y="7" width="30" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 13h30" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="10" r="1.3" fill="currentColor"/><circle cx="13" cy="10" r="1.3" fill="currentColor"/><circle cx="17" cy="10" r="1.3" fill="currentColor"/><path d="M10 20h8M10 24h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="22" y="17" width="8" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </div>
+        <h3>UI/UX Designing</h3>
+        <p>Creative and user-friendly modern interface designing.</p>
+        <div class="service-tags"><span>Figma</span><span>Prototyping</span><span>UX Research</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+      <div class="service-card reveal" data-delay="560">
+        <div class="service-icon" style="--ic:#14b8a6">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M20 5L35 13v14L20 35 5 27V13L20 5z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5v30M5 13l15 9 15-9" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="22" r="3" fill="currentColor" opacity=".55"/></svg>
+        </div>
+        <h3>Digital Skills &amp; Training</h3>
+        <p>Professional workshops, courses, and practical technical training sessions.</p>
+        <div class="service-tags"><span>Workshops</span><span>Courses</span><span>Training</span></div>
+        <div class="service-hover-glow"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section vm-section" id="vision">
+  <div class="container">
+    <div class="vm-grid">
+      <div class="vm-card vision-card reveal">
+        <div class="vm-icon">🔭</div>
+        <h2>Our <span class="accent">Vision</span></h2>
+        <p>To empower students and young innovators with modern digital technologies,
+           Artificial Intelligence, and practical software development skills so they can
+           contribute positively to the technology industry and freelance market.</p>
+        <div class="vm-decoration"></div>
+      </div>
+      <div class="vm-card mission-card reveal">
+        <div class="vm-icon">🎯</div>
+        <h2>Our <span class="accent">Mission</span></h2>
+        <ul class="mission-list">
+          <li>Promote Artificial Intelligence &amp; Digital Skills</li>
+          <li>Provide practical learning opportunities</li>
+          <li>Support innovation and technology awareness</li>
+          <li>Guide students toward freelancing and software development</li>
+          <li>Develop professional web and mobile applications</li>
+          <li>Create modern digital solutions for organizations and businesses</li>
+        </ul>
+        <div class="vm-decoration"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section why-section" id="why">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Our Edge</span>
+      <h2 class="section-title">Why <span class="accent">Dev Orbit Tech?</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal" data-delay="0">
+        <div class="why-icon">🤖</div>
+        <h3>Modern AI &amp; Technology Focus</h3>
+        <p>Cutting-edge AI solutions integrated into every digital product we build.</p>
+      </div>
+      <div class="why-card reveal" data-delay="100">
+        <div class="why-icon">🎓</div>
+        <h3>Student-Centered Vision</h3>
+        <p>Everything we do is designed to uplift students and future tech leaders.</p>
+      </div>
+      <div class="why-card reveal" data-delay="200">
+        <div class="why-icon">💡</div>
+        <h3>Professional &amp; Creative Solutions</h3>
+        <p>International-standard deliverables with creative problem-solving at every step.</p>
+      </div>
+      <div class="why-card reveal" data-delay="300">
+        <div class="why-icon">🚀</div>
+        <h3>Innovation &amp; Skill Development</h3>
+        <p>We don't just build — we teach, train, and transform aspiring developers.</p>
+      </div>
+      <div class="why-card reveal" data-delay="400">
+        <div class="why-icon">🌍</div>
+        <h3>Future-Oriented Learning Environment</h3>
+        <p>Preparing students for a globally connected, AI-driven digital economy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Reach Out</span>
+      <h2 class="section-title">Contact <span class="accent">Us</span></h2>
+    </div>
+    <div class="contact-center">
+
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+
+          <div class="form-group">
+            <label for="f-name">Your Name <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required/>
+            <span class="field-error" id="err-name"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="f-email">Email Address <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required/>
+            <span class="field-error" id="err-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="f-phone">Phone Number</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="03xx xxxxxxx" autocomplete="tel"/>
+          </div>
+
+          <div class="form-group">
+            <label for="f-service">Service Needed <span class="req">*</span></label>
+            <select id="f-service" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="Artificial Intelligence & Agentic AI">Artificial Intelligence (AI) &amp; Agentic AI</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Mobile App Development">Mobile App Development</option>
+              <option value="Graphic & Logo Designing">Graphic &amp; Logo Designing</option>
+              <option value="Software Documentation">Software Documentation</option>
+              <option value="FYP & Student Support">FYP &amp; Student Support</option>
+              <option value="UI/UX Designing">UI/UX Designing</option>
+              <option value="Digital Skills & Training">Digital Skills &amp; Training</option>
+              <option value="Other Services">Other Services...</option>
+            </select>
+            <span class="field-error" id="err-service"></span>
+          </div>
+
+          <div class="form-group" id="otherServiceGroup" style="display:none;">
+            <label for="f-other">Describe the Service <span class="req">*</span></label>
+            <input id="f-other" name="otherService" type="text" placeholder="What do you need help with?"/>
+            <span class="field-error" id="err-other"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="f-message">Message <span class="req">*</span></label>
+            <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+
+          <button type="submit" class="btn-primary btn-full" id="submitBtn">
+            <span id="btnText">Send Message 🚀</span>
+            <span id="btnLoader" class="btn-loader" style="display:none">Sending...</span>
+          </button>
+
+          <div class="form-success" id="formSuccess"  style="display:none"></div>
+          <div class="form-error"   id="formErrorMsg" style="display:none"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo.jpg" alt="Dev Orbit Tech — Professional IT Services in Kotli AJK Pakistan" class="footer-logo"/>
+        <div>
+          <h3>DEV <span class="accent">ORBIT</span> TECH</h3>
+          <p class="footer-tagline">CODE. CREATE. INNOVATE.</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#vision">Vision &amp; Mission</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+9203161893004">📞 03161893004</a></li>
+          <li><a href="mailto:official.devorbittech@gmail.com">✉️ official.devorbittech@gmail.com</a></li>
+          <li><span style="color:var(--muted)">📍 Software Technology Park,<br/>&nbsp;&nbsp;&nbsp;&nbsp;University of Kotli (AJK)</span></li>
+        </ul>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg></a>
+          <a href="https://www.linkedin.com/in/ahmed-aqeel-2a0090271" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H3.337v7.225h1.606zm-1.56-8.113c.564 0 1.025-.46 1.025-1.025 0-.564-.46-1.025-1.025-1.025-.564 0-1.025.46-1.025 1.025 0 .565.46 1.025 1.025 1.025zm11.018 8.113V9.19c0-2.215-1.178-3.245-2.759-3.245-1.275 0-1.847.702-2.166 1.196v-.973H8.082c.021.454 0 7.225 0 7.225h1.566v-4.038c0-.216.015-.432.079-.586.173-.432.568-.879 1.234-.879.872 0 1.221.664 1.221 1.638v3.865h1.566z"/></svg></a>
+          <a href="https://github.com/devahmedaqeel" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+          <a href="https://www.instagram.com/a.aqeel14?utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-pillars">
+        <div class="pillar"><span class="pillar-icon">&lt;/&gt;</span><strong>CODE.</strong><small>We write the future.</small></div>
+        <div class="pillar"><span class="pillar-icon">✦</span><strong>CREATE.</strong><small>We design possibilities.</small></div>
+        <div class="pillar"><span class="pillar-icon">🚀</span><strong>INNOVATE.</strong><small>We build tomorrow.</small></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footerYear"></span> Dev Orbit Tech. All rights reserved. | Software Technology Park, University of Kotli (AJK)</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/923161893004?text=Hello%20Dev%20Orbit%20Tech!%20I%20want%20to%20discuss%20a%20project."
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.472 2.025 7.77L0 32l8.43-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.762-1.847l-.485-.288-5.005 1.193 1.215-4.88-.317-.503A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.265-.465.298-.863.1-.398-.2-1.68-.619-3.2-1.974-1.183-1.054-1.981-2.355-2.214-2.753-.232-.398-.025-.613.175-.811.18-.18.398-.465.598-.698.199-.232.265-.398.398-.664.133-.266.066-.498-.033-.697-.1-.2-.897-2.163-1.23-2.961-.323-.776-.652-.671-.897-.683l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.324 0 1.961 1.428 3.857 1.628 4.123.199.265 2.81 4.29 6.81 6.017.952.411 1.695.657 2.274.841.955.304 1.825.261 2.512.158.766-.114 2.354-.963 2.687-1.892.332-.929.332-1.727.232-1.893-.1-.165-.365-.265-.763-.464z"/>
+  </svg>
+  <span class="wa-label">Order Now</span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
