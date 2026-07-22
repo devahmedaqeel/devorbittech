@@ -1,0 +1,22 @@
+/* Variables & Reset */
+:root {
+  --bg:        #030712;
+  --bg-mid:    #070f22;
+  --bg-card:   #091733;
+  --accent:    #007aff;
+  --accent2:   #00f0ff;
+  --purple:    #8b5cf6;
+  --white:     #ffffff;
+  --muted:     #94a3b8;
+  --border:    rgba(0, 240, 255, 0.22);
+  --glow:      rgba(0, 240, 255, 0.45);
+  --success:   #10b981;
+  --error:     #ef4444;
+
+  --f-display: 'Orbitron',  monospace;
+  --f-body:    'Exo 2',     sans-serif;
+  --f-ui:      'Rajdhani',  sans-serif;
+
+  --ease:      cubic-bezier(.4,0,.2,1);
+  --dur:       .3s;
+}

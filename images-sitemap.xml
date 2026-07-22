@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://devorbittech.org/</loc>
+    <image:image>
+      <image:loc>https://devorbittech.org/images/logo.jpg</image:loc>
+      <image:title>Dev Orbit Tech Official Logo</image:title>
+      <image:caption>Dev Orbit Tech — Web Development, AI &amp; App Solutions</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/images/founder.jpg</image:loc>
+      <image:title>Engr. Ahmed Aqeel — Founder &amp; CEO of Dev Orbit Tech</image:title>
+      <image:caption>Engr. Ahmed Aqeel leading Dev Orbit Tech team in Kotli AJK Pakistan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/ahmed-aqeel-ceo-devorbittech.jpg.jpeg</image:loc>
+      <image:title>Engr. Ahmed Aqeel - CEO Dev Orbit Tech</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/engr-ahmed-aqeel-software-engineer.jpg.jpeg</image:loc>
+      <image:title>Engr. Ahmed Aqeel - Software Engineer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/ahmed-aqeel-tech-innovator-pakistan.jpg.jpeg</image:loc>
+      <image:title>Ahmed Aqeel - Tech Innovator Pakistan</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/ahmed-aqeel-web-development-expert.jpg.jpeg</image:loc>
+      <image:title>Ahmed Aqeel - Web Development Expert</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/ahmed-aqeel-tech-startup-founder-pakistan.jpg.jpeg</image:loc>
+      <image:title>Ahmed Aqeel - Tech Startup Founder Pakistan</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://devorbittech.org/engr-ahmed-aqeel-full-stack-developer.jpg.jpeg</image:loc>
+      <image:title>Engr. Ahmed Aqeel - Full Stack Developer</image:title>
+    </image:image>
+  </url>
+</urlset>

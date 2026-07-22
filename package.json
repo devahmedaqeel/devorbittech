@@ -1,0 +1,17 @@
+{
+  "name": "devorbittech",
+  "version": "1.0.0",
+  "description": "Dev Orbit Tech — Official Website",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev":   "node server.js"
+  },
+  "author": "Dev Orbit Tech",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv":     "^17.4.2",
+    "express":    "^5.2.1",
+    "nodemailer": "^6.9.14"
+  }
+}
