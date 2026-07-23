@@ -160,13 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-
-    if (hamburger) {
-      hamburger.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        window.toggleMobileMenu(e);
-      }, { passive: false });
-    }
   })();
 
 
