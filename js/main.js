@@ -115,14 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ── Navbar & Mobile Hamburger Menu ── */
+  let lastMobileMenuToggle = 0;
   window.toggleMobileMenu = function(e) {
-    if (e && e.stopPropagation) e.stopPropagation();
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
+    const now = Date.now();
+    if (now - lastMobileMenuToggle < 300) return; // Prevent double-triggering on mobile touch
+    lastMobileMenuToggle = now;
+
     const navLinks = document.getElementById('navLinks');
     const hamburger = document.getElementById('hamburger');
     if (!navLinks || !hamburger) return;
 
-    const isOpen = navLinks.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', String(isOpen));
+    const isOpen = navLinks.classList.contains('open');
+    if (isOpen) {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    } else {
+      navLinks.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
   };
 
   (function initNavbar() {
@@ -147,14 +160,25 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    document.addEventListener('click', function(e) {
-      const btn = e.target.closest('#hamburger, .hamburger');
-      if (btn) {
+    if (hamburger) {
+      hamburger.addEventListener('click', function(e) {
         window.toggleMobileMenu(e);
-        return;
-      }
+      });
+      hamburger.addEventListener('touchstart', function(e) {
+        window.toggleMobileMenu(e);
+      }, { passive: true });
+    }
+
+    links.forEach((l) => {
+      l.addEventListener('click', () => {
+        if (navLinks) navLinks.classList.remove('open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function(e) {
       if (navLinks && navLinks.classList.contains('open')) {
-        if (e.target.closest('.nav-link') || !e.target.closest('.navbar')) {
+        if (!e.target.closest('.navbar')) {
           navLinks.classList.remove('open');
           if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         }
