@@ -149,49 +149,57 @@
         </div>
         <div class="dot-ai-header-controls">
           <button class="dot-ai-btn-ctrl" id="dotAiClearBtn" title="Clear Conversation" aria-label="Clear Conversation">
-            <svg viewBox="0 0 24 24"><path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2m-6 5v6m4-6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2m-6 5v6m4-6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <button class="dot-ai-btn-ctrl" id="dotAiCloseBtn" title="Close Chat" aria-label="Close Chat">
-            <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
 
       <div class="dot-ai-messages" id="dotAiMessages" role="log" aria-live="polite">
         <div class="dot-ai-welcome">
-          <h4>${ORBIT_AI_ICON_SVG} Welcome to Dev Orbit Tech!</h4>
-          <p>I'm <strong>Dev Orbit AI</strong>, your personal AI Project Consultant. I can help you:</p>
-          <ul>
-            <li>Explore our development services & technology stack</li>
-            <li>Discuss your project idea and recommend architectures</li>
-            <li>Structure your project requirements into an executive summary</li>
-            <li>Connect with our engineering team via WhatsApp or Official Form</li>
-          </ul>
+          <div class="dot-ai-welcome-hero">
+            <div class="dot-ai-welcome-hero-icon">${ORBIT_AI_ICON_SVG}</div>
+            <div class="dot-ai-welcome-hero-text">
+              <h4>Welcome to Dev Orbit Tech!</h4>
+              <p>I'm <strong>Dev Orbit AI</strong> — your intelligent project consultant, ready to help you plan, build, and launch.</p>
+            </div>
+          </div>
+
+          <div class="dot-ai-capabilities">
+            <div class="dot-ai-capability"><i class="fas fa-compass"></i> Explore services & tech stack</div>
+            <div class="dot-ai-capability"><i class="fas fa-lightbulb"></i> Discuss your project idea</div>
+            <div class="dot-ai-capability"><i class="fas fa-file-alt"></i> Get a project summary</div>
+            <div class="dot-ai-capability"><i class="fas fa-headset"></i> Connect with our team</div>
+          </div>
+
           <div class="dot-ai-chips-title">What would you like to build?</div>
           <div class="dot-ai-chips">
-            <button class="dot-ai-chip" data-intent="website"><i class="fas fa-globe"></i> Build a Website</button>
-            <button class="dot-ai-chip" data-intent="mobile_app"><i class="fas fa-mobile-alt"></i> Build a Mobile App</button>
+            <button class="dot-ai-chip" data-intent="website"><i class="fas fa-globe"></i> Website</button>
+            <button class="dot-ai-chip" data-intent="mobile_app"><i class="fas fa-mobile-alt"></i> Mobile App</button>
             <button class="dot-ai-chip" data-intent="custom_software"><i class="fas fa-laptop-code"></i> Custom Software</button>
             <button class="dot-ai-chip" data-intent="ai_solution"><i class="fas fa-brain"></i> AI Solution</button>
-            <button class="dot-ai-chip" data-intent="automation"><i class="fas fa-bolt"></i> Automate My Business</button>
             <button class="dot-ai-chip" data-intent="saas"><i class="fas fa-rocket"></i> SaaS Product</button>
+            <button class="dot-ai-chip" data-intent="automation"><i class="fas fa-bolt"></i> Automation</button>
             <button class="dot-ai-chip" data-intent="ui_ux"><i class="fas fa-palette"></i> UI/UX Design</button>
-            <button class="dot-ai-chip" data-intent="discuss_project"><i class="fas fa-comments"></i> Discuss My Project</button>
+            <button class="dot-ai-chip" data-intent="discuss_project"><i class="fas fa-comments"></i> Discuss Project</button>
           </div>
         </div>
       </div>
 
       <div class="dot-ai-footer">
         <div class="dot-ai-input-wrap">
-          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask in English, Roman Urdu, or Urdu..." rows="1" aria-label="Type your message"></textarea>
+          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask anything about your project..." rows="1" aria-label="Type your message"></textarea>
         </div>
         <button class="dot-ai-send-btn" id="dotAiSendBtn" aria-label="Send Message">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#050a14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#030712" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"/>
             <polygon points="22 2 15 22 11 13 2 9 22 2"/>
           </svg>
         </button>
       </div>
+      <div class="dot-ai-powered">Powered by <span>Dev Orbit AI</span></div>
     `;
     document.body.appendChild(chatWindow);
 
