@@ -99,6 +99,28 @@ Strict Rules:
   }
 
   // Specialized High-Accuracy Knowledge Retrieval Engine
+  // Intent Trigger: Website Project Scoping
+  if (lower.includes('website') || lower.includes('websote') || lower.includes('web site') || lower.includes('web development') || lower.includes('site banani')) {
+    if (language === 'roman_urdu') {
+      return res.json({ reply: "Zabardast! Ek high-performance aur modern website business ke liye bohot zaroori hai. Yeh website kis company ya business ke liye banwani hai?" });
+    }
+    if (language === 'urdu') {
+      return res.json({ reply: "بہترین! ایک جدید اور تیز رفتار ویب سائٹ کاروبار کی پہچان کے لیے لازمی ہے۔ یہ ویب سائٹ کس کمپنی یا کاروبار کے لیے بنوانی ہے؟" });
+    }
+    return res.json({ reply: "Awesome! A tailored, high-performance website is essential for building authority and driving leads. What type of business or company is this website for?" });
+  }
+
+  // Intent Trigger: Mobile App Scoping
+  if (lower.includes('mobile app') || lower.includes('app idea') || lower.includes('android app') || lower.includes('ios app') || lower.includes('app banani')) {
+    if (language === 'roman_urdu') {
+      return res.json({ reply: "Bohot khoob! Hum Flutter aur React Native ke zariye iOS aur Android apps banate hain. Aapki mobile app ka basic maqsad ya idea kya hai?" });
+    }
+    if (language === 'urdu') {
+      return res.json({ reply: "بہترین! ہم آئی او ایس اور اینڈرائیڈ دونوں کے لیے تیز رفتار موبائل ایپس بناتے ہیں۔ آپ کی ایپ کا بنیادی مقصد کیا ہے؟" });
+    }
+    return res.json({ reply: "Great choice! We develop high-speed Flutter and React Native apps for iOS & Android. What core problem will your application solve?" });
+  }
+
   // 1. FAQs & Specific Fact Matching
   if (faqs && faqs.faqs) {
     let bestFaq = null;
