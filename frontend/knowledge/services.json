@@ -1,0 +1,102 @@
+{
+  "services": [
+    {
+      "id": "business-website-development",
+      "title": "Business Website Development",
+      "url": "/services/business-website-development",
+      "summary": "High-converting, fast, responsive commercial websites for service businesses, local companies, startups, and professional brands.",
+      "idealFor": "Small-to-medium businesses, local services, consulting practices, and trade companies.",
+      "features": ["Bespoke responsive UI", "Lead capture forms", "WhatsApp direct chat integration", "Local/Technical SEO & Schema", "Sub-second loading times", "CMS or hand-coded static deployment"],
+      "deliverables": ["Complete source code", "Domain & DNS configuration", "Speed optimization", "Google Search Console submission"]
+    },
+    {
+      "id": "company-website-development",
+      "title": "Company Website Development",
+      "url": "/services/company-website-development",
+      "summary": "Authoritative corporate web design, executive team profiles, service hierarchies, and compliance-ready digital platforms for enterprises and established firms.",
+      "idealFor": "Corporations, industrial firms, holding companies, B2B vendors, and investment groups.",
+      "features": ["Executive leadership profiles", "Multi-department inquiry routing", "Case study showcase", "Corporate security & TLS", "Investor & press document portals"],
+      "deliverables": ["Figma UI/UX prototypes", "Hand-coded accessible frontend", "Hosting setup on global CDN"]
+    },
+    {
+      "id": "web-development",
+      "title": "Custom Web Development",
+      "url": "/services/web-development",
+      "summary": "Tailored web engineering built from scratch using clean HTML, modern CSS, JavaScript, React, and Node.js with zero template bloat.",
+      "idealFor": "Businesses needing bespoke layout, high SEO performance, and complete intellectual property ownership.",
+      "features": ["100% custom styling", "Core Web Vitals >90", "Semantic HTML5", "Responsive mobile layouts"]
+    },
+    {
+      "id": "web-application-development",
+      "title": "Web Application Development",
+      "url": "/services/web-application-development",
+      "summary": "Dynamic, database-backed web applications, customer portals, interactive dashboards, and business tools.",
+      "idealFor": "Companies seeking workflow automation, role-based user management, and internal operational systems.",
+      "features": ["User authentication & roles", "Database integration (PostgreSQL, MongoDB)", "REST & GraphQL APIs", "Real-time updates & dashboards"]
+    },
+    {
+      "id": "mobile-app-development",
+      "title": "Mobile App Development",
+      "url": "/services/mobile-app-development",
+      "summary": "Native and cross-platform mobile apps for iOS and Android engineered for smooth 60fps animations and offline reliability.",
+      "idealFor": "Founders with consumer or B2B app ideas, on-demand services, booking apps, and client portals.",
+      "features": ["Cross-platform Flutter & React Native", "Push notifications", "App Store & Play Store deployment", "Hardware sensor integration (Camera, GPS, Biometrics)"]
+    },
+    {
+      "id": "flutter-app-development",
+      "title": "Flutter App Development",
+      "url": "/services/flutter-app-development",
+      "summary": "High-performance cross-platform iOS and Android apps from a unified Dart codebase with native compilation.",
+      "idealFor": "Startups wanting to launch on both platforms simultaneously within budget.",
+      "features": ["Unified codebase", "Pixel-perfect material & cupertino widgets", "Native speed", "State management with Bloc/Provider"]
+    },
+    {
+      "id": "react-native-development",
+      "title": "React Native Development",
+      "url": "/services/react-native-development",
+      "summary": "True native mobile applications built with React and JavaScript, leveraging extensive npm ecosystem libraries.",
+      "idealFor": "Teams with existing React web stacks seeking code sharing and fast mobile iteration.",
+      "features": ["Native UI components", "OTA updates", "Fast refresh", "TypeScript support"]
+    },
+    {
+      "id": "custom-software-development",
+      "title": "Custom Software Development",
+      "url": "/services/custom-software-development",
+      "summary": "End-to-end bespoke software systems tailored to specific company workflows, operational bottlenecks, and reporting needs.",
+      "idealFor": "Organizations outgrowing off-the-shelf software or paying exorbitant monthly SaaS seat licenses.",
+      "features": ["Bespoke business logic", "ERP / CRM integrations", "Automated reporting", "No recurring seat licensing fees"]
+    },
+    {
+      "id": "saas-development",
+      "title": "SaaS Product Development",
+      "url": "/services/saas-development",
+      "summary": "Cloud software-as-a-service architecture from Minimum Viable Product (MVP) to multi-tenant scalable platforms.",
+      "idealFor": "Startup founders, bootstrappers, and entrepreneurs launching subscription-based digital software.",
+      "features": ["Multi-tenant architecture", "Stripe subscription billing", "Role-based access control (RBAC)", "Tenant isolation & analytics"]
+    },
+    {
+      "id": "ai-development",
+      "title": "Artificial Intelligence (AI) Development",
+      "url": "/services/ai-development",
+      "summary": "Custom AI-driven applications, intelligent document analysis, LLM integrations, and specialized neural models.",
+      "idealFor": "Businesses wanting to augment digital products with predictive models, NLP, or computer vision.",
+      "features": ["LLM API integration (OpenAI, Gemini, Anthropic)", "RAG (Retrieval-Augmented Generation)", "Vector databases", "Natural language interfaces"]
+    },
+    {
+      "id": "ai-automation",
+      "title": "AI & Business Workflow Automation",
+      "url": "/services/ai-automation",
+      "summary": "Agentic AI workflows, automated lead processing, intelligent document parsing, and human-in-the-loop task execution.",
+      "idealFor": "Firms looking to eliminate repetitive manual operational tasks and reduce human error.",
+      "features": ["Webhook & API automation", "Automated data ingestion", "CRM synchronization", "Human-in-the-loop validation"]
+    },
+    {
+      "id": "ui-ux-design",
+      "title": "UI/UX Interface Design",
+      "url": "/services/ui-ux-design",
+      "summary": "Modern, intuitive user interface design, user journey mapping, design systems, and clickable Figma prototypes.",
+      "idealFor": "New digital products needing user validation before engineering begins.",
+      "features": ["Figma interactive prototypes", "Responsive design systems", "Usability testing", "Design token handoff"]
+    }
+  ]
+}

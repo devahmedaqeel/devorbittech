@@ -172,6 +172,11 @@ const handleGetStats = (_req, res) => res.json({ count: 50 });
 app.get('/.netlify/functions/get-stats', handleGetStats);
 app.get('/api/get-stats', handleGetStats);
 
+// Dev Orbit AI Chatbot Route
+const chatbotHandler = require('./api/chatbot');
+app.post('/api/chatbot', chatbotHandler);
+
+
 // 404 Fallback Route
 app.use((_req, res) => {
   const p404 = path.join(frontendPath, '404.html');

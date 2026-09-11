@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": "medireport-ai",
+      "title": "MediReport AI",
+      "category": "Artificial Intelligence & Healthcare",
+      "summary": "Intelligent automated medical report generation and patient diagnostic summarization platform.",
+      "technologies": ["Python", "FastAPI", "OpenAI GPT-4", "React", "PostgreSQL"],
+      "problem": "Healthcare clinics suffered from physician burnout due to 4+ hours of manual daily report drafting.",
+      "solution": "Built an automated medical summarizer that synthesizes lab markers into clear clinician drafts in under 15 seconds.",
+      "outcome": "Reduced clinical documentation time by 70% across beta test practices."
+    },
+    {
+      "id": "blissful-blinds",
+      "title": "Blissful Blinds Ltd",
+      "category": "E-Commerce & Commercial Website",
+      "summary": "Custom online ordering and dynamic measurement quoting platform for a UK-based window furnishings manufacturer.",
+      "technologies": ["Node.js", "Express", "Tailored JavaScript", "Stripe API", "Responsive CSS"],
+      "problem": "Customers struggled with non-standard window measurement pricing, creating high support inquiry drop-offs.",
+      "solution": "Engineered an interactive real-time dimensions calculator with instant quotation and secure Stripe checkout.",
+      "outcome": "Achieved 42% increase in completed online orders within the first 90 days."
+    },
+    {
+      "id": "devsync-ai",
+      "title": "DevSync AI",
+      "category": "Developer Productivity & SaaS",
+      "summary": "Real-time automated code documentation, architecture sync, and pull request intelligence tool.",
+      "technologies": ["Next.js", "Node.js", "GitHub API", "Vector Embeddings", "Supabase"],
+      "problem": "Engineering teams suffered from obsolete documentation as codebases rapidly evolved.",
+      "solution": "Automated pipeline that monitors Git commit diffs and updates markdown documentation dynamically.",
+      "outcome": "Over 1,200 developer repositories connected with zero drift in API specs."
+    },
+    {
+      "id": "ofm-mobile",
+      "title": "OFM Mobile App",
+      "category": "Mobile Application (Flutter)",
+      "summary": "Cross-platform mobile application providing on-demand logistics dispatch, driver routing, and delivery tracking.",
+      "technologies": ["Flutter", "Dart", "Firebase", "Google Maps SDK", "Node.js"],
+      "problem": "Dispatchers needed low-latency driver tracking without expensive proprietary GPS tracking hardware.",
+      "solution": "Built a Flutter mobile app utilizing background GPS, real-time socket updates, and automated route optimization.",
+      "outcome": "Processed over 25,000 deliveries with 99.4% on-time dispatch accuracy."
+    }
+  ]
+}
