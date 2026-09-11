@@ -40,8 +40,11 @@
     if (type === 'hero') {
       return `
         <div class="dot-ai-robot-hero">
-          <img src="/images/icons8-robot-3d-fluency-512.png" alt="Dev Orbit AI Mascot" class="dot-ai-robot-img" width="80" height="80" />
-          <div class="dot-ai-robot-platform"></div>
+          <div class="dot-ai-robot-mesh">
+            <img src="/images/icons8-robot-3d-fluency-closed.png" alt="Dev Orbit AI Mascot" class="dot-ai-robot-img" width="82" height="82" />
+            <div class="dot-robot-eye dot-robot-eye-left"></div>
+            <div class="dot-robot-eye dot-robot-eye-right"></div>
+          </div>
           <div class="dot-ai-robot-shadow"></div>
         </div>
       `;
@@ -49,7 +52,7 @@
     if (type === 'mini') {
       return `
         <div class="dot-ai-robot-mini">
-          <img src="/images/icons8-robot-3d-fluency-120.png" alt="Orbit Bot" class="dot-ai-robot-img" width="32" height="32" />
+          <img src="/images/icons8-robot-3d-fluency-512.png" alt="Dev Orbit AI" class="dot-ai-robot-img" width="36" height="36" />
         </div>
       `;
     }
@@ -131,12 +134,6 @@
       stack = document.createElement('div');
       stack.className = 'dot-action-stack';
       document.body.appendChild(stack);
-
-      // Re-anchor WhatsApp inside stack if it exists
-      const existingWa = document.querySelector('.whatsapp-float');
-      if (existingWa) {
-        stack.appendChild(existingWa);
-      }
     }
 
     // 2. Create Dev Orbit AI Clean 3D Robot Assistant Trigger (NO BOX)
@@ -145,7 +142,11 @@
     launcher.setAttribute('aria-label', 'Open Dev Orbit AI Assistant');
     launcher.innerHTML = `
       <div class="dot-ai-robot-trigger">
-        <img src="/images/icons8-robot-3d-fluency-512.png" alt="Dev Orbit AI Robot" class="dot-ai-robot-trigger-img" width="70" height="70" />
+        <div class="dot-ai-robot-mesh">
+          <img src="/images/icons8-robot-3d-fluency-closed.png" alt="Dev Orbit AI Robot" class="dot-ai-robot-trigger-img" width="125" height="125" />
+          <div class="dot-robot-eye dot-robot-eye-left"></div>
+          <div class="dot-robot-eye dot-robot-eye-right"></div>
+        </div>
         <div class="dot-ai-robot-shadow"></div>
       </div>
       <span class="dot-ai-trigger-label">AI Assistant</span>
@@ -162,7 +163,6 @@
         <div class="dot-ai-brand">
           <div class="dot-ai-header-avatar">
             ${getRobotHtml('mini')}
-            <span class="dot-ai-header-online"></span>
           </div>
           <div class="dot-ai-header-info">
             <div class="dot-ai-header-title-row">
@@ -174,14 +174,15 @@
         </div>
         <div class="dot-ai-header-actions">
           <button class="dot-ai-hdr-btn" id="dotAiClearBtn" title="Reset Conversation" aria-label="Reset Conversation">
-            <svg viewBox="0 0 20 20" fill="none">
-              <path d="M4 4v5h5M16 16v-5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6.5 15.5A7 7 0 105 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24L21 8"/>
+              <path d="M21 3v5h-5"/>
             </svg>
           </button>
           <button class="dot-ai-hdr-btn dot-ai-hdr-close" id="dotAiCloseBtn" title="Minimize Chat" aria-label="Minimize Chat">
-            <svg viewBox="0 0 20 20" fill="none">
-              <path d="M15 5l-10 10M5 5l10 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
@@ -246,16 +247,27 @@
 
       <div class="dot-ai-footer">
         <div class="dot-ai-input-wrapper">
-          <span class="dot-ai-sparkle-icon" title="AI Assistant">✨</span>
-          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask about projects, pricing, tech stack..." rows="1" aria-label="Type your message"></textarea>
+          <span class="dot-ai-sparkle-icon" title="AI Assistant">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="url(#dotSparkleGrad)"/>
+              <defs>
+                <linearGradient id="dotSparkleGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00f0ff"/>
+                  <stop offset="1" stop-color="#818cf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask about services, scoping, tech stack..." rows="1" aria-label="Type your message"></textarea>
           <button class="dot-ai-send-btn" id="dotAiSendBtn" aria-label="Send Message" title="Send">
             <svg viewBox="0 0 20 20" fill="none">
-              <path d="M3.5 10h13M10.5 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
         <div class="dot-ai-footer-note">
-          <span>⚡ Powered by Dev Orbit AI &amp; Gemini Engine</span>
+          <span class="dot-live-status-dot"></span>
+          <span>Powered by Dev Orbit AI</span>
         </div>
       </div>
     `;
@@ -265,6 +277,11 @@
     launcher.addEventListener('click', () => toggleChatWindow(true));
     document.getElementById('dotAiCloseBtn').addEventListener('click', () => toggleChatWindow(false));
     document.getElementById('dotAiClearBtn').addEventListener('click', clearConversation);
+
+    // Initialize Natural 3D Robot Blinking & Parallax
+    initRobotBlinking(launcher);
+    initRobotBlinking(chatWindow);
+    initRobot3DParallax(launcher);
 
     // Keyboard ESC to close
     document.addEventListener('keydown', (e) => {
@@ -311,6 +328,76 @@
         handleQuickChip(intent, title ? title.textContent.trim() : suggest.textContent.trim());
       }
     });
+  }
+
+  // Natural Robot Eye Blinking System
+  function initRobotBlinking(root) {
+    if (!root) return;
+    const eyes = root.querySelectorAll('.dot-robot-eye');
+    if (!eyes.length) return;
+
+    function triggerBlink(duration = 130) {
+      eyes.forEach(e => e.style.transform = 'scaleY(0.08)');
+      setTimeout(() => {
+        eyes.forEach(e => e.style.transform = '');
+      }, duration);
+    }
+
+    // Friendly attentive double blink on mouse hover & touch
+    root.addEventListener('mouseenter', () => {
+      triggerBlink(110);
+      setTimeout(() => triggerBlink(90), 190);
+    });
+    root.addEventListener('touchstart', () => {
+      triggerBlink(120);
+    }, { passive: true });
+  }
+
+  // Realistic 3D Cursor Parallax & Dynamic Touch Flex
+  function initRobot3DParallax(launcherEl) {
+    const mesh = launcherEl.querySelector('.dot-ai-robot-mesh');
+    if (!mesh) return;
+
+    let isHovered = false;
+
+    launcherEl.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
+
+    launcherEl.addEventListener('mouseleave', () => {
+      isHovered = false;
+      mesh.style.removeProperty('--robot-tilt-y');
+      mesh.style.removeProperty('--robot-tilt-x');
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isHovered) return;
+      const rect = launcherEl.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width * 0.75);
+      const dy = (e.clientY - cy) / (rect.height * 0.75);
+      const rotY = Math.max(-16, Math.min(16, dx * 16));
+      const rotX = Math.max(-14, Math.min(14, -dy * 14));
+      mesh.style.setProperty('--robot-tilt-y', `${rotY.toFixed(1)}deg`);
+      mesh.style.setProperty('--robot-tilt-x', `${rotX.toFixed(1)}deg`);
+    }, { passive: true });
+
+    // Touch / Tap support for mobile devices ("or tech")
+    launcherEl.addEventListener('touchstart', () => {
+      launcherEl.classList.add('dot-touch-active');
+      const closed = launcherEl.querySelector('.dot-robot-eyes-closed');
+      if (closed) {
+        closed.style.opacity = '1';
+        setTimeout(() => { closed.style.opacity = '0'; }, 130);
+      }
+    }, { passive: true });
+
+    launcherEl.addEventListener('touchend', () => {
+      setTimeout(() => {
+        launcherEl.classList.remove('dot-touch-active');
+      }, 250);
+    }, { passive: true });
   }
 
   function toggleChatWindow(open) {
@@ -561,7 +648,101 @@
   function generateLocalRAGResponse(userText, lang) {
     const lower = userText.toLowerCase().trim();
 
-    // Intent Trigger: Website Project Initiation
+    // Intent 1: All Services Overview / What services do you offer?
+    const isAllServicesQuery = (
+      lower.includes('all service') || lower.includes('services list') || lower.includes('what service') ||
+      lower.includes('what do you do') || lower.includes('what you do') || lower.includes('what do you offer') ||
+      lower.includes('kon kon si service') || lower.includes('kya service') || lower.includes('kia service') ||
+      lower.includes('kya kaam karte ho') || lower.includes('tamam service') || lower.includes('services kya hain') ||
+      (lower.includes('service') && (lower.includes('all') || lower.includes('list') || lower.includes('tell') || lower.includes('show') || lower.includes('provide') || lower.includes('offer')))
+    );
+
+    if (isAllServicesQuery) {
+      if (lang === 'roman_urdu') {
+        return {
+          reply: `Dev Orbit Tech comprehensive digital solutions provide karta hai:\n\n` +
+            `1. **Business & Company Websites:** Fast, SEO-optimized aur lead generation websites.\n` +
+            `2. **Custom Web & SaaS Development:** React, Next.js, aur Node.js par scalable platforms.\n` +
+            `3. **Mobile App Development:** iOS aur Android ke liye Flutter aur React Native apps.\n` +
+            `4. **Custom Software & Internal ERP/CRM:** Business processes ko automate karne wale systems.\n` +
+            `5. **Artificial Intelligence (AI) Development:** LLM integration, custom AI agents, aur document summarizers.\n` +
+            `6. **AI & Business Automation:** Repetitive tasks aur workflow webhooks.\n` +
+            `7. **UI/UX Design:** Interactive Figma clickable prototypes.\n` +
+            `8. **Final Year Projects (FYP) Mentorship:** University students ke liye software aur SRS/SDS documentation.\n\n` +
+            `Aap apne project ke hawale se humse direct WhatsApp (+92 316 1893004) par rabta kar sakte hain ya website form fill kar sakte hain!`
+        };
+      }
+      if (lang === 'urdu') {
+        return {
+          reply: `دیو اوربٹ ٹیک کی تمام بنیادی خدمات درج ذیل ہیں:\n\n` +
+            `1. **کاروباری ویب سائٹس (Business Websites):** تیز رفتار، جدید اور لیڈز پیدا کرنے والی ویب سائٹس۔\n` +
+            `2. **کسٹم ویب اور SaaS ایپلیکیشنز:** ری ایکٹ، نیکسٹ جے ایس اور نوڈ جے ایس پر مبنی پلیٹ فارمز۔\n` +
+            `3. **موبائل ایپ ڈویلپمنٹ:** آئی او ایس اور اینڈرائیڈ دونوں کے لیے فلٹر (Flutter) اور ری ایکٹ نیٹو ایپس۔\n` +
+            `4. **کسٹم سافٹ ویئر اور اندرونی سسٹمز:** ERP، CRM اور ڈیش بورڈز۔\n` +
+            `5. **مصنوعی ذہانت (AI) سلوشنز:** LLM انٹیگریشن، AI ایجنٹس اور ڈاکومنٹ سمریز۔\n` +
+            `6. **کاروباری خودکاری (Workflow Automation):** دفتری عمل کو خودکار بنانا۔\n` +
+            `7. **UI/UX ڈیزائن:** انٹرایکٹو فیگما پروٹو ٹائپس۔\n` +
+            `8. **فائنل ایئر پروجیکٹس (FYP):** طلباء کے لیے سافٹ ویئر اور مکمل دستاویزات (SRS/SDS)۔\n\n` +
+            `اپنے پروجیکٹ کے بارے میں رہنمائی کے لیے آپ WhatsApp (+92 316 1893004) پر رابطہ کر سکتے ہیں۔`
+        };
+      }
+      return {
+        reply: `Dev Orbit Tech provides complete, end-to-end digital engineering services:\n\n` +
+          `1. **Business & Company Website Development:** High-converting, SEO-optimized, sub-second loading commercial websites.\n` +
+          `2. **Custom Web & SaaS Development:** Scalable web applications using React, Next.js, Node.js, and Stripe integrations.\n` +
+          `3. **Mobile App Development:** High-performance iOS and Android apps using Flutter and React Native.\n` +
+          `4. **Custom Software & Internal Systems:** Bespoke ERP, CRM, and dashboards eliminating recurring seat license fees.\n` +
+          `5. **Artificial Intelligence (AI) Development:** Custom LLM integrations, AI agents, and intelligent document analysis.\n` +
+          `6. **AI & Business Workflow Automation:** Automated lead processing, webhooks, and human-in-the-loop workflows.\n` +
+          `7. **UI/UX Interface Design:** Figma clickable prototypes, design systems, and user journey mapping.\n` +
+          `8. **University Final Year Projects (FYP):** Full-stack development mentorship and SRS/SDS technical documentation.\n\n` +
+          `We would love to discuss your project! Contact us directly via WhatsApp at **+92 316 1893004** or submit our website contact form.`
+      };
+    }
+
+    // Intent 2: Working Process & Customer Guidance / How do you work?
+    const isProcessQuery = (
+      lower.includes('process') || lower.includes('how do you work') || lower.includes('working process') ||
+      lower.includes('guide customer') || lower.includes('customer guide') || lower.includes('how to start') ||
+      lower.includes('workflow') || lower.includes('procedure') || lower.includes('kaise kaam karte') ||
+      lower.includes('tareeqa') || lower.includes('tariqa') || lower.includes('steps') || lower.includes('how it works')
+    );
+
+    if (isProcessQuery) {
+      if (lang === 'roman_urdu') {
+        return {
+          reply: `Dev Orbit Tech ka 5-Step Professional Working Process yeh hai:\n\n` +
+            `1. **Discovery & Requirements:** Hum aapke business goals, users, aur features ko detail mein samajhte hain.\n` +
+            `2. **UI/UX Prototype:** Figma par clickable visual prototypes design karte hain taake coding se pehle aap pura experience test kar sakein.\n` +
+            `3. **Agile Engineering:** Zero template bloat ke sath clean, custom code likhte hain aur regular sprint updates dete hain.\n` +
+            `4. **QA & Speed Testing:** Sub-second speed, cross-device responsiveness, aur security checks.\n` +
+            `5. **Deployment & 100% Code Ownership:** Launch ke baad saara source code, intellectual property, aur access complete taur par aapke hawale kiya jata hai.\n\n` +
+            `Direct rabta karne ke liye hamare Lead Engineer se WhatsApp (+92 316 1893004) par baat karein!`
+        };
+      }
+      if (lang === 'urdu') {
+        return {
+          reply: `دیو اوربٹ ٹیک کا کسٹمر گائیڈنس اور پروجیکٹ مکمل کرنے کا 5 مرحلہ وار طریقہ کار:\n\n` +
+            `1. **ابتدائی تجزیہ (Discovery):** کاروباری اہداف اور ضروریات کی مکمل فہم۔\n` +
+            `2. **UI/UX ڈیزائن:** کوڈنگ سے پہلے فیگما پر کلک ایبل پروٹو ٹائپ کی تیاری۔\n` +
+            `3. **ایجل ڈویلپمنٹ:** بغیر کسی ریڈی میڈ ٹیمپلیٹ کے جدید اور معیاری کسٹم کوڈنگ۔\n` +
+            `4. **کوالٹی ٹیسٹنگ:** رفتار، سیکیورٹی اور موبائل مطابقت کی مکمل جانچ۔\n` +
+            `5. **ڈپلائمنٹ اور سورس کوڈ کی منتقلی:** 100% ملکیتی حقوق اور مکمل سورس کوڈ کلائنٹ کے حوالے کرنا۔\n\n` +
+            `آغاز کے لیے ہمارے واٹس ایپ (+92 316 1893004) پر رابطہ کریں۔`
+        };
+      }
+      return {
+        reply: `Here is how Dev Orbit Tech guides and executes client projects across 5 phases:\n\n` +
+          `1. **Discovery & Requirement Analysis:** We define your target audience, core features, and architectural roadmap.\n` +
+          `2. **UI/UX Design & Prototyping:** We build interactive Figma prototypes so you can preview and validate the design before coding begins.\n` +
+          `3. **Agile Engineering:** Clean, bespoke development (React/Next.js, Flutter, Node.js, Python) with transparent sprint updates and zero template bloat.\n` +
+          `4. **QA & Performance Optimization:** Rigorous testing for sub-second load times, cross-device compatibility, and security.\n` +
+          `5. **Deployment & 100% Source Code Ownership:** Full intellectual property and complete code ownership delivered upon milestone clearance.\n\n` +
+          `To get started with an initial scoping session, reach out directly on WhatsApp at **+92 316 1893004** or via our contact form!`
+      };
+    }
+
+    // Intent 3: Website Project Initiation
     if (lower.includes('website') || lower.includes('websote') || lower.includes('web site') || lower.includes('web development') || lower.includes('site banani')) {
       if (conversationState.stage !== 'discovering') {
         conversationState.stage = 'discovering';
@@ -576,7 +757,7 @@
       }
     }
 
-    // Intent Trigger: Mobile App Initiation
+    // Intent 4: Mobile App Initiation
     if (lower.includes('mobile app') || lower.includes('app idea') || lower.includes('android app') || lower.includes('ios app') || lower.includes('app banani')) {
       if (conversationState.stage !== 'discovering') {
         conversationState.stage = 'discovering';
