@@ -2153,3 +2153,28 @@ section[id] { scroll-margin-top: 80px; }
   text-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 40px rgba(0, 122, 255, 0.5), 0 0 60px rgba(124, 58, 237, 0.3);
 }
 
+/* Screen reader utility for semantic SEO headings */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Form 2-Column Responsive Grid */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
