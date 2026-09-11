@@ -63,7 +63,28 @@ app.get('/favicon.ico', (_req, res) => res.sendFile(path.join(__dirname, 'images
 app.get('/apple-touch-icon.png', (_req, res) => res.sendFile(path.join(__dirname, 'images', 'logo.jpg')));
 app.get('/apple-touch-icon-precomposed.png', (_req, res) => res.sendFile(path.join(__dirname, 'images', 'logo.jpg')));
 
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+
+app.post('/api/save-robot-png', (req, res) => {
+  try {
+    const { openDataUrl, closedDataUrl } = req.body || {};
+    if (openDataUrl) {
+      const b64Open = openDataUrl.replace(/^data:image\/png;base64,/, '');
+      fs.writeFileSync(path.join(__dirname, 'images', 'icons8-robot-hands-512.png'), b64Open, 'base64');
+      fs.writeFileSync(path.join(__dirname, 'frontend', 'images', 'icons8-robot-hands-512.png'), b64Open, 'base64');
+    }
+    if (closedDataUrl) {
+      const b64Closed = closedDataUrl.replace(/^data:image\/png;base64,/, '');
+      fs.writeFileSync(path.join(__dirname, 'images', 'icons8-robot-hands-closed.png'), b64Closed, 'base64');
+      fs.writeFileSync(path.join(__dirname, 'frontend', 'images', 'icons8-robot-hands-closed.png'), b64Closed, 'base64');
+    }
+    console.log('[Dev Orbit] Saved icons8-robot-hands-512.png and closed version successfully!');
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Error saving robot PNG:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
 const staticOptions = { extensions: ['html'] };
 const frontendPath = path.join(__dirname, 'frontend');
 app.use(express.static(frontendPath, staticOptions));

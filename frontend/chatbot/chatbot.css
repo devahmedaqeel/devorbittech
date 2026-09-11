@@ -1,18 +1,18 @@
 /* ==========================================================================
-   DEV ORBIT AI — Masterpiece UI/UX Chatbot Design System
-   3D AI Robot Assistant Trigger (Clean, No Box) · Official Icons8 3D Fluency Robot
+   DEV ORBIT AI — World-Class UI/UX Chatbot Design System
+   Designed with Luxury Glassmorphism, 3D Fluency Robot Mascot & Pixel-Perfect Hierarchy
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --dot-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --dot-bg: #070c18;
-  --dot-window-bg: rgba(8, 14, 28, 0.94);
-  --dot-surface: rgba(15, 24, 44, 0.72);
-  --dot-surface-hover: rgba(24, 38, 68, 0.85);
+  --dot-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --dot-bg: #060b17;
+  --dot-window-bg: rgba(9, 15, 30, 0.95);
+  --dot-surface: rgba(255, 255, 255, 0.035);
+  --dot-surface-hover: rgba(255, 255, 255, 0.07);
   --dot-surface-solid: #0d172e;
-  --dot-border: rgba(0, 240, 255, 0.16);
+  --dot-border: rgba(255, 255, 255, 0.08);
   --dot-border-hover: rgba(0, 240, 255, 0.38);
   --dot-cyan: #00f0ff;
   --dot-cyan-glow: rgba(0, 240, 255, 0.35);
@@ -24,14 +24,14 @@
   --dot-text-secondary: #94a3b8;
   --dot-text-muted: #64748b;
   --dot-radius-window: 24px;
-  --dot-radius-card: 16px;
+  --dot-radius-card: 15px;
   --dot-radius-pill: 9999px;
   --dot-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --dot-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ═══════════════════════════════════════════════════════
-   FLOATING ACTION STACK
+   FLOATING ACTION STACK (RIGHT SIDE: 3D ROBOT TRIGGER)
    ═══════════════════════════════════════════════════════ */
 .dot-action-stack {
   position: fixed;
@@ -48,16 +48,27 @@
   pointer-events: auto;
 }
 
-/* WhatsApp button styling */
+/* WhatsApp button styling — Positioned on the opposite side (bottom-left) */
 body .whatsapp-float {
-  position: static !important;
+  position: fixed !important;
+  bottom: 28px !important;
+  left: 28px !important;
+  right: auto !important;
   margin: 0 !important;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35), 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+  z-index: 99990 !important;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 2px 6px rgba(0, 0, 0, 0.4) !important;
   transition: transform 0.3s var(--dot-ease-spring), box-shadow 0.3s ease !important;
 }
 body .whatsapp-float:hover {
-  transform: translateY(-2px) scale(1.03) !important;
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55) !important;
+  transform: translateY(-2px) scale(1.04) !important;
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.65) !important;
+}
+@media (max-width: 480px) {
+  body .whatsapp-float {
+    bottom: 20px !important;
+    left: 18px !important;
+    right: auto !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -89,116 +100,225 @@ body .whatsapp-float:hover {
 
 .dot-ai-robot-trigger {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 125px;
+  height: 125px;
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 700px;
+}
+
+.dot-ai-robot-mesh {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: robotOrbitCircle 5s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
 }
 
 .dot-ai-robot-trigger-img {
-  width: 70px;
-  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 125px;
+  height: 125px;
   object-fit: contain;
-  animation: robotFloatIdle 3.2s ease-in-out infinite, robotEyePulse 3.2s ease-in-out infinite;
-  transition: transform 0.32s var(--dot-ease-spring), filter 0.32s ease;
-  will-change: transform, filter;
+  /* CLEAN 3D SHADOW — ZERO GREEN BACKGROUND LIGHT */
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.65));
   pointer-events: none;
+  transition: opacity 0.08s ease-out, filter 0.3s ease;
+  will-change: opacity, filter;
 }
 
-/* Subtle Idle Floating */
-@keyframes robotFloatIdle {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+/* ═══════════════════════════════════════════════════════
+   GLOWING ROBOTIC DIGITAL EYES (VIVID BLINKING ANIMATION)
+   ═══════════════════════════════════════════════════════ */
+.dot-robot-eye {
+  position: absolute;
+  top: 35.15%;
+  width: 6.64%;
+  height: 6.64%;
+  background: linear-gradient(135deg, #00ffa8 0%, #00e575 100%);
+  border-radius: 24%;
+  box-shadow: 0 0 8px rgba(0, 255, 168, 0.95), 0 0 2px rgba(255, 255, 255, 0.9);
+  z-index: 5;
+  transform-origin: center center;
+  pointer-events: none;
+  animation: robotEyeBlinkPulse 3.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.dot-robot-eye-left {
+  left: 39.45%;
+}
+
+.dot-robot-eye-right {
+  left: 53.90%;
+}
+
+/* Clear, Recognizable Cybernetic Eye Blinking */
+@keyframes robotEyeBlinkPulse {
+  0%, 80%, 100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  83%, 86% {
+    transform: scaleY(0.08); /* Cyber blink slit */
+    opacity: 0.8;
+  }
+  88% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  91%, 93% {
+    transform: scaleY(0.08); /* Cute double blink */
+    opacity: 0.8;
+  }
+  95% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CIRCULAR 3D ORBITAL MOTION (Continuous Smooth Orbit)
+   ═══════════════════════════════════════════════════════ */
+@keyframes robotOrbitCircle {
+  0% {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+  }
+  25% {
+    transform: translate3d(8px, -7px, 14px) rotateY(6deg) rotateX(-4deg) rotateZ(2deg);
   }
   50% {
-    transform: translateY(-6px) rotate(1deg);
+    transform: translate3d(0px, -13px, 24px) rotateY(0deg) rotateX(-6deg) rotateZ(0deg);
+  }
+  75% {
+    transform: translate3d(-8px, -7px, 14px) rotateY(-6deg) rotateX(-4deg) rotateZ(-2deg);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) rotateY(0deg) rotateX(0deg) rotateZ(0deg);
   }
 }
 
-/* Subtle Eye & Body Glow Pulse */
-@keyframes robotEyePulse {
-  0%, 100% {
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 10px rgba(16, 185, 129, 0.35));
-  }
-  50% {
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 20px rgba(16, 185, 129, 0.75)) drop-shadow(0 0 8px rgba(0, 240, 255, 0.45));
-  }
-}
-
-/* Soft Shadow Below Robot */
+/* Realistic Ground Contact Shadow — Circular Orbit Synchronization */
 .dot-ai-robot-shadow {
   position: absolute;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
-  width: 46px;
-  height: 6px;
+  width: 82px;
+  height: 10px;
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.6) 0%, rgba(16, 185, 129, 0.2) 40%, transparent 75%);
-  animation: robotShadowBreath 3.2s ease-in-out infinite;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 75%);
+  animation: robotShadowOrbit 5s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes robotShadowBreath {
+@keyframes robotShadowOrbit {
   0%, 100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 0.75;
+    transform: translateX(-50%) translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.85;
+  }
+  25% {
+    transform: translateX(-50%) translate3d(5px, 0px, 0) scale(0.84);
+    opacity: 0.6;
   }
   50% {
-    transform: translateX(-50%) scale(0.72);
-    opacity: 0.3;
+    transform: translateX(-50%) translate3d(0px, 0px, 0) scale(0.66);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateX(-50%) translate3d(-5px, 0px, 0) scale(0.84);
+    opacity: 0.6;
   }
 }
 
-/* "AI Assistant" Text Directly Below Robot (No Box) */
+/* "AI Assistant" Text Directly Below Robot (Clean, High Contrast) */
 .dot-ai-trigger-label {
   font-family: var(--dot-font);
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-size: 0.94rem;
+  font-weight: 750;
   color: #ffffff;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 240, 255, 0.4);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
   white-space: nowrap;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
+  margin-top: -3px;
 }
 
-/* Hover Effect on Trigger */
-.dot-ai-launcher:hover .dot-ai-robot-trigger-img {
-  transform: translateY(-8px) scale(1.08) rotate(3deg);
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.9)) drop-shadow(0 0 14px rgba(0, 240, 255, 0.6));
+/* ═══════════════════════════════════════════════════════
+   SPRINGY 3D FLEX & BOUNCE ON MOUSE HOVER OR TOUCH ("FLEX")
+   ═══════════════════════════════════════════════════════ */
+.dot-ai-launcher:hover .dot-ai-robot-mesh,
+.dot-ai-launcher.dot-touch-active .dot-ai-robot-mesh {
+  animation: robotFlexBounce 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.dot-ai-launcher:hover .dot-ai-trigger-label {
+@keyframes robotFlexBounce {
+  0% {
+    transform: scale3d(1, 1, 1) translateY(0);
+  }
+  26% {
+    transform: scale3d(0.9, 1.22, 1.05) translateY(-18px) rotateZ(3.5deg); /* Elastic stretch upward */
+  }
+  50% {
+    transform: scale3d(1.15, 0.92, 1) translateY(-6px) rotateZ(-2.5deg); /* Spring squash */
+  }
+  74% {
+    transform: scale3d(1.04, 1.04, 1) translateY(-12px) rotateZ(1deg); /* Settle rebound */
+  }
+  100% {
+    transform: scale3d(1.12, 1.12, 1.12) translateY(-9px) rotateY(var(--robot-tilt-y, 4deg)) rotateX(var(--robot-tilt-x, -3deg));
+  }
+}
+
+.dot-ai-launcher:hover .dot-ai-robot-trigger-img,
+.dot-ai-launcher.dot-touch-active .dot-ai-robot-trigger-img {
+  filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.8));
+}
+
+.dot-ai-launcher:hover .dot-ai-trigger-label,
+.dot-ai-launcher.dot-touch-active .dot-ai-trigger-label {
   color: #00f0ff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 14px rgba(0, 240, 255, 0.8);
-  transform: translateY(-1px);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 16px rgba(0, 240, 255, 0.9);
+  transform: translateY(-3px) scale(1.08);
 }
 
-/* Click / Active Animation: Gentle spring compression */
-.dot-ai-launcher:active {
-  transform: scale(0.92);
+/* Active / Click / Tap Squeeze Compression */
+.dot-ai-launcher:active .dot-ai-robot-mesh {
+  animation: none !important;
+  transform: scale3d(0.86, 0.86, 0.86) translateY(5px) !important;
+  transition: transform 0.1s cubic-bezier(0.2, 0, 0, 1) !important;
 }
-.dot-ai-launcher:active .dot-ai-robot-trigger-img {
-  transform: translateY(2px) scale(0.95);
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 28px rgba(16, 185, 129, 1));
+.dot-ai-launcher:active .dot-ai-robot-shadow {
+  animation: none !important;
+  transform: translateX(-50%) scale(1.18) !important;
+  opacity: 0.95 !important;
 }
 
 
 /* ═══════════════════════════════════════════════════════
-   CHAT WINDOW — MASTERPIECE ELEVATION
+   CHAT WINDOW — STATE-OF-THE-ART LUXURY UI DESIGN
    ═══════════════════════════════════════════════════════ */
 .dot-ai-window {
   position: fixed;
   bottom: 96px;
   right: 24px;
-  width: 415px;
-  height: 620px;
+  width: 410px;
+  height: 630px;
   max-width: calc(100vw - 32px);
   max-height: calc(100dvh - 120px);
-  background: var(--dot-window-bg);
-  border: 1px solid var(--dot-border);
+  background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+              #070c18;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--dot-radius-window);
   overflow: hidden;
   display: flex;
@@ -206,40 +326,15 @@ body .whatsapp-float:hover {
   z-index: 99999;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20px) scale(0.95);
+  transform: translateY(20px) scale(0.96);
   transition: opacity 0.32s var(--dot-ease-spring), transform 0.32s var(--dot-ease-spring);
   box-shadow:
-    0 30px 85px -15px rgba(0, 0, 0, 0.9),
-    0 0 45px -8px rgba(0, 240, 255, 0.16),
-    inset 0 1px 1px rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(32px) saturate(200%);
-  -webkit-backdrop-filter: blur(32px);
+    0 32px 80px -16px rgba(0, 0, 0, 0.9),
+    0 0 40px -10px rgba(0, 240, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(36px) saturate(190%);
+  -webkit-backdrop-filter: blur(36px);
   font-family: var(--dot-font);
-}
-
-.dot-ai-window::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-.dot-ai-window::after {
-  content: '';
-  position: absolute;
-  bottom: -60px;
-  left: -60px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .dot-ai-window.dot-open {
@@ -248,14 +343,13 @@ body .whatsapp-float:hover {
   transform: translateY(0) scale(1);
 }
 
-
 /* ═══════════════════════════════════════════════════════
    WINDOW HEADER
    ═══════════════════════════════════════════════════════ */
 .dot-ai-header {
-  padding: 16px 18px;
-  background: rgba(13, 22, 42, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 18px;
+  background: rgba(11, 19, 38, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -272,7 +366,7 @@ body .whatsapp-float:hover {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.45) 30%, rgba(139, 92, 246, 0.4) 70%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.35) 30%, rgba(139, 92, 246, 0.35) 70%, transparent 100%);
   pointer-events: none;
 }
 
@@ -284,28 +378,24 @@ body .whatsapp-float:hover {
 
 .dot-ai-header-avatar {
   position: relative;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.12), rgba(139, 92, 246, 0.1));
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 0 16px rgba(0, 240, 255, 0.18);
+}
+
+.dot-ai-header-avatar:hover .dot-ai-robot-mini {
+  transform: translateY(-2px) scale(1.08);
 }
 
 .dot-ai-header-online {
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--dot-emerald);
-  border: 2px solid #070c18;
-  box-shadow: 0 0 6px var(--dot-emerald);
+  display: none !important;
 }
 
 .dot-ai-header-info {
@@ -321,20 +411,20 @@ body .whatsapp-float:hover {
 
 .dot-ai-header-info h3 {
   margin: 0;
-  font-size: 0.96rem;
-  font-weight: 750;
+  font-size: 0.95rem;
+  font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .dot-ai-tag {
-  font-size: 0.62rem;
+  font-size: 0.60rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   padding: 2px 7px;
   border-radius: var(--dot-radius-pill);
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(139, 92, 246, 0.25));
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.3);
   color: var(--dot-cyan);
   text-transform: uppercase;
 }
@@ -346,15 +436,22 @@ body .whatsapp-float:hover {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-weight: 450;
 }
 
 .dot-ai-status-indicator {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--dot-emerald);
+  background: #10b981;
   display: inline-block;
-  box-shadow: 0 0 6px var(--dot-emerald);
+  box-shadow: 0 0 6px #10b981;
+  animation: liveStatusPulse 2.2s infinite;
+}
+
+@keyframes liveStatusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
 }
 
 .dot-ai-header-actions {
@@ -366,35 +463,49 @@ body .whatsapp-float:hover {
 .dot-ai-hdr-btn {
   width: 32px;
   height: 32px;
-  border-radius: 9px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--dot-text-secondary);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
+  outline: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  user-select: none;
 }
 .dot-ai-hdr-btn svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.25s ease;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  pointer-events: none;
 }
 .dot-ai-hdr-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.14);
   color: #ffffff;
-  border-color: rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-1px) scale(1.06);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 10px rgba(0, 240, 255, 0.2);
 }
-.dot-ai-hdr-btn:hover svg {
-  transform: scale(1.1);
+.dot-ai-hdr-btn:active {
+  transform: scale(0.92);
 }
 .dot-ai-hdr-btn#dotAiClearBtn:hover svg {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
+  color: #00f0ff;
+}
+.dot-ai-hdr-close:hover {
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 10px rgba(239, 68, 68, 0.25) !important;
 }
 .dot-ai-hdr-close:hover svg {
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.05);
+  color: #f87171 !important;
 }
 
 
@@ -404,7 +515,7 @@ body .whatsapp-float:hover {
 .dot-ai-body {
   flex: 1;
   overflow-y: auto;
-  padding: 20px 18px;
+  padding: 18px 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -425,14 +536,14 @@ body .whatsapp-float:hover {
 
 
 /* ═══════════════════════════════════════════════════════
-   HERO WELCOME VIEW (3D FLUENCY ROBOT + BENTO CARDS)
+   HERO WELCOME VIEW (3D FLUENCY ROBOT + LUXURY BENTO)
    ═══════════════════════════════════════════════════════ */
 .dot-ai-welcome {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 4px 0 8px;
+  padding: 2px 0 6px;
   animation: welcomeFadeIn 0.4s var(--dot-ease-spring);
 }
 @keyframes welcomeFadeIn {
@@ -442,19 +553,44 @@ body .whatsapp-float:hover {
 
 .dot-ai-robot-hero {
   position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 10px;
+  width: 90px;
+  height: 90px;
+  margin: 4px auto 12px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.dot-ai-robot-hero .dot-ai-robot-img {
-  width: 80px;
-  height: 80px;
+.dot-ai-robot-hero .dot-ai-robot-mesh {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   animation: robotHeroFloat 3.4s ease-in-out infinite;
-  filter: drop-shadow(0 6px 18px rgba(0, 240, 255, 0.4)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.5)) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
+}
+
+.dot-ai-robot-hero .dot-ai-robot-img {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.65));
+  transition: opacity 0.08s ease-out;
+}
+
+.dot-ai-robot-hero .dot-robot-eyes-open {
+  opacity: 1;
+  z-index: 2;
+}
+
+.dot-ai-robot-hero .dot-robot-eyes-closed {
+  opacity: 0;
+  z-index: 3;
+  animation: robotAutoBlink 4.2s ease-in-out infinite;
 }
 
 @keyframes robotHeroFloat {
@@ -462,62 +598,51 @@ body .whatsapp-float:hover {
     transform: translateY(0) scale(1) rotate(0deg);
   }
   50% {
-    transform: translateY(-6px) scale(1.04) rotate(-2deg);
+    transform: translateY(-5px) scale(1.03) rotate(-1.5deg);
   }
 }
 
 .dot-ai-robot-hero .dot-ai-robot-shadow {
-  bottom: -8px;
-  width: 58px;
-  height: 10px;
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 45%, transparent 80%);
   animation: robotShadowPulse 3.4s ease-in-out infinite;
 }
 
 @keyframes robotShadowPulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(0.68); opacity: 0.35; }
-}
-
-.dot-ai-robot-platform {
-  position: absolute;
-  bottom: -12px;
-  width: 68px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(16, 185, 129, 0.45);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.45), 0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(16, 185, 129, 0.25);
-  transform: rotateX(68deg);
-  pointer-events: none;
-  animation: platformRotate 8s linear infinite;
-}
-
-@keyframes platformRotate {
-  0%   { transform: rotateX(68deg) rotateZ(0deg); }
-  100% { transform: rotateX(68deg) rotateZ(360deg); }
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  50% { transform: translateX(-50%) scale(0.7); opacity: 0.35; }
 }
 
 .dot-ai-robot-mini {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .dot-ai-robot-mini .dot-ai-robot-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: robotFloatIdle 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .dot-ai-w-greeting {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.25rem;
+  font-weight: 750;
   color: #ffffff;
-  margin: 6px 0 6px;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 40%, #a5f3fc 100%);
+  margin: 4px 0 6px;
+  letter-spacing: -0.025em;
+  background: linear-gradient(180deg, #ffffff 30%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -525,22 +650,22 @@ body .whatsapp-float:hover {
 .dot-ai-w-intro {
   font-size: 0.82rem;
   color: var(--dot-text-secondary);
-  line-height: 1.45;
-  margin: 0 0 12px;
-  max-width: 320px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  max-width: 310px;
 }
 .dot-ai-w-intro strong {
   color: var(--dot-cyan);
   font-weight: 600;
 }
 
-/* 2x2 Bento Service Cards Grid */
+/* 2x2 Bento Service Cards Grid — Ultra Clean */
 .dot-ai-bento-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 9px;
+  margin-bottom: 14px;
 }
 
 .dot-ai-bento-card {
@@ -548,37 +673,25 @@ body .whatsapp-float:hover {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 10px 11px;
-  background: var(--dot-surface);
-  border: 1px solid var(--dot-border);
+  padding: 12px 13px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--dot-radius-card);
   cursor: pointer;
-  transition: all 0.26s var(--dot-ease-spring);
+  transition: all 0.25s var(--dot-ease-spring);
   color: var(--dot-text);
   font-family: var(--dot-font);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-
-.dot-ai-bento-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .dot-ai-bento-card:hover {
-  background: var(--dot-surface-hover);
-  border-color: var(--dot-border-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 20px -4px rgba(0, 240, 255, 0.2);
-}
-.dot-ai-bento-card:hover::before {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateY(-2.5px);
+  box-shadow: 0 12px 26px -6px rgba(0, 0, 0, 0.5), 0 0 24px -4px rgba(0, 240, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 .dot-ai-bento-card:active {
   transform: translateY(0) scale(0.98);
@@ -588,8 +701,8 @@ body .whatsapp-float:hover {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(59, 130, 246, 0.1));
-  border: 1px solid rgba(0, 240, 255, 0.22);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.16) 0%, rgba(99, 102, 241, 0.14) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.26);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -597,12 +710,12 @@ body .whatsapp-float:hover {
   font-size: 0.88rem;
   margin-bottom: 9px;
   transition: all 0.25s ease;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
 }
 .dot-ai-bento-card:hover .dot-ai-bento-icon {
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(59, 130, 246, 0.2));
-  transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.26) 0%, rgba(99, 102, 241, 0.22) 100%);
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.35);
 }
 
 .dot-ai-bento-content {
@@ -613,23 +726,23 @@ body .whatsapp-float:hover {
 }
 
 .dot-ai-bento-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 650;
+  color: #f8fafc;
   letter-spacing: -0.01em;
 }
 
 .dot-ai-bento-desc {
-  font-size: 0.68rem;
+  font-size: 0.70rem;
   color: var(--dot-text-secondary);
   line-height: 1.35;
 }
 
 .dot-ai-bento-arrow {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 0.85rem;
+  top: 12px;
+  right: 12px;
+  font-size: 0.82rem;
   color: var(--dot-cyan);
   opacity: 0;
   transform: translateX(-4px);
@@ -640,7 +753,7 @@ body .whatsapp-float:hover {
   transform: translateX(0);
 }
 
-/* Quick Action Chips */
+/* Quick Action Chips — Clean Pills */
 .dot-ai-quick-chips {
   display: flex;
   flex-wrap: wrap;
@@ -651,19 +764,20 @@ body .whatsapp-float:hover {
 
 .dot-ai-chip {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--dot-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
   border-radius: var(--dot-radius-pill);
   padding: 6px 13px;
   font-size: 0.74rem;
   font-family: var(--dot-font);
-  font-weight: 600;
+  font-weight: 550;
   cursor: pointer;
   transition: all 0.2s var(--dot-ease-spring);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 .dot-ai-chip i {
   font-size: 0.72rem;
@@ -673,7 +787,8 @@ body .whatsapp-float:hover {
   background: rgba(0, 240, 255, 0.1);
   border-color: rgba(0, 240, 255, 0.35);
   color: #ffffff;
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(0, 240, 255, 0.18);
 }
 
 
@@ -683,7 +798,7 @@ body .whatsapp-float:hover {
 .dot-msg {
   display: flex;
   gap: 10px;
-  max-width: 88%;
+  max-width: 90%;
   animation: msgBubbleIn 0.28s var(--dot-ease-spring);
 }
 @keyframes msgBubbleIn {
@@ -700,8 +815,8 @@ body .whatsapp-float:hover {
 }
 
 .dot-msg-avatar {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -710,10 +825,15 @@ body .whatsapp-float:hover {
   margin-top: 2px;
 }
 .dot-msg.bot .dot-msg-avatar {
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.22);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
-  padding: 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+.dot-msg.bot .dot-msg-avatar .dot-ai-robot-mini {
+  width: 28px;
+  height: 28px;
 }
 .dot-msg.user .dot-msg-avatar {
   background: linear-gradient(135deg, #0284c7, #4f46e5);
@@ -721,8 +841,8 @@ body .whatsapp-float:hover {
   border-radius: 50%;
 }
 .dot-msg.user .dot-msg-avatar svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   fill: #ffffff;
 }
 
@@ -730,18 +850,19 @@ body .whatsapp-float:hover {
   padding: 12px 16px;
   border-radius: 18px;
   font-size: 0.86rem;
-  line-height: 1.6;
+  line-height: 1.62;
   word-break: break-word;
   font-family: var(--dot-font);
   position: relative;
 }
 
 .dot-msg.bot .dot-msg-content {
-  background: rgba(14, 23, 44, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: var(--dot-text);
+  background: rgba(14, 23, 44, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
   border-top-left-radius: 4px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(14px);
 }
 .dot-msg.bot .dot-msg-content strong {
   color: var(--dot-cyan);
@@ -754,6 +875,7 @@ body .whatsapp-float:hover {
   border-top-right-radius: 4px;
   border: none;
   box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  font-weight: 500;
 }
 
 
@@ -773,79 +895,82 @@ body .whatsapp-float:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
 }
+
 .dot-ai-summary-title {
-  font-size: 0.82rem;
-  font-weight: 800;
-  color: var(--dot-cyan);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 .dot-ai-summary-title i {
-  font-size: 0.9rem;
+  color: var(--dot-cyan);
 }
 
 .dot-ai-summary-table {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-bottom: 14px;
 }
 
 .dot-ai-summary-row {
   display: flex;
-  font-size: 0.8rem;
-  line-height: 1.45;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+  padding-bottom: 5px;
 }
+
 .dot-ai-summary-label {
-  width: 95px;
-  flex-shrink: 0;
-  color: var(--dot-text-muted);
-  font-weight: 600;
-}
-.dot-ai-summary-val {
-  color: var(--dot-text);
+  color: var(--dot-text-secondary);
   font-weight: 500;
+}
+
+.dot-ai-summary-val {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: right;
+  max-width: 60%;
 }
 
 .dot-ai-summary-actions {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 14px;
 }
 
 .dot-ai-action-btn {
-  padding: 10px 14px;
+  width: 100%;
+  padding: 9px 14px;
   border-radius: 10px;
+  font-size: 0.80rem;
   font-family: var(--dot-font);
-  font-weight: 700;
-  font-size: 0.82rem;
-  text-align: center;
-  text-decoration: none;
+  font-weight: 650;
   cursor: pointer;
-  transition: all 0.2s var(--dot-ease-spring);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: all 0.22s var(--dot-ease-spring);
+  text-decoration: none;
   border: none;
 }
+
 .dot-ai-action-btn.primary {
   background: linear-gradient(135deg, var(--dot-cyan), #007aff);
   color: #030712;
   box-shadow: 0 4px 14px rgba(0, 240, 255, 0.35);
 }
 .dot-ai-action-btn.primary:hover {
-  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
   transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
 }
 
 .dot-ai-action-btn.whatsapp {
@@ -854,8 +979,7 @@ body .whatsapp-float:hover {
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
 }
 .dot-ai-action-btn.whatsapp:hover {
-  background: #20c45a;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  background: #20ba5a;
   transform: translateY(-1px);
 }
 
@@ -878,7 +1002,7 @@ body .whatsapp-float:hover {
   align-items: center;
   gap: 6px;
   padding: 12px 18px;
-  background: rgba(14, 23, 44, 0.88);
+  background: rgba(14, 23, 44, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   border-top-left-radius: 4px;
@@ -898,17 +1022,17 @@ body .whatsapp-float:hover {
 
 @keyframes typingBounce {
   0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-6px); opacity: 1; }
+  30% { transform: translateY(-5px); opacity: 1; }
 }
 
 
 /* ═══════════════════════════════════════════════════════
-   INPUT DOCK & FOOTER
+   INPUT DOCK & FOOTER (LUXURY CAPSULE)
    ═══════════════════════════════════════════════════════ */
 .dot-ai-footer {
   padding: 12px 16px 14px;
-  background: rgba(13, 22, 42, 0.9);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(11, 19, 38, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   flex-shrink: 0;
   position: relative;
   z-index: 10;
@@ -920,22 +1044,24 @@ body .whatsapp-float:hover {
   align-items: flex-end;
   gap: 10px;
   background: rgba(7, 12, 24, 0.95);
-  border: 1px solid var(--dot-border);
-  border-radius: 16px;
-  padding: 6px 6px 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 6px 7px 6px 14px;
   transition: all 0.25s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 .dot-ai-input-wrapper:focus-within {
   border-color: rgba(0, 240, 255, 0.45);
-  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.12), 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.12), 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .dot-ai-sparkle-icon {
-  font-size: 1rem;
-  margin-bottom: 8px;
-  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 9px;
   user-select: none;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.5));
 }
 
 .dot-ai-textarea {
@@ -959,35 +1085,35 @@ body .whatsapp-float:hover {
 .dot-ai-send-btn {
   width: 36px;
   height: 36px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--dot-cyan), #007aff);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f0ff 0%, #0284c7 100%);
   border: none;
-  color: #030712;
+  color: #020617;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.22s var(--dot-ease-spring);
-  box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 240, 255, 0.38);
 }
 .dot-ai-send-btn svg {
   width: 17px;
   height: 17px;
-  stroke: #030712;
+  stroke: #020617;
   stroke-width: 2.4;
   fill: none;
   transition: transform 0.2s ease;
 }
 .dot-ai-send-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 16px rgba(0, 240, 255, 0.5);
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(0, 240, 255, 0.55);
 }
 .dot-ai-send-btn:hover svg {
   transform: translateX(1px);
 }
 .dot-ai-send-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.94);
 }
 .dot-ai-send-btn:disabled {
   opacity: 0.35;
@@ -1001,10 +1127,20 @@ body .whatsapp-float:hover {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: 6px;
-  font-size: 0.65rem;
+  margin-top: 7px;
+  font-size: 0.68rem;
   color: var(--dot-text-muted);
   letter-spacing: 0.02em;
+}
+
+.dot-live-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 6px #10b981;
+  animation: liveStatusPulse 2s infinite;
 }
 
 
@@ -1017,16 +1153,21 @@ body .whatsapp-float:hover {
     right: 16px;
     gap: 10px;
   }
-  .dot-ai-robot-trigger {
-    width: 60px;
-    height: 60px;
+  .dot-ai-robot-trigger,
+  .dot-ai-robot-mesh {
+    width: 96px;
+    height: 96px;
   }
   .dot-ai-robot-trigger-img {
-    width: 60px;
-    height: 60px;
+    width: 96px;
+    height: 96px;
+  }
+  .dot-ai-robot-shadow {
+    width: 64px;
+    height: 8px;
   }
   .dot-ai-trigger-label {
-    font-size: 0.68rem;
+    font-size: 0.84rem;
   }
 
   .dot-ai-window {
