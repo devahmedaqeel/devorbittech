@@ -1,7 +1,32 @@
+# Dev Orbit Tech — Robots.txt
+# https://devorbittech.org/
+
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /.netlify/
+
+# AI Search and Assistant Bots (White-hat search discovery & GEO)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://devorbittech.org/sitemap.xml
 Sitemap: https://devorbittech.org/images-sitemap.xml

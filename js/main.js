@@ -451,12 +451,22 @@ document.addEventListener('DOMContentLoaded', () => {
         ? `Other: ${otherInput.value.trim()}`
         : serviceSelect.value;
 
+      const company = document.getElementById('f-company') ? document.getElementById('f-company').value.trim() : '';
+      const country = document.getElementById('f-country') ? document.getElementById('f-country').value.trim() : '';
+      const budget  = document.getElementById('f-budget') ? document.getElementById('f-budget').value.trim() : '';
+      const timeline= document.getElementById('f-timeline') ? document.getElementById('f-timeline').value.trim() : '';
+
       const payload = {
-        name:    document.getElementById('f-name').value.trim(),
-        email:   document.getElementById('f-email').value.trim(),
-        phone:   document.getElementById('f-phone').value.trim(),
+        name:       document.getElementById('f-name').value.trim(),
+        email:      document.getElementById('f-email').value.trim(),
+        phone:      document.getElementById('f-phone').value.trim(),
+        company,
+        country,
+        budget,
+        timeline,
         service,
-        message: document.getElementById('f-message').value.trim(),
+        message:    document.getElementById('f-message').value.trim(),
+        website_hp: document.getElementById('f-website-hp') ? document.getElementById('f-website-hp').value.trim() : '',
       };
 
       submitBtn.disabled      = true;
@@ -485,8 +495,14 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Contact Form Server Fallback:', err);
         // Fallback: Show success popup + launch pre-filled WhatsApp chat
         showSuccessPopup();
+        let detailLines = '';
+        if (payload.company)  detailLines += `\nCompany: ${payload.company}`;
+        if (payload.country)  detailLines += `\nCountry: ${payload.country}`;
+        if (payload.budget)   detailLines += `\nBudget: ${payload.budget}`;
+        if (payload.timeline) detailLines += `\nTimeline: ${payload.timeline}`;
+
         const waText = encodeURIComponent(
-          `Hello Dev Orbit Tech! My name is ${payload.name}.\nEmail: ${payload.email}\nPhone: ${payload.phone || 'N/A'}\nService Needed: ${payload.service}\nMessage: ${payload.message}`
+          `Hello Dev Orbit Tech! My name is ${payload.name}.\nEmail: ${payload.email}\nPhone: ${payload.phone || 'N/A'}${detailLines}\nService Needed: ${payload.service}\nMessage: ${payload.message}`
         );
         window.open(`https://wa.me/923161893004?text=${waText}`, '_blank');
         form.reset();

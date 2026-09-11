@@ -21,7 +21,8 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed.' });
 
-  const { name, email, phone, service, message } = req.body || {};
+  const { name, email, phone, service, message, website_hp, company, country, budget, timeline } = req.body || {};
+  if (website_hp) return res.json({ success: true });
 
   const errors = [];
   if (!name    || name.trim().length < 2)                              errors.push('Name must be at least 2 characters.');
@@ -47,6 +48,10 @@ module.exports = async (req, res) => {
   const senderName    = esc(name.trim());
   const senderEmail   = esc(email.trim().toLowerCase());
   const senderPhone   = phone ? esc(phone.trim()) : 'Not provided';
+  const senderCompany = company ? esc(company.trim()) : 'Not provided';
+  const senderCountry = country ? esc(country.trim()) : 'Not provided';
+  const senderBudget  = budget ? esc(budget.trim()) : 'Not specified';
+  const senderTimeline= timeline ? esc(timeline.trim()) : 'Not specified';
   const senderService = esc(service.trim());
   const senderMessage = esc(message.trim());
 
@@ -71,6 +76,10 @@ module.exports = async (req, res) => {
         <tr style="background:#f9fafb;"><td style="padding:14px 18px;width:130px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Name</td><td style="padding:14px 18px;color:#111827;font-size:15px;font-weight:500;border-bottom:1px solid #e5e7eb;">${senderName}</td></tr>
         <tr><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Email</td><td style="padding:14px 18px;border-bottom:1px solid #e5e7eb;"><a href="mailto:${senderEmail}" style="color:#1d8cf8;font-size:15px;text-decoration:none;">${senderEmail}</a></td></tr>
         <tr style="background:#f9fafb;"><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Phone</td><td style="padding:14px 18px;color:#111827;font-size:15px;border-bottom:1px solid #e5e7eb;">${senderPhone}</td></tr>
+        <tr><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Company</td><td style="padding:14px 18px;color:#111827;font-size:15px;border-bottom:1px solid #e5e7eb;">${senderCompany}</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Country</td><td style="padding:14px 18px;color:#111827;font-size:15px;border-bottom:1px solid #e5e7eb;">${senderCountry}</td></tr>
+        <tr><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Budget</td><td style="padding:14px 18px;color:#111827;font-size:15px;border-bottom:1px solid #e5e7eb;">${senderBudget}</td></tr>
+        <tr style="background:#f9fafb;"><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Timeline</td><td style="padding:14px 18px;color:#111827;font-size:15px;border-bottom:1px solid #e5e7eb;">${senderTimeline}</td></tr>
         <tr><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Service</td><td style="padding:14px 18px;border-bottom:1px solid #e5e7eb;"><span style="background:#eff6ff;color:#1d4ed8;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;">${senderService}</span></td></tr>
         <tr style="background:#f9fafb;"><td style="padding:14px 18px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e5e7eb;">Submitted</td><td style="padding:14px 18px;color:#111827;font-size:14px;border-bottom:1px solid #e5e7eb;">${submittedAt}</td></tr>
         <tr><td colspan="2" style="padding:18px 18px 20px;"><p style="margin:0 0 10px;color:#6b7280;font-size:12px;font-weight:700;text-transform:uppercase;">Message</p><div style="background:#f8fafc;border-left:4px solid #1d8cf8;border-radius:4px;padding:16px;color:#374151;font-size:15px;line-height:1.7;white-space:pre-wrap;">${senderMessage}</div></td></tr>
@@ -95,6 +104,10 @@ module.exports = async (req, res) => {
     `Name     : ${name.trim()}`,
     `Email    : ${email.trim()}`,
     `Phone    : ${phone ? phone.trim() : 'Not provided'}`,
+    `Company  : ${company ? company.trim() : 'Not provided'}`,
+    `Country  : ${country ? country.trim() : 'Not provided'}`,
+    `Budget   : ${budget ? budget.trim() : 'Not specified'}`,
+    `Timeline : ${timeline ? timeline.trim() : 'Not specified'}`,
     `Service  : ${service.trim()}`,
     `Submitted: ${submittedAt}`,
     '',

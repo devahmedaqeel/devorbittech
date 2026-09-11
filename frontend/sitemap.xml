@@ -1,51 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Company Pages -->
   <url>
     <loc>https://devorbittech.org/</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://devorbittech.org/#about</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://devorbittech.org/about</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://devorbittech.org/#services</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://devorbittech.org/global-software-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/case-studies</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devorbittech.org/#projects</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://devorbittech.org/blog</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Dedicated Service Pages -->
+  <url>
+    <loc>https://devorbittech.org/services/web-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/mobile-app-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/custom-software-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/ai-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/ai-automation</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/saas-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/flutter-app-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/react-native-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/web-application-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/services/ui-ux-design</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <!-- Technical Blog Articles -->
   <url>
-    <loc>https://devorbittech.org/#team</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://devorbittech.org/blog/how-much-does-mobile-app-development-cost</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devorbittech.org/#reviews</loc>
-    <lastmod>2026-07-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://devorbittech.org/#contact</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://devorbittech.org/blog/flutter-vs-react-native</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://devorbittech.org/#faq</loc>
-    <lastmod>2026-07-22</lastmod>
+    <loc>https://devorbittech.org/blog/how-to-choose-a-web-development-company</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-build-a-saas-application</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-ai-automation-can-help-businesses</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/custom-software-vs-off-the-shelf-software</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-choose-a-technology-stack</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-long-does-it-take-to-develop-a-mobile-app</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-validate-a-startup-idea-before-development</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-plan-a-software-development-project</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-reduce-software-development-risk</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devorbittech.org/blog/how-to-choose-between-a-web-app-and-mobile-app</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

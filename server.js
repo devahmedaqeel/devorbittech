@@ -64,9 +64,10 @@ app.get('/apple-touch-icon.png', (_req, res) => res.sendFile(path.join(__dirname
 app.get('/apple-touch-icon-precomposed.png', (_req, res) => res.sendFile(path.join(__dirname, 'images', 'logo.jpg')));
 
 app.use(express.json());
+const staticOptions = { extensions: ['html'] };
 const frontendPath = path.join(__dirname, 'frontend');
-app.use(express.static(frontendPath));
-app.use(express.static(__dirname)); 
+app.use(express.static(frontendPath, staticOptions));
+app.use(express.static(__dirname, staticOptions)); 
 
 function esc(str) {
   if (!str) return '';
@@ -78,7 +79,13 @@ function formatDateTime() {
 }
 
 const handleContactSubmit = async (req, res) => {
-  const { name, email, phone, service, message } = req.body || {};
+  const { name, email, phone, service, message, website_hp, company, country, budget, timeline } = req.body || {};
+
+  // Honeypot spam protection: bots fill hidden fields, humans do not
+  if (website_hp) {
+    console.log('[spam-blocked] Honeypot triggered');
+    return res.json({ success: true });
+  }
 
   const errors = [];
   if (!name    || name.trim().length < 2)                            errors.push('Name must be at least 2 characters.');
@@ -107,8 +114,8 @@ const handleContactSubmit = async (req, res) => {
       to:      ADMIN_EMAIL,
       replyTo: `"${name.trim()}" <${email.trim().toLowerCase()}>`,
       subject: `📬 New Inquiry: ${service.trim()} — ${name.trim()}`,
-      text:    `Name: ${name.trim()}\nEmail: ${email.trim()}\nPhone: ${phone || 'Not provided'}\nService: ${service.trim()}\nSubmitted: ${submittedAt}\n\n${message.trim()}`,
-      html:    `<p><b>Name:</b> ${esc(name)}</p><p><b>Email:</b> ${esc(email)}</p><p><b>Phone:</b> ${phone ? esc(phone) : 'Not provided'}</p><p><b>Service:</b> ${esc(service)}</p><p><b>Time:</b> ${submittedAt}</p><p><b>Message:</b><br/>${esc(message)}</p>`,
+      text:    `Name: ${name.trim()}\nEmail: ${email.trim()}\nPhone: ${phone || 'Not provided'}\nCompany: ${company || 'Not provided'}\nCountry: ${country || 'Not provided'}\nBudget: ${budget || 'Not specified'}\nTimeline: ${timeline || 'Not specified'}\nService: ${service.trim()}\nSubmitted: ${submittedAt}\n\n${message.trim()}`,
+      html:    `<p><b>Name:</b> ${esc(name)}</p><p><b>Email:</b> ${esc(email)}</p><p><b>Phone:</b> ${phone ? esc(phone) : 'Not provided'}</p><p><b>Company:</b> ${company ? esc(company) : 'Not provided'}</p><p><b>Country/Location:</b> ${country ? esc(country) : 'Not provided'}</p><p><b>Estimated Budget:</b> ${budget ? esc(budget) : 'Not specified'}</p><p><b>Timeline:</b> ${timeline ? esc(timeline) : 'Not specified'}</p><p><b>Service:</b> ${esc(service)}</p><p><b>Time:</b> ${submittedAt}</p><p><b>Message:</b><br/>${esc(message)}</p>`,
     });
     console.log(`[submit-contact] Sent: ${info.messageId}`);
 
