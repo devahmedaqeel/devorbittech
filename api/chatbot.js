@@ -110,7 +110,7 @@ Conversation State: ${JSON.stringify(state || {})}
 
 Task: Provide an accurate, direct, professional answer grounded 100% in Dev Orbit Tech's verified facts above. Guide the user toward defining their project or reaching out via WhatsApp (+92 316 1893004) or the contact form.
 `;
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
+      let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -119,6 +119,17 @@ Task: Provide an accurate, direct, professional answer grounded 100% in Dev Orbi
           ]
         })
       });
+      if (!response.ok) {
+        response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${geminiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [
+              { role: 'user', parts: [{ text: knowledgeContext + '\n' + systemInstruction }] }
+            ]
+          })
+        });
+      }
       if (response.ok) {
         const geminiData = await response.json();
         const text = geminiData.candidates?.[0]?.content?.parts?.[0]?.text;
