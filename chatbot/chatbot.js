@@ -142,10 +142,10 @@
         </div>
         <div class="dot-ai-header-controls">
           <button class="dot-ai-btn-ctrl" id="dotAiClearBtn" title="Clear Conversation" aria-label="Clear Conversation">
-            <i class="fas fa-trash-alt"></i>
+            <svg viewBox="0 0 24 24"><path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2m-6 5v6m4-6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <button class="dot-ai-btn-ctrl" id="dotAiCloseBtn" title="Close Chat" aria-label="Close Chat">
-            <i class="fas fa-times"></i>
+            <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
@@ -179,7 +179,10 @@
           <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask in English, Roman Urdu, or Urdu..." rows="1" aria-label="Type your message"></textarea>
         </div>
         <button class="dot-ai-send-btn" id="dotAiSendBtn" aria-label="Send Message">
-          <i class="fas fa-paper-plane"></i>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#050a14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
         </button>
       </div>
     `;
@@ -244,7 +247,8 @@
     const msgEl = document.createElement('div');
     msgEl.className = `dot-msg ${role}`;
 
-    const avatar = role === 'bot' ? ORBIT_AI_ICON_SVG : '<i class="fas fa-user"></i>';
+    const userSvg = `<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>`;
+    const avatar = role === 'bot' ? ORBIT_AI_ICON_SVG : userSvg;
 
     msgEl.innerHTML = `
       <div class="dot-msg-avatar">${avatar}</div>
@@ -433,6 +437,36 @@
   // Local RAG & Discovery Engine (Trained for 100% Accuracy)
   function generateLocalRAGResponse(userText, lang) {
     const lower = userText.toLowerCase().trim();
+
+    // Intent Trigger: Website Project Initiation (handles typos e.g. "i build websote", "need website", "website banwani hai")
+    if (lower.includes('website') || lower.includes('websote') || lower.includes('web site') || lower.includes('web development') || lower.includes('site banani')) {
+      if (conversationState.stage !== 'discovering') {
+        conversationState.stage = 'discovering';
+        conversationState.project.type = 'Business / Company Website';
+        if (lang === 'roman_urdu') {
+          return { reply: "Zabardast! Ek high-performance aur modern website business ke liye bohot zaroori hai. Yeh website kis company ya business ke liye banwani hai?" };
+        }
+        if (lang === 'urdu') {
+          return { reply: "بہترین! ایک جدید اور تیز رفتار ویب سائٹ کاروبار کی پہچان کے لیے لازمی ہے۔ یہ ویب سائٹ کس کمپنی یا کاروبار کے لیے بنوانی ہے؟" };
+        }
+        return { reply: "Awesome! A tailored, high-performance website is essential for building authority and driving leads. What type of business or company is this website for?" };
+      }
+    }
+
+    // Intent Trigger: Mobile App Initiation
+    if (lower.includes('mobile app') || lower.includes('app idea') || lower.includes('android app') || lower.includes('ios app') || lower.includes('app banani')) {
+      if (conversationState.stage !== 'discovering') {
+        conversationState.stage = 'discovering';
+        conversationState.project.type = 'Mobile Application (Flutter / React Native)';
+        if (lang === 'roman_urdu') {
+          return { reply: "Bohot khoob! Hum Flutter aur React Native ke zariye iOS aur Android apps banate hain. Aapki mobile app ka basic maqsad ya idea kya hai?" };
+        }
+        if (lang === 'urdu') {
+          return { reply: "بہترین! ہم آئی او ایس اور اینڈرائیڈ دونوں کے لیے تیز رفتار موبائل ایپس بناتے ہیں۔ آپ کی ایپ کا بنیادی مقصد کیا ہے؟" };
+        }
+        return { reply: "Great choice! We develop high-speed Flutter and React Native apps for iOS & Android. What core problem will your application solve?" };
+      }
+    }
 
     // Tier 1: Exact / Best Keyword Match against FAQs
     if (faqsData) {
