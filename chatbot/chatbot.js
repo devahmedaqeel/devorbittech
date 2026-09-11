@@ -1,7 +1,12 @@
 /**
  * DEV ORBIT AI — Comprehensive Conversational Engine & Knowledge Client
- * Understands English, Roman Urdu, Urdu. Manages context, discovery flows,
- * structured summaries, pre-filling contact form and WhatsApp formatting.
+ * Features:
+ * - Official Icons8 3D Fluency Robot Mascot with smooth floating animation & glowing platform
+ * - Ultra-sleek branded floating launcher pill with radar pulse & live status
+ * - 2x2 Bento service card track selector
+ * - Fast multi-lingual NLP (English, Roman Urdu, Urdu)
+ * - Gemini API integration with local verified RAG fallback
+ * - Auto-transfer to contact form & formatted WhatsApp handoff
  */
 
 (function () {
@@ -30,33 +35,58 @@
     history: []
   };
 
-  // SVG Custom Orbit Icon
-  const ORBIT_AI_ICON_SVG = `
-    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="44" stroke="rgba(0, 240, 255, 0.3)" stroke-width="2" stroke-dasharray="4 4"/>
-      <ellipse cx="50" cy="50" rx="38" ry="16" stroke="url(#orbitGrad1)" stroke-width="2.5" transform="rotate(-25 50 50)"/>
-      <ellipse cx="50" cy="50" rx="38" ry="16" stroke="url(#orbitGrad2)" stroke-width="2.5" transform="rotate(35 50 50)"/>
-      <circle cx="50" cy="50" r="14" fill="url(#coreGrad)" filter="drop-shadow(0 0 8px #00f0ff)"/>
-      <circle cx="50" cy="50" r="6" fill="#ffffff"/>
-      <circle cx="20" cy="38" r="3" fill="#00f0ff"/>
-      <circle cx="80" cy="62" r="3" fill="#8b5cf6"/>
-      <defs>
-        <linearGradient id="orbitGrad1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#00f0ff"/>
-          <stop offset="1" stop-color="#007aff"/>
-        </linearGradient>
-        <linearGradient id="orbitGrad2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#8b5cf6"/>
-          <stop offset="1" stop-color="#00f0ff"/>
-        </linearGradient>
-        <radialGradient id="coreGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(50 50) scale(14)">
-          <stop stop-color="#00f0ff"/>
-          <stop offset="0.7" stop-color="#007aff"/>
-          <stop offset="1" stop-color="#050a14"/>
-        </radialGradient>
-      </defs>
-    </svg>
-  `;
+  // 3D Fluency Robot Mascot HTML Generator (Official Icons8 3D Fluency Robot)
+  function getRobotHtml(type = 'launcher') {
+    if (type === 'hero') {
+      return `
+        <div class="dot-ai-robot-hero">
+          <img src="/images/icons8-robot-3d-fluency-512.png" alt="Dev Orbit AI Mascot" class="dot-ai-robot-img" width="80" height="80" />
+          <div class="dot-ai-robot-platform"></div>
+          <div class="dot-ai-robot-shadow"></div>
+        </div>
+      `;
+    }
+    if (type === 'mini') {
+      return `
+        <div class="dot-ai-robot-mini">
+          <img src="/images/icons8-robot-3d-fluency-120.png" alt="Orbit Bot" class="dot-ai-robot-img" width="32" height="32" />
+        </div>
+      `;
+    }
+    // Default: launcher avatar
+    return `
+      <div class="dot-ai-robot-avatar">
+        <img src="/images/icons8-robot-3d-fluency-120.png" alt="Dev Orbit Robot" class="dot-ai-robot-img" width="46" height="46" />
+        <div class="dot-ai-robot-shadow"></div>
+      </div>
+    `;
+  }
+
+  // Pure Web Audio API micro-feedback sound
+  function playAudioChime(type = 'send') {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === 'suspended') ctx.resume();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      if (type === 'send') {
+        osc.frequency.setValueAtTime(520, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.07);
+      } else {
+        osc.frequency.setValueAtTime(740, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(580, ctx.currentTime + 0.09);
+      }
+      gain.gain.setValueAtTime(0.03, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.1);
+    } catch (_) {}
+  }
 
   // Pre-load knowledge asynchronously
   async function loadKnowledge() {
@@ -81,13 +111,11 @@
   // Language Detection (English, Roman Urdu, Urdu)
   function detectLanguage(text) {
     if (!text) return 'english';
-    // Urdu script detector (Arabic/Persian/Urdu unicode range)
     if (/[\u0600-\u06FF\u0750-\u077F]/.test(text)) {
       return 'urdu';
     }
-    // Roman Urdu keywords detector
     const romanUrduPatterns = [
-      /\b(mujhe|chahiye|karna|karwana|hai|hain|kiya|kya|bhi|aur|kaise|kitna|kitne|pese|kharcha|banao|chahie|banwani|app|website|kaam|theek|shukriya|kesay)\b/i
+      /\b(mujhe|chahiye|karna|karwana|hai|hain|kiya|kya|bhi|aur|kaise|kitna|kitne|pese|kharcha|banao|chahie|banwani|app|website|kaam|theek|shukriya|kesay|bhai|kuch)\b/i
     ];
     if (romanUrduPatterns.some(pat => pat.test(text))) {
       return 'roman_urdu';
@@ -111,29 +139,20 @@
       }
     }
 
-    // 2. Create Dev Orbit AI Launcher Button
+    // 2. Create Dev Orbit AI Clean 3D Robot Assistant Trigger (NO BOX)
     const launcher = document.createElement('button');
     launcher.className = 'dot-ai-launcher';
     launcher.setAttribute('aria-label', 'Open Dev Orbit AI Assistant');
     launcher.innerHTML = `
-      <div class="dot-ai-launcher-icon">
-        ${ORBIT_AI_ICON_SVG}
-        <span class="dot-ai-ping-ring"></span>
+      <div class="dot-ai-robot-trigger">
+        <img src="/images/icons8-robot-3d-fluency-512.png" alt="Dev Orbit AI Robot" class="dot-ai-robot-trigger-img" width="70" height="70" />
+        <div class="dot-ai-robot-shadow"></div>
       </div>
-      <div class="dot-ai-launcher-text">
-        <div class="dot-ai-launcher-title-row">
-          <span class="dot-ai-launcher-title">DEV ORBIT AI</span>
-          <span class="dot-ai-online-badge">
-            <span class="dot-ai-online-dot"></span>
-            <span>Online</span>
-          </span>
-        </div>
-        <span class="dot-ai-launcher-subtitle">Project & Tech Assistant</span>
-      </div>
+      <span class="dot-ai-trigger-label">AI Assistant</span>
     `;
     stack.appendChild(launcher);
 
-    // 3. Create Chat Window
+    // 3. Create Chat Window — Masterpiece Design with 3D Fluency Robot Hero
     const chatWindow = document.createElement('div');
     chatWindow.className = 'dot-ai-window';
     chatWindow.setAttribute('role', 'dialog');
@@ -141,65 +160,104 @@
     chatWindow.innerHTML = `
       <div class="dot-ai-header">
         <div class="dot-ai-brand">
-          <div class="dot-ai-header-icon">${ORBIT_AI_ICON_SVG}</div>
+          <div class="dot-ai-header-avatar">
+            ${getRobotHtml('mini')}
+            <span class="dot-ai-header-online"></span>
+          </div>
           <div class="dot-ai-header-info">
-            <h3 id="dotAiTitle">Dev Orbit AI <span class="dot-ai-status-pill">Online</span></h3>
-            <p>AI Project & Technology Assistant</p>
+            <div class="dot-ai-header-title-row">
+              <h3 id="dotAiTitle">Dev Orbit AI</h3>
+              <span class="dot-ai-tag">PRO</span>
+            </div>
+            <p><span class="dot-ai-status-indicator"></span>Active Consultant · Online 24/7</p>
           </div>
         </div>
-        <div class="dot-ai-header-controls">
-          <button class="dot-ai-btn-ctrl" id="dotAiClearBtn" title="Clear Conversation" aria-label="Clear Conversation">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2m-6 5v6m4-6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="dot-ai-header-actions">
+          <button class="dot-ai-hdr-btn" id="dotAiClearBtn" title="Reset Conversation" aria-label="Reset Conversation">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M4 4v5h5M16 16v-5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.5 15.5A7 7 0 105 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
           </button>
-          <button class="dot-ai-btn-ctrl" id="dotAiCloseBtn" title="Close Chat" aria-label="Close Chat">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <button class="dot-ai-hdr-btn dot-ai-hdr-close" id="dotAiCloseBtn" title="Minimize Chat" aria-label="Minimize Chat">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M15 5l-10 10M5 5l10 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </button>
         </div>
       </div>
 
-      <div class="dot-ai-messages" id="dotAiMessages" role="log" aria-live="polite">
+      <div class="dot-ai-body" id="dotAiMessages" role="log" aria-live="polite">
         <div class="dot-ai-welcome">
-          <div class="dot-ai-welcome-hero">
-            <div class="dot-ai-welcome-hero-icon">${ORBIT_AI_ICON_SVG}</div>
-            <div class="dot-ai-welcome-hero-text">
-              <h4>Welcome to Dev Orbit Tech!</h4>
-              <p>I'm <strong>Dev Orbit AI</strong> — your intelligent project consultant, ready to help you plan, build, and launch.</p>
-            </div>
+          <div class="dot-ai-w-avatar">
+            ${getRobotHtml('hero')}
+          </div>
+          <h4 class="dot-ai-w-greeting">How can we help your project? 👋</h4>
+          <p class="dot-ai-w-intro">I'm <strong>Dev Orbit AI</strong>, your project consultant. Tell me what you're looking to build or pick a track below:</p>
+
+          <!-- 2x2 Bento Service Cards Grid -->
+          <div class="dot-ai-bento-grid">
+            <button class="dot-ai-bento-card" data-intent="website">
+              <div class="dot-ai-bento-icon"><i class="fas fa-globe"></i></div>
+              <div class="dot-ai-bento-content">
+                <div class="dot-ai-bento-title">Web Applications</div>
+                <div class="dot-ai-bento-desc">SaaS, Portals &amp; Custom Web</div>
+              </div>
+              <span class="dot-ai-bento-arrow">→</span>
+            </button>
+
+            <button class="dot-ai-bento-card" data-intent="mobile_app">
+              <div class="dot-ai-bento-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="dot-ai-bento-content">
+                <div class="dot-ai-bento-title">Mobile Apps</div>
+                <div class="dot-ai-bento-desc">Flutter &amp; React Native</div>
+              </div>
+              <span class="dot-ai-bento-arrow">→</span>
+            </button>
+
+            <button class="dot-ai-bento-card" data-intent="ai_solution">
+              <div class="dot-ai-bento-icon"><i class="fas fa-brain"></i></div>
+              <div class="dot-ai-bento-content">
+                <div class="dot-ai-bento-title">AI &amp; Automation</div>
+                <div class="dot-ai-bento-desc">LLMs, Agents &amp; RAG Pipelines</div>
+              </div>
+              <span class="dot-ai-bento-arrow">→</span>
+            </button>
+
+            <button class="dot-ai-bento-card" data-intent="custom_software">
+              <div class="dot-ai-bento-icon"><i class="fas fa-laptop-code"></i></div>
+              <div class="dot-ai-bento-content">
+                <div class="dot-ai-bento-title">Custom Software</div>
+                <div class="dot-ai-bento-desc">ERP, CRM &amp; Business Tools</div>
+              </div>
+              <span class="dot-ai-bento-arrow">→</span>
+            </button>
           </div>
 
-          <div class="dot-ai-capabilities">
-            <div class="dot-ai-capability"><i class="fas fa-compass"></i> Explore services & tech stack</div>
-            <div class="dot-ai-capability"><i class="fas fa-lightbulb"></i> Discuss your project idea</div>
-            <div class="dot-ai-capability"><i class="fas fa-file-alt"></i> Get a project summary</div>
-            <div class="dot-ai-capability"><i class="fas fa-headset"></i> Connect with our team</div>
-          </div>
-
-          <div class="dot-ai-chips-title">What would you like to build?</div>
-          <div class="dot-ai-chips">
-            <button class="dot-ai-chip" data-intent="website"><i class="fas fa-globe"></i> Website</button>
-            <button class="dot-ai-chip" data-intent="mobile_app"><i class="fas fa-mobile-alt"></i> Mobile App</button>
-            <button class="dot-ai-chip" data-intent="custom_software"><i class="fas fa-laptop-code"></i> Custom Software</button>
-            <button class="dot-ai-chip" data-intent="ai_solution"><i class="fas fa-brain"></i> AI Solution</button>
-            <button class="dot-ai-chip" data-intent="saas"><i class="fas fa-rocket"></i> SaaS Product</button>
-            <button class="dot-ai-chip" data-intent="automation"><i class="fas fa-bolt"></i> Automation</button>
-            <button class="dot-ai-chip" data-intent="ui_ux"><i class="fas fa-palette"></i> UI/UX Design</button>
-            <button class="dot-ai-chip" data-intent="discuss_project"><i class="fas fa-comments"></i> Discuss Project</button>
+          <!-- Quick Action Chips -->
+          <div class="dot-ai-quick-chips">
+            <button class="dot-ai-chip" data-intent="cost_calculator"><i class="fas fa-calculator"></i> Estimate Cost</button>
+            <button class="dot-ai-chip" data-intent="fyp_help"><i class="fas fa-graduation-cap"></i> FYP &amp; Thesis</button>
+            <button class="dot-ai-chip" data-intent="tech_stack"><i class="fas fa-layer-group"></i> Tech Stack</button>
+            <button class="dot-ai-chip" data-intent="whatsapp_team"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</button>
           </div>
         </div>
       </div>
 
       <div class="dot-ai-footer">
-        <div class="dot-ai-input-wrap">
-          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask anything about your project..." rows="1" aria-label="Type your message"></textarea>
+        <div class="dot-ai-input-wrapper">
+          <span class="dot-ai-sparkle-icon" title="AI Assistant">✨</span>
+          <textarea class="dot-ai-textarea" id="dotAiInput" placeholder="Ask about projects, pricing, tech stack..." rows="1" aria-label="Type your message"></textarea>
+          <button class="dot-ai-send-btn" id="dotAiSendBtn" aria-label="Send Message" title="Send">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M3.5 10h13M10.5 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
-        <button class="dot-ai-send-btn" id="dotAiSendBtn" aria-label="Send Message">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#030712" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"/>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-          </svg>
-        </button>
+        <div class="dot-ai-footer-note">
+          <span>⚡ Powered by Dev Orbit AI &amp; Gemini Engine</span>
+        </div>
       </div>
-      <div class="dot-ai-powered">Powered by <span>Dev Orbit AI</span></div>
     `;
     document.body.appendChild(chatWindow);
 
@@ -231,12 +289,26 @@
     });
     sendBtn.addEventListener('click', submitUserMessage);
 
-    // Quick Action Chips
+    // Click delegation for Bento Cards, Chips & Suggestions
     chatWindow.addEventListener('click', (e) => {
       const chip = e.target.closest('.dot-ai-chip');
       if (chip) {
         const intent = chip.getAttribute('data-intent');
         handleQuickChip(intent, chip.textContent.trim());
+        return;
+      }
+      const bento = e.target.closest('.dot-ai-bento-card');
+      if (bento) {
+        const intent = bento.getAttribute('data-intent');
+        const title = bento.querySelector('.dot-ai-bento-title');
+        handleQuickChip(intent, title ? title.textContent.trim() : bento.textContent.trim());
+        return;
+      }
+      const suggest = e.target.closest('.dot-ai-suggest');
+      if (suggest) {
+        const intent = suggest.getAttribute('data-intent');
+        const title = suggest.querySelector('.dot-ai-suggest-title');
+        handleQuickChip(intent, title ? title.textContent.trim() : suggest.textContent.trim());
       }
     });
   }
@@ -246,6 +318,7 @@
     if (!win) return;
     if (open) {
       win.classList.add('dot-open');
+      playAudioChime('send');
       setTimeout(() => {
         const input = document.getElementById('dotAiInput');
         if (input) input.focus();
@@ -263,27 +336,31 @@
     msgEl.className = `dot-msg ${role}`;
 
     const userSvg = `<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>`;
-    const avatar = role === 'bot' ? ORBIT_AI_ICON_SVG : userSvg;
+    const avatar = role === 'bot' ? getRobotHtml('mini') : userSvg;
 
     msgEl.innerHTML = `
       <div class="dot-msg-avatar">${avatar}</div>
-      <div class="dot-msg-content">${text}</div>
+      <div class="dot-msg-content">${formatMarkdown(text)}</div>
     `;
 
-    // Append summary card if provided
+    // Append structured summary card if provided
     if (options.summary) {
       const card = document.createElement('div');
       card.className = 'dot-ai-summary-card';
       card.innerHTML = `
-        <div class="dot-ai-summary-title"><i class="fas fa-file-invoice"></i> Project Requirements Summary</div>
-        <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Project Type:</span><span class="dot-ai-summary-val">${options.summary.type || 'Custom Project'}</span></div>
-        <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Business:</span><span class="dot-ai-summary-val">${options.summary.business || 'Not specified'}</span></div>
-        <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Primary Goal:</span><span class="dot-ai-summary-val">${options.summary.goal || 'Not specified'}</span></div>
-        <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Features:</span><span class="dot-ai-summary-val">${options.summary.features && options.summary.features.length ? options.summary.features.join(', ') : 'To be scoped with team'}</span></div>
+        <div class="dot-ai-summary-header">
+          <div class="dot-ai-summary-title"><i class="fas fa-file-invoice"></i> Project Requirements Summary</div>
+        </div>
+        <div class="dot-ai-summary-table">
+          <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Project Type:</span><span class="dot-ai-summary-val">${options.summary.type || 'Custom Project'}</span></div>
+          <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Business:</span><span class="dot-ai-summary-val">${options.summary.business || 'Not specified'}</span></div>
+          <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Primary Goal:</span><span class="dot-ai-summary-val">${options.summary.goal || 'Not specified'}</span></div>
+          <div class="dot-ai-summary-row"><span class="dot-ai-summary-label">Key Features:</span><span class="dot-ai-summary-val">${options.summary.features && options.summary.features.length ? options.summary.features.join(', ') : 'To be scoped with team'}</span></div>
+        </div>
         <div class="dot-ai-summary-actions">
           <button class="dot-ai-action-btn primary" id="dotFillFormBtn"><i class="fas fa-paper-plane"></i> Submit Project Inquiry (Form)</button>
           <a class="dot-ai-action-btn whatsapp" id="dotWaBtn" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Continue on WhatsApp</a>
-          <a class="dot-ai-action-btn secondary" href="/#contact"><i class="fas fa-envelope"></i> View Contact Details</a>
+          <button class="dot-ai-action-btn secondary" id="dotCopyScopeBtn"><i class="fas fa-copy"></i> Copy Project Brief</button>
         </div>
       `;
       msgEl.querySelector('.dot-msg-content').appendChild(card);
@@ -292,6 +369,7 @@
       setTimeout(() => {
         const fillBtn = card.querySelector('#dotFillFormBtn');
         const waBtn = card.querySelector('#dotWaBtn');
+        const copyBtn = card.querySelector('#dotCopyScopeBtn');
 
         if (fillBtn) {
           fillBtn.addEventListener('click', () => {
@@ -305,6 +383,17 @@
           );
           waBtn.href = `https://wa.me/923161893004?text=${waMsg}`;
         }
+        if (copyBtn) {
+          copyBtn.addEventListener('click', () => {
+            const brief = `[Dev Orbit Tech Project Brief]\nType: ${options.summary.type}\nBusiness: ${options.summary.business}\nGoal: ${options.summary.goal}\nFeatures: ${options.summary.features.join(', ')}`;
+            navigator.clipboard.writeText(brief).then(() => {
+              copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied to Clipboard!';
+              setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Project Brief';
+              }, 2000);
+            });
+          });
+        }
       }, 50);
     }
 
@@ -313,12 +402,22 @@
     conversationState.history.push({ role, text });
   }
 
+  // Format basic markdown elements for elite typography
+  function formatMarkdown(text) {
+    if (!text) return '';
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/`([^`]+)`/g, '<code style="background:rgba(0,240,255,0.1);color:#00f0ff;padding:2px 6px;border-radius:4px;font-size:0.85em;">$1</code>')
+      .replace(/\n/g, '<br/>');
+  }
+
   function showTypingIndicator() {
     const container = document.getElementById('dotAiMessages');
     const typing = document.createElement('div');
     typing.className = 'dot-msg bot dot-typing-wrapper';
     typing.innerHTML = `
-      <div class="dot-msg-avatar">${ORBIT_AI_ICON_SVG}</div>
+      <div class="dot-msg-avatar">${getRobotHtml('mini')}</div>
       <div class="dot-typing">
         <span></span><span></span><span></span>
       </div>
@@ -337,11 +436,12 @@
     conversationState.stage = 'idle';
     conversationState.project = { type: '', business: '', goal: '', features: [], platform: '', budget: '', timeline: '' };
     conversationState.history = [];
-    appendMessage('bot', 'Conversation cleared. How else can I assist your project today?');
+    appendMessage('bot', 'Conversation refreshed. How else can I assist your project today?');
   }
 
   function handleQuickChip(intent, label) {
     appendMessage('user', label);
+    playAudioChime('send');
     conversationState.stage = 'discovering';
 
     let promptEn = '';
@@ -362,27 +462,30 @@
       conversationState.project.type = 'Custom Business Software';
       promptEn = "Bespoke software eliminates bottlenecks and expensive recurring seat fees. What key workflow or process should the software manage?";
       promptRoman = "Custom software se business processes aasan hojate hain aur mehnge monthly software licenses ki zaroorat nahi rehti. Yeh software kis kaam ko manage karega?";
-      promptUrdu = "کسٹم سافٹ ویئر سے آپ کے دفتری معاملات تیز اور خودکار ہو جاتے ہیں۔ یہ سافٹ ویئر کس عمل کو سنبھالے گا؟";
+      promptUrdu = "کسٹم سافٹ ویئر سے آپ کے دفتری معاملات تیز اور خودکار ہو جاتے ہیں۔ یہ سافٹ ویئر کس عمل کو سنبھالے گیا؟";
     } else if (intent === 'ai_solution') {
       conversationState.project.type = 'AI Application & LLM Integration';
       promptEn = "Exciting! We engineer bespoke AI agents, intelligent document summarizers, and LLM integrations. What kind of AI capability do you envision?";
       promptRoman = "Zabardast! Hum custom AI models, intelligent chatbots, aur document analysis build karte hain. Aapko kis qism ka AI solution chahiye?";
       promptUrdu = "زبردست! ہم مصنوعی ذہانت (AI) اور جدید ماڈلز کے ذریعے کسٹم سلوشنز بناتے ہیں۔ آپ کو کس قسم کے AI فیچرز درکار ہیں؟";
-    } else if (intent === 'automation') {
-      conversationState.project.type = 'Business Process Automation';
-      promptEn = "Automation frees up hours of repetitive manual work. Which manual tasks would you like to run automatically?";
-      promptRoman = "Automation se waqt aur kharcha dono bachte hain. Kaunse repetitive kaam hain jo aap automatically karwana chahte hain?";
-      promptUrdu = "آٹومیشن سے روزمرہ کے دستی کام خودکار ہو جاتے ہیں۔ آپ کس عمل کو خودکار بنانا چاہتے ہیں؟";
-    } else if (intent === 'saas') {
-      conversationState.project.type = 'SaaS Platform MVP';
-      promptEn = "We love helping founders build scalable SaaS products with subscription billing and user authentication. Who are your target users?";
-      promptRoman = "Founders ke liye SaaS products develop karna hamara core passion hai. Aapke target customers ya users kaun hain?";
-      promptUrdu = "ہم ساس (SaaS) مصنوعات اور کلاؤڈ سسٹمز تیار کرتے ہیں۔ آپ کے بنیادی صارفین کون ہوں گے؟";
-    } else if (intent === 'ui_ux') {
-      conversationState.project.type = 'UI/UX Interface Design';
-      promptEn = "Intuitive UI/UX converts visitors into loyal clients. Are you looking to design a website, web app dashboard, or mobile app?";
-      promptRoman = "Behtareen UI/UX design se conversion rate barhta hai. Aapko website, mobile app ya dashboard ka design karwana hai?";
-      promptUrdu = "کیا آپ کو ویب سائٹ، موبائل ایپ یا کسٹم ڈیش بورڈ کا جدید UI/UX ڈیزائن درکار ہے؟";
+    } else if (intent === 'cost_calculator') {
+      promptEn = "Project estimates depend on scope, platforms (Web/Mobile), and timeline. What are you looking to build, and do you have a rough budget or timeline in mind?";
+      promptRoman = "Project ka kharcha features aur platform par depend karta hai. Aap kis qism ka system build karwana chahte hain aur aapka approximate budget kya hai?";
+      promptUrdu = "پروجیکٹ کی لاگت فیچرز اور مطلوبہ وقت پر منحصر ہوتی ہے۔ آپ کیا بنوانا چاہتے ہیں تاکہ ہم مناسب تخمینہ پیش کر سکیں؟";
+    } else if (intent === 'fyp_help') {
+      promptEn = "Under Engr Ahmed Aqeel's mentorship, Dev Orbit Tech guides students in cutting-edge Final Year Projects (AI, Healthcare, Web & Mobile Apps). What topic or domain is your FYP in?";
+      promptRoman = "Engr Ahmed Aqeel ki zer-e-nigraani Dev Orbit Tech FYP students ko complete guidance aur development support deta hai. Aapka FYP topic ya domain kya hai?";
+      promptUrdu = "انجینئر احمد عقیل کی رہنمائی میں دیو اوربٹ ٹیک طلباء کو ایف وائی پی (Final Year Projects) میں رہنمائی فراہم کرتا ہے۔ آپ کا پروجیکٹ کس شعبے سے متعلق ہے؟";
+    } else if (intent === 'tech_stack') {
+      promptEn = "We engineer using modern production stacks: **React.js, Next.js, Flutter, React Native, Node.js, Python FastAPI, PostgreSQL, Supabase**, and **Gemini/GPT-4 AI**. Which stack do you prefer?";
+      promptRoman = "Hamara core production stack: React/Next.js, Flutter, Node.js, Python FastAPI, PostgreSQL, aur Gemini/GPT-4 AI hai. Kya aapko kisi specific technology mein kaam karwana hai?";
+      promptUrdu = "ہمارا بنیادی اسٹیک ری ایکٹ، نیکسٹ جے ایس، فلٹر، نوڈ جے ایس، پائتھن، اور جدید AI ماڈلز پر مشتمل ہے۔";
+    } else if (intent === 'whatsapp_team') {
+      const waMsg = encodeURIComponent("Hello Dev Orbit Tech, I want to discuss a new software project.");
+      window.open(`https://wa.me/923161893004?text=${waMsg}`, '_blank');
+      promptEn = "Opening WhatsApp to connect directly with Engr Ahmed Aqeel! You can also continue chatting right here.";
+      promptRoman = "WhatsApp open ho raha hai jahan aap direct Engr Ahmed Aqeel se rabta kar sakte hain. Aap yahan bhi sawal pooch sakte hain.";
+      promptUrdu = "واٹس ایپ کھولا جا رہا ہے تاکہ آپ براہ راست بات چیت کر سکیں۔ آپ یہاں بھی رابطہ جاری رکھ سکتے ہیں۔";
     } else {
       promptEn = "I would be happy to discuss your requirements. Tell me briefly about your project idea or what services you are exploring.";
       promptRoman = "Main aapke project requirements ko samajhne mein madad kar sakta hoon. Apne project idea ke baare mein thora batayein.";
@@ -390,7 +493,10 @@
     }
 
     const reply = conversationState.language === 'urdu' ? promptUrdu : (conversationState.language === 'roman_urdu' ? promptRoman : promptEn);
-    appendMessage('bot', reply);
+    setTimeout(() => {
+      appendMessage('bot', reply);
+      playAudioChime('receive');
+    }, 200);
   }
 
   async function submitUserMessage() {
@@ -408,9 +514,10 @@
     conversationState.language = lang;
 
     appendMessage('user', text);
+    playAudioChime('send');
     const typingIndicator = showTypingIndicator();
 
-    // 1. Try Server API /api/chatbot (if configured or server is available)
+    // 1. Try Server API /api/chatbot
     let aiResponse = null;
     try {
       const apiRes = await fetch('/api/chatbot', {
@@ -447,13 +554,14 @@
 
     // Render bot response
     appendMessage('bot', aiResponse.reply, { summary: aiResponse.summary });
+    playAudioChime('receive');
   }
 
-  // Local RAG & Discovery Engine (Trained for 100% Accuracy)
+  // Local RAG & Discovery Engine
   function generateLocalRAGResponse(userText, lang) {
     const lower = userText.toLowerCase().trim();
 
-    // Intent Trigger: Website Project Initiation (handles typos e.g. "i build websote", "need website", "website banwani hai")
+    // Intent Trigger: Website Project Initiation
     if (lower.includes('website') || lower.includes('websote') || lower.includes('web site') || lower.includes('web development') || lower.includes('site banani')) {
       if (conversationState.stage !== 'discovering') {
         conversationState.stage = 'discovering';
