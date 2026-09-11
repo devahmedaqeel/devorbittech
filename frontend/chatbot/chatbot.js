@@ -116,11 +116,18 @@
     launcher.className = 'dot-ai-launcher';
     launcher.setAttribute('aria-label', 'Open Dev Orbit AI Assistant');
     launcher.innerHTML = `
-      <div class="dot-ai-launcher-icon">${ORBIT_AI_ICON_SVG}</div>
+      <div class="dot-ai-launcher-icon">
+        ${ORBIT_AI_ICON_SVG}
+        <span class="dot-ai-ping-ring"></span>
+      </div>
       <div class="dot-ai-launcher-text">
-        <span class="dot-ai-launcher-title">
-          <span class="dot-ai-online-dot"></span> DEV ORBIT AI
-        </span>
+        <div class="dot-ai-launcher-title-row">
+          <span class="dot-ai-launcher-title">DEV ORBIT AI</span>
+          <span class="dot-ai-online-badge">
+            <span class="dot-ai-online-dot"></span>
+            <span>Online</span>
+          </span>
+        </div>
         <span class="dot-ai-launcher-subtitle">Project & Tech Assistant</span>
       </div>
     `;
