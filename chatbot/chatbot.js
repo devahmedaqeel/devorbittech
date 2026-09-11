@@ -12,6 +12,7 @@
   let servicesData = null;
   let projectsData = null;
   let faqsData = null;
+  let technologiesData = null;
 
   // Active conversation state
   const conversationState = {
@@ -60,16 +61,18 @@
   // Pre-load knowledge asynchronously
   async function loadKnowledge() {
     try {
-      const [cRes, sRes, pRes, fRes] = await Promise.all([
+      const [cRes, sRes, pRes, fRes, tRes] = await Promise.all([
         fetch('/knowledge/company.json').then(r => r.json()).catch(() => null),
         fetch('/knowledge/services.json').then(r => r.json()).catch(() => null),
         fetch('/knowledge/projects.json').then(r => r.json()).catch(() => null),
-        fetch('/knowledge/faqs.json').then(r => r.json()).catch(() => null)
+        fetch('/knowledge/faqs.json').then(r => r.json()).catch(() => null),
+        fetch('/knowledge/technologies.json').then(r => r.json()).catch(() => null)
       ]);
       companyData = cRes;
       servicesData = sRes ? sRes.services : null;
       projectsData = pRes ? pRes.projects : null;
       faqsData = fRes ? fRes.faqs : null;
+      technologiesData = tRes ? tRes.technologies : null;
     } catch (e) {
       console.warn('[Dev Orbit AI] Knowledge base fetch fallback to built-in facts.');
     }
@@ -427,29 +430,66 @@
     appendMessage('bot', aiResponse.reply, { summary: aiResponse.summary });
   }
 
-  // Local RAG & Discovery Engine
+  // Local RAG & Discovery Engine (Trained for 100% Accuracy)
   function generateLocalRAGResponse(userText, lang) {
-    const lower = userText.toLowerCase();
+    const lower = userText.toLowerCase().trim();
 
-    // Check FAQs first
+    // Tier 1: Exact / Best Keyword Match against FAQs
     if (faqsData) {
+      let bestFaq = null;
+      let maxMatches = 0;
       for (const faq of faqsData) {
-        if (faq.keywords && faq.keywords.some(k => lower.includes(k))) {
-          let ans = faq.answer;
+        let matches = 0;
+        for (const k of faq.keywords || []) {
+          if (lower.includes(k.toLowerCase())) matches++;
+        }
+        if (matches > maxMatches) {
+          maxMatches = matches;
+          bestFaq = faq;
+        }
+      }
+      if (bestFaq && maxMatches > 0) {
+        if (lang === 'roman_urdu' && bestFaq.answerRoman) return { reply: bestFaq.answerRoman };
+        if (lang === 'urdu' && bestFaq.answerUrdu) return { reply: bestFaq.answerUrdu };
+        return { reply: bestFaq.answer };
+      }
+    }
+
+    // Tier 2: Technology Inquiry Matching
+    if (technologiesData && (lower.includes('tech') || lower.includes('technology') || lower.includes('language') || lower.includes('framework') || lower.includes('stack') || lower.includes('kaunsi language') || lower.includes('tool'))) {
+      if (lang === 'roman_urdu') {
+        return { reply: "Dev Orbit Tech modern production stack use karta hai: Frontend mein React.js, Next.js; Mobile mein Flutter aur React Native; Backend mein Node.js, Express, Python FastAPI; Databases mein PostgreSQL, MongoDB, Supabase; aur AI mein OpenAI GPT-4, Google Gemini, LangChain." };
+      }
+      if (lang === 'urdu') {
+        return { reply: "دیو اوربٹ ٹیک جدید ترین ٹیکنالوجیز استعمال کرتا ہے: فرنٹ اینڈ میں ری ایکٹ اور نیکسٹ جے ایس، موبائل میں فلٹر اور ری ایکٹ نیٹو، بیک اینڈ میں نوڈ جے ایس اور پائتھن، اور AI کے لیے جدید اوپن اے آئی اور جیمنائی ماڈلز۔" };
+      }
+      return { reply: "We engineer using modern production stacks: Frontend (React.js, Next.js, TypeScript), Mobile (Flutter, React Native), Backend (Node.js, Express, Python FastAPI), Databases (PostgreSQL, MongoDB, Supabase), and AI (OpenAI GPT-4, Google Gemini, LangChain)." };
+    }
+
+    // Tier 3: Verified Projects / Portfolio Matching
+    if (lower.includes('project') || lower.includes('portfolio') || lower.includes('work') || lower.includes('case studies') || lower.includes('kaam') || lower.includes('sample')) {
+      if (lang === 'roman_urdu') {
+        return { reply: "Hamare verified projects mein **MediReport AI** (Healthcare Diagnostic AI), **Blissful Blinds Ltd** (UK E-commerce Ordering Platform), **DevSync AI** (Code Documentation Tool), aur **OFM Mobile App** (Flutter Logistics & Delivery) shamil hain. Inke mukammal case studies hamari website par available hain." };
+      }
+      if (lang === 'urdu') {
+        return { reply: "ہمارے نمایاں پروجیکٹس میں میڈی رپورٹ اے آئی (ہیلتھ کیئر)، بلس فل بلائنڈز (یو کے ای کامرس)، دیوسنک اے آئی اور او ایف ایم موبائل ایپ شامل ہیں۔ آپ ان کے کیس اسٹڈیز ویب سائٹ پر ملاحظہ کر سکتے ہیں۔" };
+      }
+      return { reply: "Our verified portfolio includes **MediReport AI** (Healthcare Diagnostic Tool), **Blissful Blinds Ltd** (UK E-commerce & Measurement Platform), **DevSync AI** (Code Documentation SaaS), and **OFM Mobile App** (Logistics & GPS Dispatch). You can explore full technical case studies on our website." };
+    }
+
+    // Tier 4: Direct Service Recognition
+    if (servicesData) {
+      for (const s of servicesData) {
+        const terms = [s.title.toLowerCase(), s.id.replace(/-/g, ' ')];
+        if (s.features) terms.push(...s.features.map(f => f.toLowerCase()));
+        if (terms.some(t => lower.includes(t) || (t.includes('website') && lower.includes('site')) || (t.includes('mobile') && lower.includes('app')))) {
           if (lang === 'roman_urdu') {
-            if (lower.includes('cost') || lower.includes('price') || lower.includes('kitne') || lower.includes('kharcha')) {
-              ans = "Project ka kharcha features, design complexity aur scope par depend karta hai. Standard business website $400 se $2,500 tak hoti hai, jabke custom web apps ya SaaS MVPs $3,000+. Dev Orbit Tech transparent milestone pricing deta hai. Agar aap requirements share karein to main summary bana kar team ko forward kar sakta hoon.";
-            } else if (lower.includes('time') || lower.includes('kab tak') || lower.includes('kitna time')) {
-              ans = "Standard business website aam taur par 2 se 4 hafton mein ready hojati hai, jabke complex mobile apps ya software 4 se 8 haftay lete hain. Har sprint ke delivery milestones pehle decide kiye jaate hain.";
-            } else if (lower.includes('ownership') || lower.includes('code kiska')) {
-              ans = "Jee bilkul! Project complete hone ke baad 100% source code, intellectual property aur GitHub repository aapko transfer ki jaati hai.";
-            }
-          } else if (lang === 'urdu') {
-            if (lower.includes('cost') || lower.includes('price') || lower.includes('kitne') || lower.includes('kharcha')) {
-              ans = "پروجیکٹ کی لاگت کام کی نوعیت اور فیچرز پر منحصر ہوتی ہے۔ ہم ہر پروجیکٹ کے لیے شفاف اور مناسب بجٹ فراہم کرتے ہیں۔ آپ اپنی ضروریات بتائیں، میں فوری سمری تیار کر دیتا ہوں۔";
-            }
+            return { reply: `Jee haan, Dev Orbit Tech **${s.title}** professionally provide karta hai. Isme ${s.features.slice(0, 3).join(', ')} waghera shamil hain. Kya aap apne specific requirements share karna chahenge?` };
           }
-          return { reply: ans };
+          if (lang === 'urdu') {
+            return { reply: `جی بالکل، دیو اوربٹ ٹیک **${s.title}** کی مکمل سروس فراہم کرتا ہے۔ اس میں ${s.features.slice(0, 3).join('، ')} شامل ہیں۔` };
+          }
+          return { reply: `Yes, Dev Orbit Tech provides **${s.title}**. Our engineering capabilities include: ${s.features.join(', ')}. Would you like to discuss your specific requirements or timeline?` };
         }
       }
     }

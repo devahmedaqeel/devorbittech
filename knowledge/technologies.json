@@ -1,0 +1,34 @@
+{
+  "technologies": {
+    "frontend": [
+      { "name": "React.js", "description": "High-performance reactive user interfaces and single-page apps." },
+      { "name": "Next.js", "description": "Server-side rendered, SEO-optimized web applications with edge runtime." },
+      { "name": "Modern HTML5 & CSS3", "description": "Clean semantic markup, CSS variables, glassmorphism, and responsive design systems." },
+      { "name": "JavaScript (ES6+) & TypeScript", "description": "Type-safe, modern client-side scripting." },
+      { "name": "Tailwind CSS & Vanilla CSS", "description": "Bespoke styling tailored to exact brand requirements." }
+    ],
+    "backend": [
+      { "name": "Node.js & Express.js", "description": "Scalable, non-blocking asynchronous RESTful API servers." },
+      { "name": "Python & FastAPI", "description": "High-throughput APIs for AI models, machine learning pipelines, and data processing." },
+      { "name": "PostgreSQL & MySQL", "description": "ACID-compliant relational databases for business transactions and financial ledgers." },
+      { "name": "MongoDB & Supabase", "description": "Flexible document databases and real-time backend-as-a-service." }
+    ],
+    "mobile": [
+      { "name": "Flutter & Dart", "description": "Google's cross-platform framework for unified iOS and Android native compilation." },
+      { "name": "React Native", "description": "Cross-platform mobile apps with native UI components and shared React codebase." }
+    ],
+    "aiAndAutomation": [
+      { "name": "OpenAI GPT-4 & ChatGPT API", "description": "Natural language generation, conversational agents, and data extraction." },
+      { "name": "Google Gemini API", "description": "Multimodal AI models, reasoning, and document intelligence." },
+      { "name": "Anthropic Claude", "description": "Complex reasoning, coding assistance, and long-context processing." },
+      { "name": "LangChain & LlamaIndex", "description": "RAG (Retrieval-Augmented Generation) pipelines and agentic workflows." },
+      { "name": "Vector Databases (Pinecone, ChromaDB)", "description": "Semantic search, document embeddings, and enterprise knowledge retrieval." },
+      { "name": "Workflow Automation (Webhooks, Zapier, Make, Custom Scripts)", "description": "End-to-end task automation connecting CRMs, databases, and emails." }
+    ],
+    "cloudAndDevops": [
+      { "name": "Vercel & AWS", "description": "Edge hosting, serverless lambdas, automated CI/CD pipelines, and S3 storage." },
+      { "name": "Cloudflare", "description": "DDoS protection, SSL/TLS encryption, and global CDN caching." },
+      { "name": "Docker", "description": "Containerized application environments ensuring consistent deployments." }
+    ]
+  }
+}
