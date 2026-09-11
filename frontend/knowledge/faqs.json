@@ -1,0 +1,34 @@
+{
+  "faqs": [
+    {
+      "question": "How much does a website or application cost?",
+      "keywords": ["cost", "price", "pricing", "budget", "kitne ka", "rate", "pese", "kharcha"],
+      "answer": "Project cost depends on the scope, required features, design complexity, and technical integrations. For example, focused commercial websites typically range from $400 to $2,500, while custom web applications or SaaS MVPs range from $3,000 to $8,000+. Dev Orbit Tech does not invent fixed prices without scoping; we provide an honest, itemized milestone proposal after understanding your exact project requirements."
+    },
+    {
+      "question": "How long does development take?",
+      "keywords": ["time", "timeline", "duration", "how long", "kab tak", "kitna time", "days", "weeks"],
+      "answer": "A standard business website typically takes 2 to 4 weeks. Custom web applications, SaaS platforms, or mobile apps with backend integrations typically range from 4 to 8 weeks depending on complexity. We establish clear delivery milestones before kicking off any sprint."
+    },
+    {
+      "question": "Do I own the source code?",
+      "keywords": ["ownership", "source code", "ip", "intellectual property", "malik", "code kiska"],
+      "answer": "Yes, absolutely 100%. Upon project completion and final milestone clearance, all intellectual property, source code, Figma design assets, and deployment environments are transferred directly to you. Dev Orbit Tech never locks clients into proprietary hosting or licensing schemes."
+    },
+    {
+      "question": "Are you human or an AI?",
+      "keywords": ["are you human", "human", "ai", "insan", "bot", "who are you", "kya tum ai ho"],
+      "answer": "I am Dev Orbit AI, the official AI Project & Technology Assistant for Dev Orbit Tech. I'm here to help you explore our services, organize your project requirements, and connect you directly with our engineering team."
+    },
+    {
+      "question": "Can you build an MVP for my startup?",
+      "keywords": ["startup", "mvp", "idea", "founder", "new product"],
+      "answer": "Yes! Rapid MVP engineering is one of our primary core services. We help founders scope core essential features, design clean intuitive UI/UX, engineer scalable backends, and launch in 4 to 6 weeks to test product-market fit."
+    },
+    {
+      "question": "Do you develop Android and iOS apps?",
+      "keywords": ["mobile app", "android", "ios", "iphone", "flutter", "react native", "app banwani hai"],
+      "answer": "Yes! We build high-performance mobile apps for both Android and iOS using Flutter and React Native. This enables a unified codebase, cutting development cost and delivery time nearly in half while maintaining true native 60fps performance."
+    }
+  ]
+}
