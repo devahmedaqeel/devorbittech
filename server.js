@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8888;
 (function syncPreviewImages() {
   try {
     const srcDir = 'C:\\Users\\user\\.gemini\\antigravity-ide\\brain\\0a1b3137-6c59-4ef9-ba11-931ade2cb715';
+    if (!fs.existsSync(srcDir)) return;
     const destDir = path.join(__dirname, 'images');
     const frontendDestDir = path.join(__dirname, 'frontend', 'images');
 
@@ -115,9 +116,11 @@ const handleContactSubmit = async (req, res) => {
   if (!message || message.trim().length < 10)                        errors.push('Message must be at least 10 characters.');
   if (errors.length > 0) return res.status(422).json({ error: errors.join(' ') });
 
-  const { GMAIL_USER, GMAIL_APP_PASSWORD, ADMIN_EMAIL } = process.env;
+  const GMAIL_USER         = process.env.GMAIL_USER         || 'official.devorbittech@gmail.com';
+  const GMAIL_APP_PASSWORD = process.env.GMAIL_APP_PASSWORD || 'qkgf gzzg sahx iavg';
+  const ADMIN_EMAIL        = process.env.ADMIN_EMAIL        || 'official.devorbittech@gmail.com';
 
-  if (!GMAIL_USER || !GMAIL_APP_PASSWORD || !ADMIN_EMAIL) {
+  if (!GMAIL_APP_PASSWORD || GMAIL_APP_PASSWORD.length < 5) {
     return res.status(500).json({ error: 'Missing env vars. Check your .env file or contact via WhatsApp/Email.' });
   }
 
@@ -206,8 +209,12 @@ app.use((_req, res) => {
 });
 
 // Global Error Handler (500)
-app.use((err, _req, res, _next) => {
+app.use((err, req, res, _next) => {
   console.error('[Server Error]', err);
+  if (req.path && (req.path.startsWith('/api/') || req.path.startsWith('/.netlify/'))) {
+    const statusCode = err.statusCode || err.status || 500;
+    return res.status(statusCode).json({ error: err.message || 'Internal Server Error' });
+  }
   const p500 = path.join(frontendPath, '500.html');
   if (fs.existsSync(p500)) return res.status(500).sendFile(p500);
   res.status(500).send('500 Internal Server Error');
