@@ -26,6 +26,13 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://devorbittech.org/" />
 
+  <!-- Immediate Redirect: devorbittech.org -> devorbittech.vercel.app -->
+  <script>
+    if (window.location.hostname.indexOf('devorbittech.org') !== -1) {
+      window.location.replace('https://devorbittech.vercel.app' + window.location.pathname + window.location.search + window.location.hash);
+    }
+  </script>
+
   <!-- Local / Geo SEO -->
   <meta name="geo.region"    content="PK-AJK" />
   <meta name="geo.placename" content="Kotli, Azad Kashmir, Pakistan" />
