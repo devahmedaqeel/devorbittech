@@ -1,5 +1,29 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "devorbittech.org"
+        }
+      ],
+      "destination": "https://devorbittech.vercel.app/$1",
+      "permanent": false
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.devorbittech.org"
+        }
+      ],
+      "destination": "https://devorbittech.vercel.app/$1",
+      "permanent": false
+    }
+  ],
   "functions": {
     "api/**/*.js": {
       "includeFiles": "knowledge/**"

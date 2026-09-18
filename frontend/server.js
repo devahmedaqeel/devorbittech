@@ -52,9 +52,9 @@ app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
-  // Non-www redirect for canonical domain https://devorbittech.org
-  if (req.headers.host && req.headers.host.startsWith('www.devorbittech.org')) {
-    return res.redirect(301, 'https://devorbittech.org' + req.url);
+  // Redirect devorbittech.org to https://devorbittech.vercel.app
+  if (req.headers.host && req.headers.host.includes('devorbittech.org')) {
+    return res.redirect(302, 'https://devorbittech.vercel.app' + req.url);
   }
   next();
 });
