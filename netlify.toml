@@ -9,7 +9,13 @@
   autoLaunch  = false
 
 [[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
   from = "https://devorbittech.netlify.app/*"
   to = "https://devorbittech.org/:splat"
   status = 301
-  force = true
+  force = false
+
