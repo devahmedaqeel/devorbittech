@@ -189,11 +189,9 @@ const handleContactSubmit = async (req, res) => {
   }
 };
 
-app.post('/.netlify/functions/submit-contact', handleContactSubmit);
 app.post('/api/submit-contact', handleContactSubmit);
 
 const handleGetStats = (_req, res) => res.json({ count: 50 });
-app.get('/.netlify/functions/get-stats', handleGetStats);
 app.get('/api/get-stats', handleGetStats);
 
 // Dev Orbit AI Chatbot Route
@@ -211,7 +209,7 @@ app.use((_req, res) => {
 // Global Error Handler (500)
 app.use((err, req, res, _next) => {
   console.error('[Server Error]', err);
-  if (req.path && (req.path.startsWith('/api/') || req.path.startsWith('/.netlify/'))) {
+  if (req.path && req.path.startsWith('/api/')) {
     const statusCode = err.statusCode || err.status || 500;
     return res.status(statusCode).json({ error: err.message || 'Internal Server Error' });
   }

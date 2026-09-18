@@ -31,12 +31,11 @@ devorbittech-email/
 │   ├── js/main.js
 │   └── images/
 ├── api/                    # Vercel serverless functions
+│   ├── chatbot.js          # AI Chatbot RAG engine
 │   ├── submit-contact.js   # Contact form → sends email
 │   └── get-stats.js        # Message counter
-├── netlify/functions/      # Netlify functions (backup)
 ├── server.js               # Local dev server
 ├── vercel.json             # Vercel config
-├── netlify.toml            # Netlify config
 └── package.json
 ```
 
@@ -98,11 +97,6 @@ ADMIN_EMAIL=your@gmail.com
 ### Vercel
 ```bash
 npx vercel --prod
-```
-
-### Netlify
-```bash
-npx netlify-cli deploy --prod --dir=frontend --functions=netlify/functions
 ```
 
 ---

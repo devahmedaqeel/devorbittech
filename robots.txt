@@ -4,7 +4,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /.netlify/
 
 # AI Search and Assistant Bots (White-hat search discovery & GEO)
 User-agent: Google-Extended
