@@ -286,7 +286,7 @@
 <div class="cursor-trail" id="cursorTrail"></div>
 <canvas id="bgCanvas"></canvas>
 
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main Navigation">
   <div class="nav-container">
     <div class="nav-logo">
       <img src="images/logo.jpg" alt="Dev Orbit Tech Logo — Software Company Kotli AJK Pakistan" class="logo-img"/>
@@ -311,7 +311,9 @@
   </div>
 </nav>
 
-<section class="hero" id="home">
+<main id="main-content" role="main">
+
+<section class="hero" id="home" aria-label="Dev Orbit Tech Hero">
   <div class="container hero-grid">
     <div class="hero-content">
       <div class="hero-badge">
@@ -361,11 +363,11 @@
   </div>
 </section>
 
-<section class="section about-section" id="about">
+<section class="section about-section" id="about" aria-labelledby="sec-about-title">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">Who We Are</span>
-      <h2 class="section-title">About <span class="accent">Us</span></h2>
+      <h2 class="section-title" id="sec-about-title">About <span class="accent">Us</span></h2>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
@@ -412,11 +414,11 @@
   </div>
 </section>
 
-<section class="section services-section" id="services">
+<section class="section services-section" id="services" aria-labelledby="sec-services-title">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">What We Do</span>
-      <h2 class="section-title">Our <span class="accent">Services</span></h2>
+      <h2 class="section-title" id="sec-services-title">Our <span class="accent">Services</span></h2>
     </div>
     <div class="services-grid">
 
@@ -504,11 +506,11 @@
   </div>
 </section>
 
-<section class="section projects-section" id="projects">
+<section class="section projects-section" id="projects" aria-labelledby="sec-projects-title">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">Featured Work</span>
-      <h2 class="section-title">Our <span class="accent">Projects</span></h2>
+      <h2 class="section-title" id="sec-projects-title">Our <span class="accent">Projects</span></h2>
       <p class="section-subtitle" style="color: var(--muted); margin-top: 10px; font-family: var(--f-ui); font-size: 1.05rem;">
         Explore our software products, repositories, and digital applications fetched live from GitHub.
       </p>
@@ -712,7 +714,7 @@
 </section>
 
 <!-- PROCESS & WORKFLOW SECTION -->
-<section class="section process-section" id="process">
+<section class="section process-section" id="process" aria-labelledby="sec-process-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="blinking-badge">
@@ -808,13 +810,13 @@
 </section>
 
 <!-- TECH STACK ECOSYSTEM SECTION -->
-<section class="section techstack-section" id="techstack">
+<section class="section techstack-section" id="techstack" aria-labelledby="sec-tech-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="blinking-badge">
         <span class="neon-blink-dot"></span> NEXT-GEN STACK
       </div>
-      <h2 class="section-title">POWERED BY MODERN <span class="accent">TECHNOLOGIES</span></h2>
+      <h2 class="section-title" id="sec-tech-title">POWERED BY MODERN <span class="accent">TECHNOLOGIES</span></h2>
       <p style="color: var(--muted); margin-top: 8px;">Industry-Leading Tools &amp; Frameworks Engineered for Scale</p>
     </div>
     <div class="techstack-grid">
@@ -908,7 +910,7 @@
 </section>
 
 <!-- TESTIMONIALS SECTION -->
-<section class="section testimonials-section" id="testimonials">
+<section class="section testimonials-section" id="testimonials" aria-labelledby="sec-reviews-title">
   <div class="container">
     <div class="section-header reveal">
       <div class="blinking-badge">
@@ -963,7 +965,7 @@
 
 
 
-<section class="section vm-section" id="vision">
+<section class="section vm-section" id="vision" aria-label="Vision and Mission">
   <div class="container">
     <div class="vm-grid">
       <div class="vm-card vision-card reveal">
@@ -991,14 +993,14 @@
   </div>
 </section>
 
-<section class="section why-section" id="why">
+<section class="section why-section" id="why" aria-labelledby="sec-why-title">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:6px; color:#00f0ff;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Our Competitive Edge
       </span>
-      <h2 class="section-title">Why Choose <span class="accent">Dev Orbit Tech?</span></h2>
+      <h2 class="section-title" id="sec-why-title">Why Choose <span class="accent">Dev Orbit Tech?</span></h2>
       <p class="section-sub">Engineered to deliver enterprise-grade digital products while empowering future AI developers &amp; CS innovators.</p>
     </div>
 
@@ -1098,14 +1100,14 @@
   </div>
 </section>
 
-<section class="section contact-section" id="contact">
+<section class="section contact-section" id="contact" aria-labelledby="sec-contact-title">
   <div class="container">
     <div class="section-header">
       <span class="section-tag">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:6px; color:#00f0ff;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Reach Out
       </span>
-      <h2 class="section-title">Let's Build Something <span class="accent">Extraordinary</span></h2>
+      <h2 class="section-title" id="sec-contact-title">Let's Build Something <span class="accent">Extraordinary</span></h2>
       <p class="section-sub">Have a project in mind, need CS FYP mentorship, or want custom AI integration? Send us a message and our team will get back to you with a quick response.</p>
     </div>
 
@@ -1132,7 +1134,7 @@
                 Your Name <span class="req">*</span>
               </label>
               <div class="input-with-icon">
-                <input id="f-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required/>
+                <input id="f-name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required aria-required="true" aria-describedby="err-name"/>
               </div>
               <span class="field-error" id="err-name"></span>
             </div>
@@ -1143,7 +1145,7 @@
                 Email Address <span class="req">*</span>
               </label>
               <div class="input-with-icon">
-                <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required/>
+                <input id="f-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required aria-required="true" aria-describedby="err-email"/>
               </div>
               <span class="field-error" id="err-email"></span>
             </div>
@@ -1188,7 +1190,7 @@
                 Service Needed <span class="req">*</span>
               </label>
               <div class="input-with-icon">
-                <select id="f-service" name="service" required>
+                <select id="f-service" name="service" required aria-required="true" aria-describedby="err-service">
                   <option value="">Select a service...</option>
                   <option value="Web Development">Web Development &amp; SaaS</option>
                   <option value="Mobile App Development">Mobile App Development (iOS &amp; Android)</option>
@@ -1207,7 +1209,7 @@
 
           <div class="form-group" id="otherServiceGroup" style="display:none;">
             <label for="f-other">Describe the Service <span class="req">*</span></label>
-            <input id="f-other" name="otherService" type="text" placeholder="What do you need help with?"/>
+            <input id="f-other" name="otherService" type="text" placeholder="What do you need help with?" aria-describedby="err-other"/>
             <span class="field-error" id="err-other"></span>
           </div>
 
@@ -1252,12 +1254,12 @@
               Message <span class="req">*</span>
             </label>
             <div class="input-with-icon">
-              <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+              <textarea id="f-message" name="message" rows="4" placeholder="Tell us about your project..." required aria-required="true" aria-describedby="err-message"></textarea>
             </div>
             <span class="field-error" id="err-message"></span>
           </div>
 
-          <button type="submit" class="btn-primary btn-full ripple-btn" id="submitBtn">
+          <button type="submit" class="btn-primary btn-full ripple-btn" id="submitBtn" aria-label="Send Project Inquiry to Dev Orbit Tech">
             <span id="btnText">Send Message 🚀</span>
             <span id="btnLoader" class="btn-loader" style="display:none">Sending Message...</span>
           </button>
@@ -1272,7 +1274,9 @@
   </div>
 </section>
 
-<footer class="footer">
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="Site Footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
