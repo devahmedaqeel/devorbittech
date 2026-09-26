@@ -28,17 +28,67 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Company Website Development",
-      "provider": {
-        "@type": "Organization",
-        "name": "Dev Orbit Tech",
-        "url": "https://devorbittech.vercel.app"
-      },
-      "description": "Professional company website development services tailored for corporations, enterprises, holding groups, and growing firms requiring high-authority digital presence.",
-      "url": "https://devorbittech.vercel.app/services/company-website-development",
-      "areaServed": "Worldwide",
-      "serviceType": "Corporate Web Development"
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://devorbittech.vercel.app/services/company-website-development#service",
+          "name": "Company Website Development",
+          "provider": {
+            "@type": "Organization",
+            "name": "Dev Orbit Tech",
+            "url": "https://devorbittech.vercel.app"
+          },
+          "description": "Professional company website development services tailored for corporations, enterprises, holding groups, and growing firms requiring high-authority digital presence.",
+          "url": "https://devorbittech.vercel.app/services/company-website-development",
+          "areaServed": "Worldwide",
+          "serviceType": "Corporate Web Development"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://devorbittech.vercel.app/"},
+            {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://devorbittech.vercel.app/#services"},
+            {"@type": "ListItem", "position": 3, "name": "Company Website Development", "item": "https://devorbittech.vercel.app/services/company-website-development"}
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How long does it take to develop a professional company website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Timelines depend on scope and stakeholder approval cycles. A focused corporate website with 6 to 10 core pages typically takes 2 to 4 weeks. Multi-division enterprise websites requiring custom workflows, multi-language localization, or bespoke portals typically range from 4 to 8 weeks. We provide clear milestone schedules prior to project kickoff."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a custom company website cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cost is directly proportional to page volume, interactive complexity, custom software integrations, and compliance requirements. Because Dev Orbit Tech avoids fragile one-size-fits-all templates, we evaluate your exact technical requirements during an initial discovery session to provide a transparent, milestone-based proposal without hidden ongoing licensing costs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can you redesign and modernize our existing corporate website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Corporate website redesign is one of our primary core competencies. We preserve existing SEO authority through precise 301 URL redirect maps, modernize visual branding, improve mobile usability, and dramatically accelerate page load speeds while migrating legacy content seamlessly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who owns the company website code and assets?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You retain 100% full intellectual property ownership. Upon project completion, all design assets, frontend code, backend logic, and deployment configurations are delivered directly to your corporate Git repository or hosting environment. Dev Orbit Tech never locks clients into proprietary platforms."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -82,7 +132,7 @@
                 </p>
                 <div class="hero-service-actions">
                     <a href="/#contact" class="btn-primary-glow"><i class="fas fa-comments"></i> Start Your Company Website</a>
-                    <a href="https://wa.me/923485194167?text=Hello%20Dev%20Orbit%20Tech%2C%20we%20need%20a%20professional%20website%20for%20our%20company." class="btn-secondary-glow" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/923161893004?text=Hello%20Dev%20Orbit%20Tech%2C%20we%20need%20a%20professional%20website%20for%20our%20company." class="btn-secondary-glow" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> Discuss on WhatsApp
                     </a>
                 </div>
@@ -282,7 +332,7 @@
                 <p>Discuss your corporate web development requirements with our technical team. Get an actionable architecture roadmap, transparent timeline, and honest engineering evaluation.</p>
                 <div class="cta-banner-actions">
                     <a href="/#contact" class="btn-primary-glow"><i class="fas fa-envelope"></i> Request Corporate Proposal</a>
-                    <a href="https://wa.me/923485194167?text=Hi%2C%20we%20would%20like%20to%20discuss%20a%20company%20website%20redesign%20or%20build." class="btn-secondary-glow" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/923161893004?text=Hi%2C%20we%20would%20like%20to%20discuss%20a%20company%20website%20redesign%20or%20build." class="btn-secondary-glow" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-whatsapp"></i> Chat with Lead Engineer
                     </a>
                 </div>
@@ -302,8 +352,8 @@
                 </p>
                 <div class="footer-socials">
                     <a href="https://github.com/devahmedaqeel" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/devahmedaqeel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/923485194167" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-aqeel-2a0090271" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/923161893004" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -329,8 +379,8 @@
             <div class="footer-col">
                 <h4>Engineering Office</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Software Technology Park, University of Kotli, AJK</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:devorbittech@gmail.com">devorbittech@gmail.com</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+923485194167">+92 348 5194167</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:official.devorbittech@gmail.com">official.devorbittech@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+923161893004">+92 316 1893004</a></p>
             </div>
         </div>
         <div class="footer-bottom">

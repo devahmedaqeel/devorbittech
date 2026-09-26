@@ -4,5 +4,13 @@
 User-agent: *
 Allow: /
 
+# Google Search & Generative AI Grounding (AI Overviews & AI Mode)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Dedicated Sitemap
 Sitemap: https://devorbittech.vercel.app/sitemap.xml
+
