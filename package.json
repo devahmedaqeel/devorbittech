@@ -4,8 +4,12 @@
   "description": "Dev Orbit Tech — Official Website",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
-    "dev":   "node server.js"
+    "start":    "node server.js",
+    "dev":      "node server.js",
+    "sitemap":  "node generate-sitemap.js",
+    "build":    "node generate-sitemap.js",
+    "validate": "node validate-sitemap.js",
+    "test":     "node validate-sitemap.js"
   },
   "author": "Dev Orbit Tech",
   "license": "ISC",

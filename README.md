@@ -4,7 +4,7 @@
 
 Official website for **Dev Orbit Tech** — a modern technology startup focused on delivering innovative digital solutions and empowering students with future-ready technical skills.
 
-**Live Site:** [devorbittech.org](https://devorbittech.org)
+**Live Site:** [devorbit.tech](https://devorbit.tech)
 **GitHub Pages:** [devahmedaqeel.github.io/devorbittech](https://devahmedaqeel.github.io/devorbittech/)
 
 ---

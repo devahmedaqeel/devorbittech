@@ -52,9 +52,9 @@ app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
 
-  // Redirect devorbittech.org to https://devorbittech.vercel.app
-  if (req.headers.host && req.headers.host.includes('devorbittech.org')) {
-    return res.redirect(302, 'https://devorbittech.vercel.app' + req.url);
+  // Redirect legacy hostnames to production canonical domain https://devorbit.tech
+  if (req.headers.host && (req.headers.host.includes('devorbittech.org') || req.headers.host.includes('devorbittech.vercel.app'))) {
+    return res.redirect(301, 'https://devorbit.tech' + req.url);
   }
   next();
 });
@@ -130,7 +130,7 @@ const handleContactSubmit = async (req, res) => {
   });
 
   const submittedAt = formatDateTime();
-  const logoUrl = 'https://devorbittech.org/images/logo.jpg';
+  const logoUrl = 'https://devorbit.tech/images/logo.jpg';
 
   try {
     const info = await transporter.sendMail({
@@ -148,7 +148,7 @@ const handleContactSubmit = async (req, res) => {
         from:    `"Dev Orbit Tech" <${GMAIL_USER}>`,
         to:      email.trim(),
         subject: 'Your Request Has Been Sent Successfully — Dev Orbit Tech',
-        text:    `Hi ${name.trim()},\n\nThank you for reaching out to Dev Orbit Tech! We've received your message and our team will contact you shortly.\n\nService : ${service.trim()}\nMessage : ${message.trim()}\n\nWhatsApp: https://wa.me/923161893004\nWebsite : https://devorbittech.org\n\n— Dev Orbit Tech Team`,
+        text:    `Hi ${name.trim()},\n\nThank you for reaching out to Dev Orbit Tech! We've received your message and our team will contact you shortly.\n\nService : ${service.trim()}\nMessage : ${message.trim()}\n\nWhatsApp: https://wa.me/923161893004\nWebsite : https://devorbit.tech\n\n— Dev Orbit Tech Team`,
         html: `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>We've Received Your Message</title></head>
 <body style="margin:0;padding:0;background:#f0f4f8;font-family:'Segoe UI',Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f8;padding:30px 0;">
@@ -169,7 +169,7 @@ const handleContactSubmit = async (req, res) => {
     </table>
     <div style="margin-top:28px;text-align:center;">
       <a href="https://wa.me/923161893004" style="display:inline-block;background:#25d366;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Chat on WhatsApp</a>
-      <a href="https://devorbittech.org" style="display:inline-block;background:#1d8cf8;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Visit Our Website</a>
+      <a href="https://devorbit.tech" style="display:inline-block;background:#1d8cf8;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Visit Our Website</a>
     </div>
     <p style="margin:24px 0 0;color:#9ca3af;font-size:12px;text-align:center;border-top:1px solid #f3f4f6;padding-top:20px;">This is an automated confirmation from Dev Orbit Tech. Please do not reply directly to this email — our team will contact you at <strong>${esc(email)}</strong>.<br/>Software Technology Park, University of Kotli (AJK)</p>
   </td></tr>
