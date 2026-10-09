@@ -116,7 +116,7 @@ module.exports = async (req, res) => {
     `Reply to: ${email.trim()}`,
   ].join('\n');
 
-  const logoUrl = 'https://devorbittech.org/images/logo.jpg';
+  const logoUrl = 'https://devorbit.tech/images/logo.jpg';
 
   const clientHtmlBody = `<!DOCTYPE html>
 <html lang="en">
@@ -146,7 +146,7 @@ module.exports = async (req, res) => {
       </table>
       <div style="margin-top:28px;text-align:center;">
         <a href="https://wa.me/923161893004" style="display:inline-block;background:#25d366;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Chat on WhatsApp</a>
-        <a href="https://devorbittech.org" style="display:inline-block;background:#1d8cf8;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Visit Our Website</a>
+        <a href="https://devorbit.tech" style="display:inline-block;background:#1d8cf8;color:#fff;text-decoration:none;padding:13px 30px;border-radius:8px;font-size:15px;font-weight:600;margin:0 6px 10px;">Visit Our Website</a>
       </div>
       <p style="margin:24px 0 0;color:#9ca3af;font-size:12px;text-align:center;border-top:1px solid #f3f4f6;padding-top:20px;">
         This is an automated confirmation from Dev Orbit Tech. Please do not reply directly to this email —
@@ -170,7 +170,7 @@ module.exports = async (req, res) => {
     `Message : ${message.trim()}`,
     '',
     'WhatsApp: https://wa.me/923161893004',
-    'Website : https://devorbittech.org',
+    'Website : https://devorbit.tech',
     '',
     '— Dev Orbit Tech Team',
   ].join('\n');

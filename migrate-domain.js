@@ -1,12 +1,12 @@
 /**
  * DEV ORBIT TECH — DOMAIN MIGRATION UTILITY
  * 
- * Use this script ONLY in the future when your custom domain (devorbittech.org)
- * is fully verified, DNS-connected, and active on Vercel.
+ * Production Domain: https://devorbit.tech
+ * Legacy Domain:     https://devorbittech.vercel.app
  * 
  * Usage:
- *   node migrate-domain.js --to-org       # Switches canonicals, sitemap, and OG to devorbittech.org
- *   node migrate-domain.js --to-vercel    # Switches canonicals, sitemap, and OG back to devorbittech.vercel.app
+ *   node migrate-domain.js --to-prod      # Switches canonicals, sitemap, and OG to https://devorbit.tech
+ *   node migrate-domain.js --to-vercel    # Switches canonicals, sitemap, and OG back to https://devorbittech.vercel.app
  */
 
 const fs = require('fs');
@@ -15,22 +15,22 @@ const path = require('path');
 const root = __dirname;
 const targetDomainArg = process.argv[2];
 
+const PROD_DOMAIN   = 'https://devorbit.tech';
 const VERCEL_DOMAIN = 'https://devorbittech.vercel.app';
-const ORG_DOMAIN    = 'https://devorbittech.org';
 
 let fromDomain, toDomain;
-if (targetDomainArg === '--to-org') {
+if (targetDomainArg === '--to-prod') {
   fromDomain = VERCEL_DOMAIN;
-  toDomain   = ORG_DOMAIN;
-  console.log(`\n🔄 Switching domain to: ${ORG_DOMAIN} ...\n`);
+  toDomain   = PROD_DOMAIN;
+  console.log(`\n🔄 Switching domain to production: ${PROD_DOMAIN} ...\n`);
 } else if (targetDomainArg === '--to-vercel') {
-  fromDomain = ORG_DOMAIN;
+  fromDomain = PROD_DOMAIN;
   toDomain   = VERCEL_DOMAIN;
-  console.log(`\n🔄 Switching domain to: ${VERCEL_DOMAIN} ...\n`);
+  console.log(`\n🔄 Switching domain to Vercel: ${VERCEL_DOMAIN} ...\n`);
 } else {
   console.log(`
 Usage:
-  node migrate-domain.js --to-org       (Switch canonicals to https://devorbittech.org)
+  node migrate-domain.js --to-prod      (Switch canonicals to https://devorbit.tech)
   node migrate-domain.js --to-vercel    (Switch canonicals to https://devorbittech.vercel.app)
   `);
   process.exit(0);

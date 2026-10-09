@@ -1,8 +1,9 @@
 # Dev Orbit Tech — Robots.txt
-# Primary Canonical Domain: https://devorbittech.vercel.app/
+# Primary Canonical Production Domain: https://devorbit.tech/
 
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Google Search & Generative AI Grounding (AI Overviews & AI Mode)
 User-agent: Googlebot
@@ -11,6 +12,6 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Dedicated Sitemap
-Sitemap: https://devorbittech.vercel.app/sitemap.xml
-
+# Dedicated Sitemaps
+Sitemap: https://devorbit.tech/sitemap.xml
+Sitemap: https://devorbit.tech/images-sitemap.xml

@@ -28,12 +28,12 @@
   <link rel="manifest" href="/manifest.webmanifest" />
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://devorbittech.vercel.app/" />
+  <link rel="canonical" href="https://devorbit.tech/" />
 
-  <!-- Immediate Redirect: devorbittech.org -> devorbittech.vercel.app -->
+  <!-- Client-side Redirect: Legacy Domains -> devorbit.tech -->
   <script>
-    if (window.location.hostname.indexOf('devorbittech.org') !== -1) {
-      window.location.replace('https://devorbittech.vercel.app' + window.location.pathname + window.location.search + window.location.hash);
+    if (window.location.hostname === 'devorbittech.vercel.app' || window.location.hostname.indexOf('devorbittech.org') !== -1) {
+      window.location.replace('https://devorbit.tech' + window.location.pathname + window.location.search + window.location.hash);
     }
   </script>
 
@@ -45,11 +45,11 @@
 
   <!-- Open Graph (Facebook, WhatsApp, LinkedIn preview) -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://devorbittech.vercel.app/" />
+  <meta property="og:url"         content="https://devorbit.tech/" />
   <meta property="og:site_name"   content="Dev Orbit Tech" />
   <meta property="og:title"       content="Hire Custom Software Development Company | Dev Orbit Tech" />
   <meta property="og:description" content="Hire Dev Orbit Tech to build your company software, custom web application, SaaS platform, or mobile app. 100% code ownership, transparent milestone pricing, and fast delivery for businesses worldwide." />
-  <meta property="og:image"       content="https://devorbittech.vercel.app/images/logo.jpg" />
+  <meta property="og:image"       content="https://devorbit.tech/images/logo.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height"content="630" />
   <meta property="og:image:alt"   content="Dev Orbit Tech — AI, Web &amp; Mobile App Development" />
@@ -57,25 +57,25 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:domain"      content="devorbittech.vercel.app" />
-  <meta name="twitter:url"         content="https://devorbittech.vercel.app/" />
+  <meta name="twitter:domain"      content="devorbit.tech" />
+  <meta name="twitter:url"         content="https://devorbit.tech/" />
   <meta name="twitter:title"       content="Hire Custom Software Development Company | Dev Orbit Tech" />
   <meta name="twitter:description" content="Hire Dev Orbit Tech to build your company software, custom web application, SaaS platform, or mobile app. 100% code ownership, transparent milestone pricing, and fast delivery for businesses worldwide." />
-  <meta name="twitter:image"       content="https://devorbittech.vercel.app/images/logo.jpg" />
+  <meta name="twitter:image"       content="https://devorbit.tech/images/logo.jpg" />
 
   <!-- Schema.org — LocalBusiness + ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
-    "@id": "https://devorbittech.vercel.app/#business",
+    "@id": "https://devorbit.tech/#business",
     "name": "Dev Orbit Tech",
     "legalName": "Dev Orbit Tech",
-    "alternateName": ["DevOrbitTech", "devorbit tech", "devorbittech", "devorbittech.org", "Dev Orbit Tech Pakistan"],
+    "alternateName": ["DevOrbitTech", "devorbit tech", "devorbittech", "devorbit.tech", "devorbittech.org", "Dev Orbit Tech Pakistan"],
     "slogan": "Code. Create. Innovate. Enterprise Custom Software & AI Development",
-    "url": "https://devorbittech.vercel.app",
-    "logo": "https://devorbittech.vercel.app/images/logo.jpg",
-    "image": "https://devorbittech.vercel.app/images/logo.jpg",
+    "url": "https://devorbit.tech",
+    "logo": "https://devorbit.tech/images/logo.jpg",
+    "image": "https://devorbit.tech/images/logo.jpg",
     "description": "Dev Orbit Tech is a premier custom software development and technology services company. We engineer custom enterprise platforms, SaaS applications, mobile apps, and Agentic AI solutions for startups, SMBs, and corporations worldwide with 100% intellectual property ownership.",
     "knowsAbout": [
       "Custom Software Development",
@@ -104,11 +104,11 @@
     },
     "founder": {
       "@type": "Person",
-      "@id": "https://devorbittech.vercel.app/#founder",
+      "@id": "https://devorbit.tech/#founder",
       "name": "Engr. Ahmed Aqeel",
       "jobTitle": "CEO & Founder",
-      "image": "https://devorbittech.vercel.app/images/founder.jpg",
-      "url": "https://devorbittech.vercel.app",
+      "image": "https://devorbit.tech/images/founder.jpg",
+      "url": "https://devorbit.tech",
       "sameAs": [
         "https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr",
         "https://www.linkedin.com/in/ahmed-aqeel-2a0090271",
@@ -148,7 +148,7 @@
       "https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr",
       "https://www.linkedin.com/in/ahmed-aqeel-2a0090271",
       "https://www.instagram.com/a.aqeel14?utm_source=qr",
-      "https://devorbittech.vercel.app/"
+      "https://devorbit.tech/"
     ],
     "potentialAction": [
       {
@@ -156,7 +156,7 @@
         "name": "Order Custom Software Development",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://devorbittech.vercel.app/#contact",
+          "urlTemplate": "https://devorbit.tech/#contact",
           "inLanguage": "en",
           "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
         }
@@ -189,13 +189,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://devorbittech.vercel.app/#website",
+    "@id": "https://devorbit.tech/#website",
     "name": "Dev Orbit Tech",
-    "url": "https://devorbittech.vercel.app",
-    "publisher": {"@id":"https://devorbittech.vercel.app/#business"},
+    "url": "https://devorbit.tech",
+    "publisher": {"@id":"https://devorbit.tech/#business"},
     "potentialAction": {
       "@type": "SearchAction",
-      "target": {"@type":"EntryPoint","urlTemplate":"https://devorbittech.vercel.app/?s={search_term_string}"},
+      "target": {"@type":"EntryPoint","urlTemplate":"https://devorbit.tech/?s={search_term_string}"},
       "query-input": "required name=search_term_string"
     }
   }
@@ -214,7 +214,7 @@
       {
         "@type": "Question",
         "name": "Where is Dev Orbit Tech located?",
-        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech is located at Software Technology Park, University of Kotli, AJK, Pakistan. You can also reach us online at https://devorbittech.vercel.app."}
+        "acceptedAnswer": {"@type":"Answer","text":"Dev Orbit Tech is located at Software Technology Park, University of Kotli, AJK, Pakistan. You can also reach us online at https://devorbit.tech."}
       },
       {
         "@type": "Question",
@@ -285,25 +285,25 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://devorbittech.vercel.app/"
+        "item": "https://devorbit.tech/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About Us",
-        "item": "https://devorbittech.vercel.app/#about"
+        "item": "https://devorbit.tech/#about"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Services",
-        "item": "https://devorbittech.vercel.app/#services"
+        "item": "https://devorbit.tech/#services"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Contact",
-        "item": "https://devorbittech.vercel.app/#contact"
+        "item": "https://devorbit.tech/#contact"
       }
     ]
   }
@@ -314,12 +314,12 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://devorbittech.vercel.app/#webpage",
-    "url": "https://devorbittech.vercel.app/",
+    "@id": "https://devorbit.tech/#webpage",
+    "url": "https://devorbit.tech/",
     "name": "Dev Orbit Tech | AI, Web, Mobile & Cloud Solutions",
     "description": "Dev Orbit Tech delivers AI solutions, custom software development, SaaS platforms, web applications, mobile apps, cloud solutions, AWS development, automation, UI/UX design, and digital transformation services for startups and businesses worldwide.",
     "inLanguage": "en",
-    "isPartOf": {"@id": "https://devorbittech.vercel.app/#website"}
+    "isPartOf": {"@id": "https://devorbit.tech/#website"}
   }
   </script>
 
@@ -641,7 +641,7 @@
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub Code
           </a>
-          <a href="https://devorbittech.vercel.app/" target="_blank" rel="noopener" class="project-btn live-btn">
+          <a href="https://devorbit.tech/" target="_blank" rel="noopener" class="project-btn live-btn">
             🚀 Live Demo
           </a>
         </div>

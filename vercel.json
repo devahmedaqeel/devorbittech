@@ -1,6 +1,18 @@
 {
+  "buildCommand": "node generate-sitemap.js",
   "cleanUrls": true,
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "devorbittech.vercel.app"
+        }
+      ],
+      "destination": "https://devorbit.tech/$1",
+      "permanent": true
+    },
     {
       "source": "/(.*)",
       "has": [
@@ -9,8 +21,8 @@
           "value": "devorbittech.org"
         }
       ],
-      "destination": "https://devorbittech.vercel.app/$1",
-      "permanent": false
+      "destination": "https://devorbit.tech/$1",
+      "permanent": true
     },
     {
       "source": "/(.*)",
@@ -20,8 +32,8 @@
           "value": "www.devorbittech.org"
         }
       ],
-      "destination": "https://devorbittech.vercel.app/$1",
-      "permanent": false
+      "destination": "https://devorbit.tech/$1",
+      "permanent": true
     }
   ],
   "functions": {
