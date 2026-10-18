@@ -45,7 +45,7 @@ button{ font-family: inherit; cursor: pointer; }
    3. CANVAS + CURSOR
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 #bgCanvas {
-  position: fixed; inset: 0;
+  position: fixed; inset: 0; width: 100%; height: 100%;
   z-index: 0; pointer-events: none; opacity: .55;
 }
 
@@ -2952,4 +2952,19 @@ img, video { max-width: 100%; }
 @media (max-width: 400px) {
   .hero-pills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pill { justify-content: center; padding: 7px 8px; font-size: .76rem; white-space: nowrap; }
+}
+
+/* ── Smooth scrolling on phones & tablets ──
+   Phone GPUs struggle with blur layered over the moving 3D background and with animations that
+   repaint every frame (box-shadow, filter, background-position). Keep the look, drop the per-frame cost. */
+.orbit-system.is-offscreen, .orbit-system.is-offscreen * { animation-play-state: paused !important; }
+@media (max-width: 991px), (pointer: coarse) {
+  body *:not([class^="dot-"]):not([class*=" dot-"]) { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  .navbar { --nav-bg: rgba(4, 10, 24, .94); --nav-bg-scrolled: rgba(3, 8, 20, .97); }
+  .nav-links.open { background: rgba(3, 8, 20, .98); }
+  .logo-orbit .lo-glow { display: none; }
+  .logo-orbit .lo-node { filter: none; }
+  .os-core, .whatsapp-float, .neon-blink-dot, .founder-glow-ring { animation: none; }
+  .os-skill img { box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 18%, transparent), 0 3px 8px -4px rgba(0, 0, 0, .8); }
+  .service-card, .project-card, .process-card, .tech-card, .why-card, .testimonial-card, .stat-card, .vm-card { will-change: auto; }
 }
