@@ -31,7 +31,7 @@
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/css/style.css"/>
   <link rel="stylesheet" href="/css/subpage.css"/>
 
@@ -61,21 +61,23 @@
 </head>
 <body>
 
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" aria-label="Main navigation">
   <div class="nav-container">
     <a href="/" class="nav-logo" style="text-decoration:none;">
-      <img src="/images/logo.jpg" alt="Dev Orbit Tech Logo" class="logo-img"/>
-      <span class="logo-text">DEV <span class="accent">ORBIT</span> TECH</span>
+      <span class="logo-mark"><img src="/images/logo-mark.png" alt="Dev Orbit Tech Logo" width="432" height="240"/><svg class="logo-orbit" viewBox="0 0 432 240" aria-hidden="true" focusable="false"><g transform="rotate(-28.5 190 118)"><path class="lo-glow" pathLength="100" d="M -13 118 A 203 39 0 0 0 393 118 A 203 39 0 0 0 320.5 88.1"/><path class="lo-core" pathLength="100" d="M -13 118 A 203 39 0 0 0 393 118 A 203 39 0 0 0 320.5 88.1"/></g><circle class="lo-node lo-node-1" cx="331" cy="215" r="7"/><circle class="lo-node lo-node-2" cx="346.7" cy="231" r="7"/><circle class="lo-node lo-node-3" cx="376" cy="204" r="7"/><circle class="lo-node lo-node-4" cx="376" cy="231" r="7"/></svg></span>
+      <span class="logo-words"><span class="logo-text">DEV <span class="accent">ORBIT</span> TECH</span><span class="logo-tag">Code. Create. Innovate.</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/" class="nav-link">Home</a></li>
       <li><a href="/about" class="nav-link">About</a></li>
-      <li><a href="/#services" class="nav-link">Services</a></li>
-      <li><a href="/case-studies" class="nav-link active">Case Studies</a></li>
-      <li><a href="/blog" class="nav-link">Blog</a></li>
-      <li><a href="/global-software-development" class="nav-link">Global Clients</a></li>
-      <li><a href="/#contact" class="nav-link">Contact</a></li>
+      <li><a href="/services" class="nav-link">Services</a></li>
+      <li><a href="/projects" class="nav-link">Projects</a></li>
+      <li><a href="/case-studies" class="nav-link active" aria-current="page">Case Studies</a></li>
+      <li><a href="/contact" class="nav-link">Contact</a></li>
     </ul>
+    <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -87,232 +89,130 @@
       <span class="current">Case Studies</span>
     </div>
     <div class="subpage-badges">
-      <span class="subpage-badge">Production Architectures</span>
-      <span class="subpage-badge">Real Engineering Challenges</span>
-      <span class="subpage-badge">Verified Repositories &amp; Deployments</span>
+      <span class="subpage-badge">Real Projects</span>
+      <span class="subpage-badge">Live &amp; Open Source</span>
+      <span class="subpage-badge">Measurable Results</span>
     </div>
-    <h1 class="subpage-title">Software Engineering Case Studies</h1>
-    <p class="subpage-lead">
-      Real software engineering problems solved with pragmatic, scalable architectures. We build production systems spanning AI document parsing pipelines, conversion-focused commercial e-commerce platforms, real-time developer tooling, and enterprise financial management systems.
-    </p>
+    <h1 class="subpage-title">Case <span class="title-accent">Studies</span></h1>
+    <p class="subpage-lead">How we solved real problems for real products — a high-speed business website, an AI developer tool and an enterprise finance app.</p>
   </div>
 </header>
 
 <main>
   <section class="detail-section">
-    <div class="container">
-
-      <!-- Case Study 1: MediReport AI -->
-      <article class="case-study-card" id="medireport-ai" style="background: rgba(9, 23, 51, 0.75); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 16px; padding: 36px; margin-bottom: 48px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
-          <span style="background:rgba(168, 85, 247, 0.15); border:1px solid #a855f7; color:#c084fc; padding:4px 14px; border-radius:20px; font-family:var(--f-ui); font-size:0.85rem; font-weight:700;">AI HEALTHCARE &amp; MOBILE OCR</span>
-          <a href="https://github.com/devahmedaqeel/medireport-ai" target="_blank" rel="noopener" style="color:var(--accent2); font-family:var(--f-ui); font-size:0.95rem; text-decoration:none;">View GitHub Repository ↗</a>
-        </div>
-        <h2 style="font-family:var(--f-display); font-size:1.9rem; color:#fff; margin-bottom:14px;">MediReport AI — Medical Lab Report Scanner &amp; OCR Engine</h2>
-        <p style="color:#cbd5e1; font-size:1.05rem; line-height:1.7; margin-bottom: 24px;">
-          An intelligent cross-platform mobile application and backend API pipeline designed to ingest, scan, digitize, and explain unstructured clinical laboratory blood panels for patients and physicians.
-        </p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:20px; margin-bottom: 24px;">
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">The Business Challenge</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">Patients receiving complex diagnostic lab reports face significant anxiety and difficulty understanding esoteric clinical abbreviations, reference intervals, and out-of-range indicators before consulting a physician.</p>
+    <div class="container cs-list">
+      <article class="cs-card" id="blissful-blinds" style="--c:#22d3ee">
+        <div class="cs-media"><img src="/images/blissfulblinds-preview.png" alt="Blissful Blinds Ltd website homepage" width="1200" height="675" loading="lazy" decoding="async"/></div>
+        <div class="cs-body">
+          <span class="cs-badge">E-commerce · Web</span>
+          <h2>Blissful Blinds Ltd</h2>
+          <p class="cs-sub">Fast UK business website with instant WhatsApp quotes</p>
+          <div class="cs-blocks">
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span><div><b>Challenge</b><p>Template-based sites took over 4.5 seconds to load on mobile, which raised bounce rates and reduced quote requests.</p></div></div>
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span><div><b>Solution</b><p>A lightweight static website on Vercel’s global edge network, with optimised images and one-tap WhatsApp ordering.</p></div></div>
           </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Proposed Architecture</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">A client-server microservice model combining a React Native (Expo) mobile frontend with a containerized Python FastAPI backend leveraging PaddleOCR for deep document boundary detection and structured JSON extraction.</p>
-          </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Technology Stack</h3>
-            <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.7;">React Native (Expo), Python 3.12, FastAPI, PaddleOCR, MedlinePlus Medical Vocabulary API, Supabase (PostgreSQL), Docker, Pydantic.</p>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 20px;">
-          <h4 style="font-family:var(--f-ui); color:#fff; font-size:1.05rem; margin-bottom:10px;">Technical Challenges &amp; Solution Implementation:</h4>
-          <ul style="color:#94a3b8; font-size:0.95rem; line-height:1.7; padding-left:20px; margin-bottom: 20px;">
-            <li><strong style="color:#cbd5e1;">Skewed &amp; Poorly Lit Mobile Camera Photos:</strong> Implemented OpenCV perspective transformation and threshold filtering prior to passing document buffers into PaddleOCR, boosting tabular line extraction accuracy by over 38%.</li>
-            <li><strong style="color:#cbd5e1;">Medical Entity Disambiguation:</strong> Normalized messy biomarker text (e.g. "Hb", "Hgb", "Hemoglobin A1c") against standard LOINC medical coding schemas via fuzzy matching algorithms and MedlinePlus API queries.</li>
-            <li><strong style="color:#cbd5e1;">Secure Cloud Storage:</strong> Integrated Supabase Row-Level Security (RLS) and encrypted AWS S3 buckets to store sensitive medical records with zero unauthorized cross-tenant exposure.</li>
-          </ul>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; background:rgba(0,0,0,0.3); padding:16px 20px; border-radius:8px;">
-            <span style="color:#94a3b8; font-size:0.9rem;"><strong>Related Services:</strong> <a href="/services/ai-development" style="color:var(--accent2); text-decoration:none;">AI Development</a> | <a href="/services/mobile-app-development" style="color:var(--accent2); text-decoration:none;">Mobile App Development</a> | <a href="/services/react-native-development" style="color:var(--accent2); text-decoration:none;">React Native</a></span>
-            <a href="/#contact" class="btn-primary" style="padding:8px 18px; font-size:0.85rem;">Start a Similar Project 🚀</a>
-          </div>
+          <div class="cs-results"><b><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>Highlights</b><ul><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>98+ mobile PageSpeed score</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Local SEO with LocalBusiness structured data</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Quote requests reach sales in under 10 seconds</li></ul></div>
+          <div class="cs-stack"><span class="cs-tech"><img src="/images/skills/html5.svg" alt="" width="16" height="16" loading="lazy"/>HTML5</span><span class="cs-tech"><img src="/images/skills/css3.svg" alt="" width="16" height="16" loading="lazy"/>CSS3</span><span class="cs-tech"><img src="/images/skills/javascript.svg" alt="" width="16" height="16" loading="lazy"/>JavaScript</span><span class="cs-tech"><img src="/images/skills/vercel.svg" alt="" width="16" height="16" loading="lazy" class="inv"/>Vercel</span></div>
+          <div class="cs-actions"><a href="https://blissfulblindsltd.vercel.app/" class="work-btn" target="_blank" rel="noopener">View live site <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a><a href="https://github.com/devahmedaqeel/blissfulblindsltd" class="work-btn work-btn--ghost" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a></div>
         </div>
       </article>
-
-      <!-- Case Study 2: Blissful Blinds Ltd -->
-      <article class="case-study-card" id="blissful-blinds" style="background: rgba(9, 23, 51, 0.75); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 16px; padding: 36px; margin-bottom: 48px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
-          <span style="background:rgba(0, 240, 255, 0.15); border:1px solid #00f0ff; color:#38bdf8; padding:4px 14px; border-radius:20px; font-family:var(--f-ui); font-size:0.85rem; font-weight:700;">E-COMMERCE &amp; COMMERCIAL WEB</span>
-          <a href="https://blissfulblindsltd.vercel.app/" target="_blank" rel="noopener" style="color:var(--accent2); font-family:var(--f-ui); font-size:0.95rem; text-decoration:none;">View Live Deployment ↗</a>
-        </div>
-        <h2 style="font-family:var(--f-display); font-size:1.9rem; color:#fff; margin-bottom:14px;">Blissful Blinds Ltd — Commercial High-Velocity Web Platform</h2>
-        <p style="color:#cbd5e1; font-size:1.05rem; line-height:1.7; margin-bottom: 24px;">
-          A bespoke UK-facing interior blinds manufacturer platform engineered for sub-second page loads, local commercial search visibility, and an instant WhatsApp-based quotation conversion funnel.
-        </p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:20px; margin-bottom: 24px;">
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">The Business Challenge</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">Heavy WordPress and template-based sites suffered from 4.5+ second mobile load times and poor mobile UX, driving up bounce rates and depressing quote inquiries from homeowners.</p>
+      <article class="cs-card cs-card--flip" id="devsync-ai" style="--c:#a855f7">
+        <div class="cs-media"><img src="/images/devsync-ai-preview.png" alt="DevSync AI developer workflow dashboard" width="1200" height="675" loading="lazy" decoding="async"/></div>
+        <div class="cs-body">
+          <span class="cs-badge">AI Automation</span>
+          <h2>DevSync AI</h2>
+          <p class="cs-sub">AI assistant for developer workflows</p>
+          <div class="cs-blocks">
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span><div><b>Challenge</b><p>Engineers lose hours documenting code changes and keeping release notes in sync across many repositories.</p></div></div>
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span><div><b>Solution</b><p>A Node.js command-line tool that runs on Git hooks and uses LLMs to turn code changes into clear commit messages and release notes.</p></div></div>
           </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Proposed Architecture</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">A zero-bloat static architecture deployed on global Vercel Edge networks with CSS custom property theming, responsive WebP image pipelines, and friction-free direct-messaging CTA hooks.</p>
-          </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Technology Stack</h3>
-            <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.7;">HTML5, Modular CSS3, Vanilla ES6 JavaScript, Vercel Edge CDN, Schema.org LocalBusiness, Google Web Vitals.</p>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 20px;">
-          <h4 style="font-family:var(--f-ui); color:#fff; font-size:1.05rem; margin-bottom:10px;">Technical Challenges &amp; Solution Implementation:</h4>
-          <ul style="color:#94a3b8; font-size:0.95rem; line-height:1.7; padding-left:20px; margin-bottom: 20px;">
-            <li><strong style="color:#cbd5e1;">Sub-Second Core Web Vitals:</strong> Eliminated heavy JS frameworks in favor of optimized modern CSS and minimal vanilla JS, achieving a 98+ PageSpeed score on mobile connections.</li>
-            <li><strong style="color:#cbd5e1;">Local Commercial SEO:</strong> Deployed comprehensive Schema.org `LocalBusiness` structured data, Geo-coordinates, and service catalogs to capture localized commercial search queries.</li>
-            <li><strong style="color:#cbd5e1;">Conversion Friction Reduction:</strong> Replaced multi-step quote forms with automated pre-filled WhatsApp ordering triggers, directly connecting homeowners with sales representatives in under 10 seconds.</li>
-          </ul>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; background:rgba(0,0,0,0.3); padding:16px 20px; border-radius:8px;">
-            <span style="color:#94a3b8; font-size:0.9rem;"><strong>Related Services:</strong> <a href="/services/web-development" style="color:var(--accent2); text-decoration:none;">Web Development</a> | <a href="/services/ui-ux-design" style="color:var(--accent2); text-decoration:none;">UI/UX Design</a> | <a href="/services/custom-software-development" style="color:var(--accent2); text-decoration:none;">Custom Software</a></span>
-            <a href="/#contact" class="btn-primary" style="padding:8px 18px; font-size:0.85rem;">Start a Similar Project 🚀</a>
-          </div>
+          <div class="cs-results"><b><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>Highlights</b><ul><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Large changes split into chunks to stay within LLM limits and cost</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Consistent commit format enforced automatically</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Works with OpenAI or fully offline with local Ollama models</li></ul></div>
+          <div class="cs-stack"><span class="cs-tech"><img src="/images/skills/nodejs.svg" alt="" width="16" height="16" loading="lazy"/>Node.js</span><span class="cs-tech"><img src="/images/skills/javascript.svg" alt="" width="16" height="16" loading="lazy"/>JavaScript</span><span class="cs-tech">OpenAI</span><span class="cs-tech">Ollama</span><span class="cs-tech">Git Hooks</span></div>
+          <div class="cs-actions"><a href="https://github.com/devahmedaqeel/devsync-ai" class="work-btn" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a></div>
         </div>
       </article>
-
-      <!-- Case Study 3: DevSync AI -->
-      <article class="case-study-card" id="devsync-ai" style="background: rgba(9, 23, 51, 0.75); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 16px; padding: 36px; margin-bottom: 48px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
-          <span style="background:rgba(16, 185, 129, 0.15); border:1px solid #10b981; color:#34d399; padding:4px 14px; border-radius:20px; font-family:var(--f-ui); font-size:0.85rem; font-weight:700;">DEV TOOLING &amp; AI AUTOMATION</span>
-          <a href="https://github.com/devahmedaqeel/devsync-ai" target="_blank" rel="noopener" style="color:var(--accent2); font-family:var(--f-ui); font-size:0.95rem; text-decoration:none;">View GitHub Repository ↗</a>
-        </div>
-        <h2 style="font-family:var(--f-display); font-size:1.9rem; color:#fff; margin-bottom:14px;">DevSync AI — Developer Synchronization &amp; Workflow Assistant</h2>
-        <p style="color:#cbd5e1; font-size:1.05rem; line-height:1.7; margin-bottom: 24px;">
-          An autonomous developer productivity companion that integrates with Git repositories and task managers to generate semantic commit messages, changelog documentation, and multi-repo task synchronization.
-        </p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:20px; margin-bottom: 24px;">
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">The Technical Challenge</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">Engineers working across microservices lose hours manually documenting code changes, writing sprint summaries, and keeping release tracking documentation in sync across distributed repositories.</p>
+      <article class="cs-card" id="ofm" style="--c:#10b981">
+        <div class="cs-media"><img src="/images/ofm-preview.png" alt="Organization Finance Management mobile dashboard" width="1200" height="675" loading="lazy" decoding="async"/></div>
+        <div class="cs-body">
+          <span class="cs-badge">Finance · Mobile</span>
+          <h2>Organization Finance Management</h2>
+          <p class="cs-sub">Offline-first finance app for organisations</p>
+          <div class="cs-blocks">
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span><div><b>Challenge</b><p>Spreadsheets led to calculation errors, missing receipts, no access control and slow yearly reconciliation.</p></div></div>
+            <div class="cs-block"><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></span><div><b>Solution</b><p>A React Native app with a local SQLite database, automatic cloud sync and built-in PDF reports.</p></div></div>
           </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Proposed Architecture</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">A Node.js CLI daemon running background Git hooks, paired with an LLM inference pipeline using prompt chaining to parse git diffs into Conventional Commits and Markdown release artifacts.</p>
-          </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Technology Stack</h3>
-            <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.7;">JavaScript (ESNext), Node.js runtime, OpenAI / Ollama LLM APIs, Git Hooks API, Commander.js, RESTful microservices.</p>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 20px;">
-          <h4 style="font-family:var(--f-ui); color:#fff; font-size:1.05rem; margin-bottom:10px;">Technical Challenges &amp; Solution Implementation:</h4>
-          <ul style="color:#94a3b8; font-size:0.95rem; line-height:1.7; padding-left:20px; margin-bottom: 20px;">
-            <li><strong style="color:#cbd5e1;">Handling Large Unbounded Diffs:</strong> Implemented chunked tokenization and file-level ast-filtering to ensure massive multi-file pull requests do not exceed LLM context windows or spike API operational costs.</li>
-            <li><strong style="color:#cbd5e1;">Deterministic Output Structuring:</strong> Constrained model outputs via JSON schema enforcement and regex validation to maintain strict Conventional Commits syntax (`feat:`, `fix:`, `refactor:`, `perf:`).</li>
-            <li><strong style="color:#cbd5e1;">Offline &amp; Air-Gapped Operation:</strong> Added dual backend support for cloud LLMs (OpenAI) and local lightweight weights running via Ollama for privacy-sensitive enterprise codebases.</li>
-          </ul>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; background:rgba(0,0,0,0.3); padding:16px 20px; border-radius:8px;">
-            <span style="color:#94a3b8; font-size:0.9rem;"><strong>Related Services:</strong> <a href="/services/ai-automation" style="color:var(--accent2); text-decoration:none;">AI Automation</a> | <a href="/services/ai-development" style="color:var(--accent2); text-decoration:none;">AI Development</a> | <a href="/services/custom-software-development" style="color:var(--accent2); text-decoration:none;">Custom Software</a></span>
-            <a href="/#contact" class="btn-primary" style="padding:8px 18px; font-size:0.85rem;">Start a Similar Project 🚀</a>
-          </div>
+          <div class="cs-results"><b><span class="cs-block-ic"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>Highlights</b><ul><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Double-entry ledger that always balances</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>One-tap PDF audit reports</li><li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Role-based access for Admin, Treasurer, Auditor and Member</li></ul></div>
+          <div class="cs-stack"><span class="cs-tech"><img src="/images/skills/react.svg" alt="" width="16" height="16" loading="lazy"/>React Native</span><span class="cs-tech"><img src="/images/skills/javascript.svg" alt="" width="16" height="16" loading="lazy"/>JavaScript</span><span class="cs-tech"><img src="/images/skills/sqlite.svg" alt="" width="16" height="16" loading="lazy"/>SQLite</span><span class="cs-tech"><img src="/images/skills/nodejs.svg" alt="" width="16" height="16" loading="lazy"/>Node.js</span></div>
+          <div class="cs-actions"><a href="https://github.com/devahmedaqeel/Organization-Finance-Management" class="work-btn" target="_blank" rel="noopener">View on GitHub <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></a></div>
         </div>
       </article>
-
-      <!-- Case Study 4: Organization Finance Management (OFM) -->
-      <article class="case-study-card" id="ofm" style="background: rgba(9, 23, 51, 0.75); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 16px; padding: 36px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
-          <span style="background:rgba(245, 158, 11, 0.15); border:1px solid #f59e0b; color:#fbbf24; padding:4px 14px; border-radius:20px; font-family:var(--f-ui); font-size:0.85rem; font-weight:700;">ENTERPRISE FINANCIAL SYSTEMS &amp; MOBILE</span>
-          <a href="https://github.com/devahmedaqeel/Organization-Finance-Management" target="_blank" rel="noopener" style="color:var(--accent2); font-family:var(--f-ui); font-size:0.95rem; text-decoration:none;">View GitHub Repository ↗</a>
-        </div>
-        <h2 style="font-family:var(--f-display); font-size:1.9rem; color:#fff; margin-bottom:14px;">Organization Finance Management (OFM)</h2>
-        <p style="color:#cbd5e1; font-size:1.05rem; line-height:1.7; margin-bottom: 24px;">
-          A multi-platform enterprise financial management and ledgering application built to manage organizational cash flows, department budget allocations, member fee tracking, and automated audit reporting.
-        </p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:20px; margin-bottom: 24px;">
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">The Business Challenge</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">Organizations relying on ad-hoc spreadsheets struggle with calculation errors, lack of role-based permissions, missing receipts, and cumbersome annual financial reconciliation.</p>
-          </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Proposed Architecture</h3>
-            <p style="color:#94a3b8; font-size:0.95rem; line-height:1.7;">A cross-platform mobile app featuring an offline-first SQLite database architecture with automatic background cloud synchronization and an integrated PDF generation engine for instant ledger receipts.</p>
-          </div>
-          <div>
-            <h3 style="font-family:var(--f-ui); font-size:1.15rem; color:var(--accent2); margin-bottom:8px;">Technology Stack</h3>
-            <p style="color:#cbd5e1; font-size:0.95rem; line-height:1.7;">React Native, JavaScript, SQLite, React Native Print / HTML-to-PDF, Node.js backend services.</p>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 20px;">
-          <h4 style="font-family:var(--f-ui); color:#fff; font-size:1.05rem; margin-bottom:10px;">Technical Challenges &amp; Solution Implementation:</h4>
-          <ul style="color:#94a3b8; font-size:0.95rem; line-height:1.7; padding-left:20px; margin-bottom: 20px;">
-            <li><strong style="color:#cbd5e1;">Double-Entry Ledger Integrity:</strong> Formulated strict ACID-compliant database transactions ensuring credits and debits always balance, eliminating accounting drift across distributed offline clients.</li>
-            <li><strong style="color:#cbd5e1;">Dynamic PDF Auditing:</strong> Built a native PDF rendering module that translates nested transaction queries into printable audit summaries with cryptographic checksums.</li>
-            <li><strong style="color:#cbd5e1;">Role-Based Access Control (RBAC):</strong> Separated administrative authorization levels (Super Admin, Treasurer, Auditor, General Member) with fine-grained view and export restrictions.</li>
-          </ul>
-
-          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; background:rgba(0,0,0,0.3); padding:16px 20px; border-radius:8px;">
-            <span style="color:#94a3b8; font-size:0.9rem;"><strong>Related Services:</strong> <a href="/services/custom-software-development" style="color:var(--accent2); text-decoration:none;">Custom Software</a> | <a href="/services/mobile-app-development" style="color:var(--accent2); text-decoration:none;">Mobile App Development</a> | <a href="/services/saas-development" style="color:var(--accent2); text-decoration:none;">SaaS Development</a></span>
-            <a href="/#contact" class="btn-primary" style="padding:8px 18px; font-size:0.85rem;">Start a Similar Project 🚀</a>
-          </div>
-        </div>
-      </article>
-
-      <div class="subpage-cta-box" style="margin-top: 50px;">
-        <h3 style="font-family:var(--f-display); font-size: 1.8rem; color: #fff; margin-bottom: 12px;">Ready to Build Your Custom Software Solution?</h3>
-        <p style="color: var(--muted); max-width: 680px; margin: 0 auto 24px; line-height: 1.7;">
-          Whether you need an AI-powered diagnostic application, a high-converting web platform, or an enterprise SaaS product, Dev Orbit Tech provides full-lifecycle engineering from SRS to production launch.
-        </p>
-        <div style="display:flex; justify-content:center; gap: 16px; flex-wrap: wrap;">
-          <a href="/#contact" class="btn-primary">Discuss Your Project 🚀</a>
-          <a href="https://wa.me/923161893004?text=Hello%20Dev%20Orbit%20Tech!%20I%20reviewed%20your%20case%20studies%20and%20want%20to%20discuss%20a%20project." class="btn-outline" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <div class="subpage-cta-box">
+        <h3>Have a similar project?</h3>
+        <p>Tell us what you want to build and we will share a clear plan, estimate and timeline.</p>
+        <div class="cta-actions">
+          <a href="/contact" class="btn-primary">Start Your Project</a>
+          <a href="/projects" class="btn-outline">See All Projects</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">
+<footer class="footer site-footer" role="contentinfo" aria-label="Site footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="/images/logo.jpg" alt="Dev Orbit Tech Logo" class="footer-logo"/>
-        <div>
-          <h3>DEV <span class="accent">ORBIT</span> TECH</h3>
-          <p class="footer-tagline">CODE. CREATE. INNOVATE.</p>
+    <div class="sf-top">
+      <div class="sf-brand">
+        <a href="/" class="nav-logo sf-logo" aria-label="Dev Orbit Tech home">
+          <span class="logo-mark"><img src="/images/logo-mark.png" alt="" width="432" height="240" loading="lazy"/><svg class="logo-orbit" viewBox="0 0 432 240" aria-hidden="true" focusable="false"><g transform="rotate(-28.5 190 118)"><path class="lo-glow" pathLength="100" d="M -13 118 A 203 39 0 0 0 393 118 A 203 39 0 0 0 320.5 88.1"/><path class="lo-core" pathLength="100" d="M -13 118 A 203 39 0 0 0 393 118 A 203 39 0 0 0 320.5 88.1"/></g><circle class="lo-node lo-node-1" cx="331" cy="215" r="7"/><circle class="lo-node lo-node-2" cx="346.7" cy="231" r="7"/><circle class="lo-node lo-node-3" cx="376" cy="204" r="7"/><circle class="lo-node lo-node-4" cx="376" cy="231" r="7"/></svg></span>
+          <span class="logo-words"><span class="logo-text">DEV <span class="accent">ORBIT</span> TECH</span><span class="logo-tag">Code. Create. Innovate.</span></span>
+        </a>
+        <p class="sf-about">Software development company building AI solutions, web platforms and mobile apps for startups and businesses worldwide — based at the Software Technology Park, University of Kotli.</p>
+        <div class="sf-social">
+          <a href="https://www.facebook.com/share/1LEsJzr6Bi/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M14 9h3V5h-3c-2.8 0-4 1.7-4 4.2V11H7v4h3v8h4v-8h3l1-4h-4V9.5c0-.3.2-.5.5-.5z"/></svg></a>
+          <a href="https://www.linkedin.com/in/ahmed-aqeel-2a0090271" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.84-2.06 3.8-2.06 4.06 0 4.84 2.67 4.84 6.14V21h-4v-4.95c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62V21h-4z"/></svg></a>
+          <a href="https://github.com/devahmedaqeel" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+          <a href="https://www.instagram.com/a.aqeel14?utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c2.7 0 3 0 4.1.06 2.7.12 4 1.4 4.1 4.1.05 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.12 2.7-1.4 4-4.1 4.1-1.1.05-1.4.06-4.1.06s-3 0-4.1-.06c-2.7-.12-4-1.4-4.1-4.1C3.7 15 3.7 14.7 3.7 12s0-3 .06-4.1c.12-2.7 1.4-4 4.1-4.1C8.9 2.2 9.3 2.2 12 2.2zM12 .4C9.3.4 8.9.4 7.8.46 4.2.62 2.2 2.6 2.06 6.2 2 7.3 2 7.6 2 12s0 4.7.06 5.8c.16 3.6 2.15 5.6 5.75 5.75 1.1.05 1.4.06 4.2.06s3.1 0 4.2-.06c3.6-.16 5.6-2.15 5.75-5.75.05-1.1.06-1.4.06-5.8s0-4.7-.06-5.8C21.8 2.6 19.8.6 16.2.46 15.1.4 14.7.4 12 .4z"/></svg></a>
+          <a href="https://wa.me/923161893004" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2A9.9 9.9 0 0 0 3.5 16.9L2 22l5.25-1.47A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.24.68-1.42 1.3-1.96 1.36-.5.06-1.13.09-1.82-.11a16.6 16.6 0 0 1-1.65-.61c-2.9-1.25-4.8-4.18-4.94-4.37-.15-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.14-.3.3-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.08.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.14.49.22.56.34.07.12.07.7-.17 1.38z"/></svg></a>
         </div>
       </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
+
+      <nav class="sf-col" aria-label="Company">
+        <h4>Company</h4>
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About Us</a></li>
-          <li><a href="/#services">Services</a></li>
+          <li><a href="/projects">Projects</a></li>
           <li><a href="/case-studies">Case Studies</a></li>
-          <li><a href="/blog">Blog</a></li>
           <li><a href="/global-software-development">Global Clients</a></li>
-          <li><a href="/#contact">Contact</a></li>
         </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Direct Contact</h4>
+      </nav>
+
+      <nav class="sf-col" aria-label="Services">
+        <h4>Services</h4>
         <ul>
-          <li><a href="tel:+923161893004">📞 +92 316 1893004</a></li>
-          <li><a href="mailto:official.devorbittech@gmail.com">✉️ official.devorbittech@gmail.com</a></li>
-          <li><span style="color:var(--muted)">📍 Software Technology Park,<br/>University of Kotli (AJK)</span></li>
+          <li><a href="/services/web-development">Web Development</a></li>
+          <li><a href="/services/mobile-app-development">Mobile App Development</a></li>
+          <li><a href="/services/ai-development">AI Development</a></li>
+          <li><a href="/services/saas-development">SaaS Development</a></li>
+          <li><a href="/services/ui-ux-design">UI/UX Design</a></li>
+          <li><a href="/training">Training &amp; FYP Mentorship</a></li>
         </ul>
+      </nav>
+
+      <div class="sf-col sf-contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923161893004"><span class="sf-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>+92 316 1893004</a></li>
+          <li><a href="mailto:official.devorbittech@gmail.com"><span class="sf-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>official.devorbittech@gmail.com</a></li>
+          <li><span class="sf-addr"><span class="sf-ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Software Technology Park,<br/>University of Kotli (AJK)</span></span></li>
+        </ul>
+        <a href="/contact" class="sf-cta">Start a project <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Dev Orbit Tech. All rights reserved. | Engineering Real World Software Solutions for Clients Worldwide.</p>
+
+    <div class="sf-bottom">
+      <p>© <span>2026</span> Dev Orbit Tech. All rights reserved.</p>
+      <p>Software Technology Park, University of Kotli (AJK), Pakistan</p>
     </div>
   </div>
 </footer>
@@ -325,5 +225,7 @@
   <span class="wa-label">Order Now</span>
 </a>
 
+<script src="/js/nav.js" defer></script>
+<script src="/js/reveal.js" defer></script>
 </body>
 </html>

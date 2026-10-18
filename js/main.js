@@ -128,14 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     if (!navLinks || !hamburger) return;
 
-    const isOpen = navLinks.classList.contains('open');
-    if (isOpen) {
-      navLinks.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    } else {
-      navLinks.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-    }
+    window.setMobileMenu(!navLinks.classList.contains('open'));
+  };
+
+  // Single source of truth for the mobile menu state (class, ARIA, scroll lock)
+  window.setMobileMenu = function(open, returnFocus) {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    if (!navLinks || !hamburger) return;
+    navLinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('nav-open', open);
+    if (!open && returnFocus) hamburger.focus();
   };
 
   (function initNavbar() {
@@ -154,7 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.scrollY >= s.offsetTop - 140) current = s.id;
       });
       links.forEach((l) => {
-        l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
+        const isCurrent = l.getAttribute('href') === `#${current}`;
+        l.classList.toggle('active', isCurrent);
+        if (isCurrent) l.setAttribute('aria-current', 'location');
+        else l.removeAttribute('aria-current');
       });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -170,19 +178,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     links.forEach((l) => {
-      l.addEventListener('click', () => {
-        if (navLinks) navLinks.classList.remove('open');
-        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
-      });
+      l.addEventListener('click', () => window.setMobileMenu(false));
     });
 
     document.addEventListener('click', function(e) {
-      if (navLinks && navLinks.classList.contains('open')) {
-        if (!e.target.closest('.navbar')) {
-          navLinks.classList.remove('open');
-          if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
-        }
+      if (navLinks && navLinks.classList.contains('open') && !e.target.closest('.navbar')) {
+        window.setMobileMenu(false);
       }
+    });
+
+    // Escape closes the menu and returns focus to the toggle
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navLinks && navLinks.classList.contains('open')) {
+        window.setMobileMenu(false, true);
+      }
+    });
+
+    // Tabbing out of the open menu closes it
+    if (navbar) {
+      navbar.addEventListener('focusout', function(e) {
+        if (navLinks && navLinks.classList.contains('open') && e.relatedTarget && !navbar.contains(e.relatedTarget)) {
+          window.setMobileMenu(false);
+        }
+      });
+    }
+
+    // Leaving the mobile breakpoint with the menu open must not keep the page scroll-locked
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', function(mq) {
+      if (mq.matches) window.setMobileMenu(false);
     });
   })();
 

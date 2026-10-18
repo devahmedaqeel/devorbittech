@@ -1184,3 +1184,19 @@ body .whatsapp-float:hover {
     gap: 8px;
   }
 }
+
+/* ── Compact floating launcher (floating robot only; chat window unchanged) ── */
+.dot-action-stack { bottom: 20px; right: 20px; }
+.dot-ai-launcher .dot-ai-robot-trigger,
+.dot-ai-launcher .dot-ai-robot-mesh,
+.dot-ai-launcher .dot-ai-robot-trigger-img { width: 84px; height: 84px; }
+.dot-ai-launcher .dot-ai-robot-shadow { width: 54px; height: 7px; }
+.dot-ai-launcher .dot-ai-trigger-label { font-size: .78rem; font-weight: 700; letter-spacing: .03em; }
+@media (max-width: 640px) {
+  .dot-action-stack { bottom: 16px; right: 14px; }
+  .dot-ai-launcher .dot-ai-robot-trigger,
+  .dot-ai-launcher .dot-ai-robot-mesh,
+  .dot-ai-launcher .dot-ai-robot-trigger-img { width: 70px; height: 70px; }
+  .dot-ai-launcher .dot-ai-robot-shadow { width: 46px; height: 6px; }
+  .dot-ai-launcher .dot-ai-trigger-label { font-size: .72rem; }
+}
