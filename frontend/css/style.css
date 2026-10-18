@@ -2954,6 +2954,51 @@ img, video { max-width: 100%; }
   .pill { justify-content: center; padding: 7px 8px; font-size: .76rem; white-space: nowrap; }
 }
 
+/* Phones & tablets: the hero must be visible immediately. The desktop entrance sequence keeps every
+   hero element invisible for up to ~2s (longer on a busy phone CPU), which reads as a slow, blank page. */
+@keyframes heroQuickIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 991px), (pointer: coarse) {
+  .hero-title .title-line { animation: none; }
+  /* reveal.js would hide the already-painted hero and slide it in again; keep it in place */
+  .rv-ready .hero .rv { opacity: 1; animation-name: none !important; }
+  .hero-badge, .hero-tagline, .hero-pills, .hero-cta, .hero-visual { animation: heroQuickIn .45s ease-out both; }
+  .hero-tagline { animation-delay: .05s; }
+  .hero-pills   { animation-delay: .1s; }
+  .hero-cta     { animation-delay: .15s; }
+  .hero-visual  { animation-delay: .2s; }
+  .hero-scroll-hint { animation-delay: .6s; }
+}
+
+/* 3D background fades in once main.js has drawn its first frame (it starts after page load) */
+#bgCanvas { transition: opacity .9s ease; }
+#bgCanvas:not(.is-ready) { opacity: 0; }
+
+/* ── Faster first paint: skip layout/paint of homepage sections until they are near the screen ──
+   Placeholder heights are the measured real heights, so the scrollbar and anchor links stay accurate;
+   `auto` makes the browser remember the real height once a section has rendered. */
+#about, #services, #projects, #process, #techstack, #testimonials, #vision, #why, #contact, .footer {
+  content-visibility: auto;
+}
+#about { contain-intrinsic-size: auto 1100px; }   #services { contain-intrinsic-size: auto 1300px; }
+#projects { contain-intrinsic-size: auto 1300px; } #process { contain-intrinsic-size: auto 1020px; }
+#techstack { contain-intrinsic-size: auto 820px; } #testimonials { contain-intrinsic-size: auto 610px; }
+#vision { contain-intrinsic-size: auto 370px; }    #why { contain-intrinsic-size: auto 1040px; }
+#contact { contain-intrinsic-size: auto 1190px; }  .footer { contain-intrinsic-size: auto 510px; }
+@media (max-width: 1023px) {
+  #about { contain-intrinsic-size: auto 1700px; }   #services { contain-intrinsic-size: auto 1620px; }
+  #projects { contain-intrinsic-size: auto 1660px; } #process { contain-intrinsic-size: auto 1100px; }
+  #techstack { contain-intrinsic-size: auto 1040px; } #testimonials { contain-intrinsic-size: auto 880px; }
+  #vision { contain-intrinsic-size: auto 575px; }    #why { contain-intrinsic-size: auto 1190px; }
+  #contact { contain-intrinsic-size: auto 1670px; }  .footer { contain-intrinsic-size: auto 990px; }
+}
+@media (max-width: 600px) {
+  #about { contain-intrinsic-size: auto 1800px; }   #services { contain-intrinsic-size: auto 2970px; }
+  #projects { contain-intrinsic-size: auto 2900px; } #process { contain-intrinsic-size: auto 1760px; }
+  #techstack { contain-intrinsic-size: auto 1690px; } #testimonials { contain-intrinsic-size: auto 1230px; }
+  #vision { contain-intrinsic-size: auto 805px; }    #why { contain-intrinsic-size: auto 1840px; }
+  #contact { contain-intrinsic-size: auto 1950px; }  .footer { contain-intrinsic-size: auto 1200px; }
+}
+
 /* ── Smooth scrolling on phones & tablets ──
    Phone GPUs struggle with blur layered over the moving 3D background and with animations that
    repaint every frame (box-shadow, filter, background-position). Keep the look, drop the per-frame cost. */

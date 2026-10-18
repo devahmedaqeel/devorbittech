@@ -3,10 +3,10 @@
    Designed with Luxury Glassmorphism, 3D Fluency Robot Mascot & Pixel-Perfect Hierarchy
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+/* Fonts: uses the Inter family already loaded by every page (no extra @import, which blocked first paint) */
 
 :root {
-  --dot-font: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --dot-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --dot-bg: #060b17;
   --dot-window-bg: rgba(9, 15, 30, 0.95);
   --dot-surface: rgba(255, 255, 255, 0.035);

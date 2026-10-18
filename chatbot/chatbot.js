@@ -927,14 +927,16 @@
     }
   }
 
-  // Initialize once DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      loadKnowledge();
-      initChatbotUI();
-    });
-  } else {
-    loadKnowledge();
+  // Initialize after the page has loaded and the main thread is idle, so the widget and its
+  // knowledge files never compete with the page's first paint (answers fall back to built-in facts)
+  function boot() {
     initChatbotUI();
+    loadKnowledge();
   }
+  function whenIdle() {
+    if ('requestIdleCallback' in window) requestIdleCallback(boot, { timeout: 2500 });
+    else setTimeout(boot, 300);
+  }
+  if (document.readyState === 'complete') whenIdle();
+  else window.addEventListener('load', whenIdle, { once: true });
 })();
