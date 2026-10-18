@@ -7,16 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('bgCanvas');
     if (!canvas || !window.THREE) return;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Phones/tablets get a lighter scene: fewer particles, 1x resolution, no antialiasing, 30fps cap
+    const isMobile = window.matchMedia('(max-width: 991px), (pointer: coarse)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !isMobile, powerPreference: isMobile ? 'low-power' : 'default' });
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
 
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 6;
 
     // 1. 3D Particle Constellation
-    const COUNT = 1800;
+    const COUNT = isMobile ? 600 : 1800;
     const pos   = new Float32Array(COUNT * 3);
     for (let i = 0; i < pos.length; i++) pos[i] = (Math.random() - 0.5) * 35;
     const geo = new THREE.BufferGeometry();
@@ -27,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(stars);
 
     // 2. 3D Cyber Globe (Wireframe Sphere + Vertex Nodes)
-    const globeGeo = new THREE.IcosahedronGeometry(2.4, 3);
+    const globeGeo = new THREE.IcosahedronGeometry(2.4, isMobile ? 2 : 3);
     const globeMat = new THREE.MeshBasicMaterial({ color: 0x007aff, wireframe: true, transparent: true, opacity: 0.12 });
     const globe = new THREE.Mesh(globeGeo, globeMat);
     scene.add(globe);
@@ -47,31 +51,53 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(ring1, ring2);
 
     let targetX = 0, targetY = 0;
-    document.addEventListener('mousemove', (e) => {
-      targetX = (e.clientX / window.innerWidth  - 0.5) * 0.8;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 0.8;
-    });
+    if (!isMobile) {
+      document.addEventListener('mousemove', (e) => {
+        targetX = (e.clientX / window.innerWidth  - 0.5) * 0.8;
+        targetY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+      }, { passive: true });
+    }
 
-    (function animate() {
-      requestAnimationFrame(animate);
-      stars.rotation.y += 0.0004;
-      stars.rotation.x += 0.0002;
-      globe.rotation.y += 0.0015;
-      globe.rotation.x += 0.0008;
-      globePoints.rotation.y += 0.0015;
-      globePoints.rotation.x += 0.0008;
-      ring1.rotation.z += 0.002;  ring1.rotation.x += 0.001;
-      ring2.rotation.z -= 0.0015; ring2.rotation.y += 0.0012;
+    // Rotation speeds are per 60fps frame; scale by elapsed time so a 30fps cap keeps the same speed
+    const frameMs = isMobile ? 1000 / 30 : 0;
+    let last = 0, rafId = 0;
+    function step(k) {
+      stars.rotation.y += 0.0004 * k;
+      stars.rotation.x += 0.0002 * k;
+      globe.rotation.y += 0.0015 * k;
+      globe.rotation.x += 0.0008 * k;
+      globePoints.rotation.y += 0.0015 * k;
+      globePoints.rotation.x += 0.0008 * k;
+      ring1.rotation.z += 0.002 * k;  ring1.rotation.x += 0.001 * k;
+      ring2.rotation.z -= 0.0015 * k; ring2.rotation.y += 0.0012 * k;
       camera.position.x += (targetX  - camera.position.x) * 0.04;
       camera.position.y += (-targetY - camera.position.y) * 0.04;
       camera.lookAt(scene.position);
       renderer.render(scene, camera);
-    })();
+    }
+    function animate(now) {
+      rafId = requestAnimationFrame(animate);
+      if (frameMs && now - last < frameMs - 2) return;
+      const k = last ? Math.min((now - last) / (1000 / 60), 4) : 1;
+      last = now;
+      step(k);
+    }
+    function start() { if (!rafId && !reduceMotion) { last = 0; rafId = requestAnimationFrame(animate); } }
+    function stop()  { cancelAnimationFrame(rafId); rafId = 0; }
 
+    step(1); // draw one frame immediately (and the only frame when reduced motion is on)
+    start();
+    document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
+
+    // Mobile browsers fire resize when the address bar shows/hides; only re-size on real width changes
+    let lastW = window.innerWidth;
     window.addEventListener('resize', () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      if (isMobile && window.innerWidth === lastW) return;
+      lastW = window.innerWidth;
+      renderer.setSize(window.innerWidth, window.innerHeight, false);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
+      if (!rafId) step(0);
     });
   })();
 
@@ -150,14 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const links     = document.querySelectorAll('.nav-link');
     const sections  = document.querySelectorAll('section[id]');
 
-    function onScroll() {
-      if (navbar) {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
-      }
+    // Section offsets are cached (reading offsetTop on every scroll forces layout); refreshed on resize/load
+    let offsets = [];
+    function measure() { offsets = Array.from(sections, (s) => [s.id, s.offsetTop]); }
+    let lastCurrent = null, ticking = false;
+    function update() {
+      ticking = false;
+      const y = window.scrollY;
+      if (navbar) navbar.classList.toggle('scrolled', y > 40);
       let current = '';
-      sections.forEach((s) => {
-        if (window.scrollY >= s.offsetTop - 140) current = s.id;
-      });
+      for (const [id, top] of offsets) if (y >= top - 140) current = id;
+      if (current === lastCurrent) return;
+      lastCurrent = current;
       links.forEach((l) => {
         const isCurrent = l.getAttribute('href') === `#${current}`;
         l.classList.toggle('active', isCurrent);
@@ -165,8 +195,15 @@ document.addEventListener('DOMContentLoaded', () => {
         else l.removeAttribute('aria-current');
       });
     }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    function remeasure() { measure(); lastCurrent = null; update(); }
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('load', remeasure);
+    let rt = 0; // content that loads later (GitHub projects, images) changes section offsets
+    if ('ResizeObserver' in window) new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(remeasure, 150); }).observe(document.body);
+    else window.addEventListener('resize', remeasure, { passive: true });
+    measure();
+    update();
 
     if (hamburger) {
       hamburger.addEventListener('click', function(e) {
@@ -322,8 +359,20 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
 
+  /* ── Pause the tech orbit while it is off-screen (it recalculates styles every frame) ── */
+  (function initOrbitPause() {
+    const orbits = document.querySelectorAll('.orbit-system');
+    if (!orbits.length || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => e.target.classList.toggle('is-offscreen', !e.isIntersecting));
+    }, { rootMargin: '100px 0px' });
+    orbits.forEach((o) => { o.classList.add('is-offscreen'); io.observe(o); });
+  })();
+
+
   /* ── 3D card tilt ── */
   (function initTilt() {
+    if (window.matchMedia('(pointer: coarse)').matches) return; // touch screens: taps fire mousemove, tilt only janks
     const MAX = 8;
     function applyTilt(card, e) {
       const r  = card.getBoundingClientRect();
