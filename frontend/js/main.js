@@ -258,8 +258,17 @@ document.addEventListener('DOMContentLoaded', () => {
   (function initScrollHint() {
     const hint = document.getElementById('scrollHint');
     if (!hint) return;
-    function check() { hint.classList.toggle('hide', window.scrollY > 80); }
-    window.addEventListener('scroll', check, { passive: true });
+    // Reading scrollY inside every scroll event forced a synchronous layout (the page often has pending
+    // style changes mid-scroll); check once per frame instead, and stop listening once the hint is gone.
+    let queued = false;
+    function check() {
+      queued = false;
+      const hide = window.scrollY > 80;
+      hint.classList.toggle('hide', hide);
+      if (hide) window.removeEventListener('scroll', onScroll);
+    }
+    function onScroll() { if (!queued) { queued = true; requestAnimationFrame(check); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
     check();
   })();
 
@@ -314,8 +323,24 @@ document.addEventListener('DOMContentLoaded', () => {
       return out;
     }
 
+    // Reserve the finished height up front: otherwise every new line grew the hero and pushed the whole
+    // page down (a full re-layout every line, while the visitor is already scrolling).
+    el.innerHTML = lines.join('<br>') + '<span class="cursor-blink">|</span>';
+    el.style.minHeight = el.offsetHeight + 'px';
+    el.innerHTML = '';
+
+    // Once the hero is scrolled away, finish instantly instead of re-rendering every 30ms off-screen
+    let finished = false;
+    function finish() { finished = true; el.innerHTML = lines.join('<br>') + '<span class="cursor-blink">|</span>'; }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (!entries[0].isIntersecting) { io.disconnect(); if (li < lines.length) finish(); }
+      });
+      io.observe(el);
+    }
+
     function tick() {
-      if (li >= lines.length) return;
+      if (finished || li >= lines.length) return;
       const line  = lines[li];
       const total = strip(line).length;
       if (ci <= total) {
@@ -333,14 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Scroll reveal ── */
   (function initReveal() {
+    // (no getBoundingClientRect pass here: reading 41 positions at load forced a full-page layout;
+    // the observer below reports elements already on screen right away)
     const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 150) {
-        el.classList.add('visible');
-      }
-    });
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;

@@ -2969,6 +2969,18 @@ img, video { max-width: 100%; }
   .hero-scroll-hint { animation-delay: .6s; }
 }
 
+/* Phones & tablets: no endless 3D floating on the big hero/about cards. rotateX/rotateY with
+   preserve-3d made phones redraw these large layers every frame (measured ~5fps of scrolling). */
+@media (max-width: 991px), (pointer: coarse) {
+  .code-window, .founder-intro, .orbit-ring { animation: none; transform-style: flat; }
+}
+
+/* Phones & tablets (reveal.js adds .rv-lite): quick, short fade-up that starts just before a box scrolls in */
+@keyframes rvLiteUp { from { opacity: 0; translate: 0 14px; } to { opacity: 1; translate: 0 0; } }
+.rv-lite .rv.rv-in-up, .rv-lite .rv.rv-in-down, .rv-lite .rv.rv-in-left, .rv-lite .rv.rv-in-right {
+  animation-name: rvLiteUp; animation-duration: .35s; animation-timing-function: cubic-bezier(.2, .7, .3, 1);
+}
+
 /* 3D background fades in once main.js has drawn its first frame (it starts after page load) */
 #bgCanvas { transition: opacity .9s ease; }
 #bgCanvas:not(.is-ready) { opacity: 0; }
