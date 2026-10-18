@@ -2,8 +2,14 @@ const API_BASE = '';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Background (Three.js 3D Cyber Globe & Floating Constellation) ── */
-  (function initBackground() {
+  /* ── Background (Three.js 3D Cyber Globe & Floating Constellation) ──
+     Decorative only, so it starts after the page has painted and the main thread is idle;
+     WebGL setup and shader compilation would otherwise delay the first screen on phones. */
+  function startWhenIdle(fn) {
+    const go = () => ('requestIdleCallback' in window) ? requestIdleCallback(fn, { timeout: 1500 }) : setTimeout(fn, 200);
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+  }
+  startWhenIdle(function initBackground() {
     const canvas = document.getElementById('bgCanvas');
     if (!canvas || !window.THREE) return;
 
@@ -86,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function stop()  { cancelAnimationFrame(rafId); rafId = 0; }
 
     step(1); // draw one frame immediately (and the only frame when reduced motion is on)
+    canvas.classList.add('is-ready'); // fades in (see #bgCanvas in style.css)
     start();
     document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
 
@@ -99,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       camera.updateProjectionMatrix();
       if (!rafId) step(0);
     });
-  })();
+  });
 
 
   /* ── Custom cursor (desktop only) ── */
@@ -264,6 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
+      // Sections below the fold use content-visibility, so the ones passed on the way render during the
+      // scroll and can shift the target slightly; once scrolling stops, line it up exactly.
+      const settle = () => {
+        const want = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        if (Math.abs(target.getBoundingClientRect().top - want) > 4) target.scrollIntoView({ behavior: 'instant' });
+      };
+      if ('onscrollend' in window) window.addEventListener('scrollend', settle, { once: true });
+      else setTimeout(settle, 900);
     });
   });
 
