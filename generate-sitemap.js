@@ -23,6 +23,12 @@ function getRouteMetadata(route) {
   if (route === '/about' || route === '/global-software-development') {
     return { changefreq: 'monthly', priority: '0.85' };
   }
+  if (route === '/services' || route === '/projects') {
+    return { changefreq: 'monthly', priority: '0.95' };
+  }
+  if (route === '/contact' || route === '/training') {
+    return { changefreq: 'monthly', priority: '0.85' };
+  }
   if (route === '/case-studies' || route === '/blog') {
     return { changefreq: 'weekly', priority: '0.90' };
   }
