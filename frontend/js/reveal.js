@@ -6,6 +6,11 @@
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  // Phones/tablets: a light one-way reveal. No layout reads (they force every section to lay out,
+  // defeating content-visibility), start just before an element scrolls in so it is never seen blank,
+  // short fade-up (see .rv-lite in style.css), and no hide/re-animate cycle while scrolling.
+  var LITE = window.matchMedia('(max-width: 991px), (pointer: coarse)').matches;
+
   var GROUPS = [
     '.about-grid', '.contact-split', '.contact-layout', '.mentor-layout', '.vm-grid', '.stack-layout',
     '.services-grid', '.projects-grid', '.process-grid', '.techstack-grid', '.testimonials-grid', '.why-grid',
@@ -31,13 +36,21 @@
     return c < 0.42 ? 'left' : c > 0.58 ? 'right' : 'mid';
   }
 
-  add(document.querySelector('.hero-content'), 'left', 100);
-  add(document.querySelector('.hero-visual'), 'right', 250);
-  var subHero = document.querySelector('.subpage-hero .container');
-  if (subHero) [].forEach.call(subHero.children, function (el, i) { add(el, 'left', 80 + i * 90); });
+  // The hero (homepage and subpages) is already on screen at first paint: never hide it on phones
+  if (!LITE) {
+    add(document.querySelector('.hero-content'), 'left', 100);
+    add(document.querySelector('.hero-visual'), 'right', 250);
+    var subHero = document.querySelector('.subpage-hero .container');
+    if (subHero) [].forEach.call(subHero.children, function (el, i) { add(el, 'left', 80 + i * 90); });
+  }
 
   GROUPS.forEach(function (sel) {
     [].forEach.call(document.querySelectorAll(sel), function (group) {
+      if (LITE) {
+        // cards side by side on tablets get a tiny stagger; phones show one column, no stagger needed
+        [].forEach.call(group.children, function (el, i) { add(el, 'mid', (i % 2) * 70); });
+        return;
+      }
       var rowTop = null, idx = 0;
       [].forEach.call(group.children, function (el) {
         if (el.offsetParent === null) return;
@@ -51,6 +64,7 @@
   SINGLES.forEach(function (sel) { [].forEach.call(document.querySelectorAll(sel), function (el) { add(el, 'mid', 0); }); });
   if (!items.length) return;
   document.documentElement.classList.add('rv-ready');
+  if (LITE) document.documentElement.classList.add('rv-lite');
 
   var ANIMS = ['rv-in-left', 'rv-in-right', 'rv-in-up', 'rv-in-down'];
   function show(el, fromAbove) {
@@ -64,6 +78,20 @@
     if (!el.__rvShown) return;
     el.__rvShown = false;
     el.classList.remove.apply(el.classList, ANIMS);
+  }
+
+  if (LITE) {
+    // start the fade while the element is still half a screen below the bottom edge; reveal once
+    var ioLite = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        show(entry.target, false);
+        ioLite.unobserve(entry.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 50% 0px' });
+    items.forEach(function (el) { ioLite.observe(el); });
+    window.addEventListener('beforeprint', function () { items.forEach(function (el) { show(el, false); }); });
+    return;
   }
 
   // show when 10% is on screen
