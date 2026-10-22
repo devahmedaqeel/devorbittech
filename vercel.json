@@ -3,6 +3,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/frontend/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/frontend/:path*",
       "destination": "/:path*",
       "permanent": true
