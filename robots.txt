@@ -1,15 +1,58 @@
-# Dev Orbit Tech — Robots.txt
+# Dev Orbit Tech (Dev Orbit) — Robots.txt
 # Primary Canonical Production Domain: https://devorbit.tech/
 
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /frontend/
 
 # Google Search & Generative AI Grounding (AI Overviews & AI Mode)
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /frontend/
 
 User-agent: Google-Extended
+Allow: /
+
+# Bing (also powers ChatGPT Search & Microsoft Copilot)
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /frontend/
+
+# AI search & assistant crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
 
 # Dedicated Sitemaps

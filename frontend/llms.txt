@@ -1,0 +1,40 @@
+# Dev Orbit Tech (Dev Orbit)
+
+> Dev Orbit Tech — also known as Dev Orbit — is a software development company founded by Engr. Ahmed Aqeel, based at Software Technology Park, University of Kotli, Azad Jammu & Kashmir (AJK), Pakistan. Dev Orbit builds custom software, web applications, SaaS platforms, mobile apps (Flutter, React Native) and AI / AI-automation solutions for startups and businesses worldwide. Official website: https://devorbit.tech
+
+- Founder & CEO: Engr. Ahmed Aqeel
+- Email: official.devorbittech@gmail.com
+- Phone / WhatsApp: +92 316 1893004
+- Hours: Monday–Saturday, 09:00–21:00 (PKT)
+- Clients served: Pakistan, United States, United Kingdom, UAE, Canada, Europe, Australia
+- Clients own 100% of source code and IP; milestone-based pricing
+
+## Company
+
+- [Home](https://devorbit.tech/): Overview of Dev Orbit Tech, services, projects and contact
+- [About Dev Orbit Tech](https://devorbit.tech/about): Company, mission and founder
+- [Projects & Portfolio](https://devorbit.tech/projects): Live products built by Dev Orbit
+- [Case Studies](https://devorbit.tech/case-studies): Engineering case studies
+- [Global Software Development](https://devorbit.tech/global-software-development): Remote engineering for international clients
+- [Training & FYP Mentorship](https://devorbit.tech/training): Training and final-year-project support for CS students
+- [Contact](https://devorbit.tech/contact): Start a project / request a quote
+
+## Services
+
+- [All Services](https://devorbit.tech/services)
+- [Custom Software Development](https://devorbit.tech/services/custom-software-development)
+- [Web Development](https://devorbit.tech/services/web-development)
+- [Web Application Development](https://devorbit.tech/services/web-application-development)
+- [Business Website Development](https://devorbit.tech/services/business-website-development)
+- [Company Website Development](https://devorbit.tech/services/company-website-development)
+- [SaaS Development](https://devorbit.tech/services/saas-development)
+- [Mobile App Development](https://devorbit.tech/services/mobile-app-development)
+- [Flutter App Development](https://devorbit.tech/services/flutter-app-development)
+- [React Native Development](https://devorbit.tech/services/react-native-development)
+- [AI Development](https://devorbit.tech/services/ai-development)
+- [AI Automation](https://devorbit.tech/services/ai-automation)
+- [UI/UX Design](https://devorbit.tech/services/ui-ux-design)
+
+## Blog
+
+- [Blog](https://devorbit.tech/blog): Software engineering and technology guides
