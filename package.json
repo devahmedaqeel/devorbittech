@@ -9,6 +9,7 @@
     "sitemap":  "node generate-sitemap.js",
     "build":    "node generate-sitemap.js",
     "validate": "node validate-sitemap.js",
+    "indexnow": "node indexnow.js",
     "test":     "node validate-sitemap.js"
   },
   "author": "Dev Orbit Tech",
