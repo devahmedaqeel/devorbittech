@@ -1,6 +1,6 @@
 # Dev Orbit Tech (Dev Orbit)
 
-> Dev Orbit Tech — also known as Dev Orbit — is a software development company founded by Engr. Ahmed Aqeel, based at Software Technology Park, University of Kotli, Azad Jammu & Kashmir (AJK), Pakistan. Dev Orbit builds custom software, web applications, SaaS platforms, mobile apps (Flutter, React Native) and AI / AI-automation solutions for startups and businesses worldwide. Official website: https://devorbit.tech
+> Dev Orbit Tech — also known as Dev Orbit — is a software house and software development company founded by Engr. Ahmed Aqeel, based at Software Technology Park, University of Kotli, Azad Jammu & Kashmir (AJK), Pakistan. Dev Orbit builds custom software, web applications, SaaS platforms, mobile apps (Flutter, React Native) and AI / AI-automation solutions for startups and businesses worldwide. Official website: https://devorbit.tech
 
 - Founder & CEO: Engr. Ahmed Aqeel
 - Email: official.devorbittech@gmail.com
