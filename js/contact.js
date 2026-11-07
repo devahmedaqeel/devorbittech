@@ -17,6 +17,56 @@
     });
   }
 
+  // Arriving from an Enroll button (/contact?program=web): turn this form into that program's enrollment form
+  (function initEnrollment() {
+    var PROGRAMS = {
+      web: { name: 'Web Development', duration: '1 Month', fee: 'Rs. 5,000' },
+      app: { name: 'App Development', duration: '2 Months', fee: 'Rs. 8,000' },
+      marketing: { name: 'Digital Marketing', duration: '1 Month', fee: 'Rs. 4,000' }
+    };
+    var key = new URLSearchParams(window.location.search).get('program');
+    if (!key || !Object.prototype.hasOwnProperty.call(PROGRAMS, key)) return;
+    var program = PROGRAMS[key];
+
+    // This value is what appears in the email subject and body
+    serviceSelect.value = program.name + ' Program Enrollment (' + program.duration + ', ' + program.fee + ')';
+
+    var title = $('contact-form-title');
+    if (title) title.textContent = 'Enroll in ' + program.name;
+    var legend = serviceSelect.closest('fieldset').querySelector('legend');
+    if (legend) legend.lastChild.textContent = ' Your enrollment';
+    var messageLabel = form.querySelector('label[for="f-message"]');
+    if (messageLabel) messageLabel.firstChild.textContent = 'Message ';
+
+    var message = $('f-message');
+    message.placeholder = 'Add anything you would like us to know.';
+    // defaultValue so the text comes back after form.reset()
+    message.defaultValue = 'I would like to enroll in the ' + program.name + ' program.';
+
+    if (btnText && btnText.firstChild) btnText.firstChild.textContent = 'Send enrollment request ';
+
+    var card = document.createElement('div');
+    card.className = 'cf-program';
+    var info = document.createElement('div');
+    var label = document.createElement('span');
+    label.className = 'cf-program-label';
+    label.textContent = 'Selected program';
+    var name = document.createElement('strong');
+    name.textContent = program.name;
+    var meta = document.createElement('span');
+    meta.className = 'cf-program-meta';
+    meta.textContent = program.duration + ' · ' + program.fee + ' · Completion certificate';
+    info.appendChild(label);
+    info.appendChild(name);
+    info.appendChild(meta);
+    var change = document.createElement('a');
+    change.href = '/programs';
+    change.textContent = 'Change';
+    card.appendChild(info);
+    card.appendChild(change);
+    serviceSelect.parentNode.insertBefore(card, serviceSelect);
+  })();
+
   function setError(fieldId, errId, msg) {
     var f = $(fieldId), e = $(errId);
     if (!f || !e) return;

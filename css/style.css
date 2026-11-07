@@ -2776,7 +2776,6 @@ body .whatsapp-float { bottom: 22px !important; left: 22px !important; }
   from { transform: rotate(calc(var(--a) * -1)); }
   to   { transform: rotate(calc(var(--a) * -1 - 360deg)); }
 }
-.orbit-system:hover .os-skill img { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .os-skill img { animation: none; } }
 
 /* ── Contact form v3: numbered sections ── */
@@ -2874,7 +2873,6 @@ html, body { overflow-x: clip; }
   transform: rotate(calc(var(--a) + var(--spin))) translateX(var(--r)) rotate(calc(-1 * (var(--a) + var(--spin))));
 }
 .os-skill img { animation: none; transform: none; }
-.orbit-system:hover .os-ring { animation-play-state: paused; }
 
 /* bright, crisp icon discs */
 .os-skill img {
