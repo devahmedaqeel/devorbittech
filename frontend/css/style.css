@@ -427,6 +427,15 @@ section[id] { scroll-margin-top: calc(var(--nav-h-compact) + 16px); }
   .logo-tag { font-size: .46rem; letter-spacing: .12em; }
 }
 
+/* ── Menu button always stays on screen: the brand gives up space first, even with enlarged phone text ── */
+@media (max-width: 1023px) {
+  .nav-container { width: 100%; min-width: 0; }
+  .nav-logo { flex: 0 1 auto; min-width: 0; }
+  .logo-words { flex: 0 1 auto; min-width: 0; overflow: hidden; }
+  .logo-text, .logo-tag { display: block; white-space: nowrap; overflow: hidden; }
+  .hamburger { flex: 0 0 42px; margin-left: auto; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .logo-orbit { display: none; }
   .logo-text, .logo-text .accent { animation: none; background-position: 100% 0; }
